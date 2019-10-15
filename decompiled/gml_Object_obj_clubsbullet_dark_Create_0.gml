@@ -1,0 +1,14 @@
+self.difficulty = 1
+self.times = 0
+self.activetimer = 0
+self.grazed = 0
+self.grazepoints = 1
+self.timepoints = 1
+self.target = 0
+self.dont = 1
+self.inv = 120
+self.damage = 124
+self.active = 0
+self.dtimer = 0
+self.type = 0
+self.initangle = 0

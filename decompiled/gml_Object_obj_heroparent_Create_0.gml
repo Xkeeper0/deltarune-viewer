@@ -1,0 +1,137 @@
+self.char = 0
+self.myself = 0
+self.points = 0
+self.becomeflash = 0
+self.state = 0
+self.flash = 0
+self.siner = 0
+self.fsiner = 0
+self.attacktimer = 0
+self.attacked = 0
+self.combatdarken = 1
+self.darkentimer = 0
+self.darkify = 0
+self.image_xscale = 2
+self.image_yscale = 2
+self.myheight = 37
+self.mywidth = 34
+self.index = 0
+self.specdraw = 0
+self.is_auto_susie = 0
+self.normalsprite = 829
+self.idlesprite = 458
+self.actreadysprite = 451
+self.actsprite = 450
+self.hurtsprite = 456
+self.defendsprite = 449
+self.attackreadysprite = 449
+self.attacksprite = 454
+self.itemsprite = 453
+self.itemreadysprite = 452
+self.spellreadysprite = 498
+self.spellsprite = 497
+self.defeatsprite = 448
+self.victorysprite = spr_krisb_victory
+self.victoryanim = 0
+self.actframes = 7
+self.victoryframes = 9
+self.defendframes = 1
+self.itemframes = 3
+self.attackframes = 3
+self.attackspeed = 0.5
+self.actframes = 7
+self.actreturnframes = 10
+self.spellframes = 10
+self.hurt = 0
+self.hurttimer = 0
+self.hurtindex = 0
+self.acttimer = 0
+self.defendtimer = 0
+self.itemed = 0
+self.tu = 0
+if (self.object_index == obj_herokris)
+{
+    self.normalsprite = 829
+    self.idlesprite = 458
+    self.defendsprite = 459
+    self.hurtsprite = 456
+    self.attackreadysprite = 449
+    self.attacksprite = 454
+    self.itemsprite = 453
+    self.actreadysprite = 451
+    self.actsprite = 450
+    self.itemreadysprite = 452
+    self.spellreadysprite = 451
+    self.spellsprite = 450
+    self.defeatsprite = 448
+    self.victorysprite = spr_krisb_victory
+    self.actframes = 7
+    self.actreturnframes = 10
+    self.attackframes = 6
+    self.itemframes = 6
+    self.defendframes = 5
+    self.spellframes = 10
+    self.attackspeed = 0.5
+    self.victoryframes = sprite_get_number(self.victorysprite)
+    self.mywidth = 68
+    self.myheight = 74
+}
+if (self.object_index == obj_herosusie)
+{
+    self.attackframes = 5
+    self.itemframes = 5
+    self.defendframes = 5
+    self.actframes = 7
+    self.actreturnframes = 10
+    self.spellframes = 8
+    self.attackspeed = 0.5
+    self.normalsprite = 183
+    self.idlesprite = 463
+    self.defendsprite = 470
+    self.hurtsprite = 469
+    self.actreadysprite = 465
+    self.actsprite = 466
+    self.attackreadysprite = 477
+    self.attacksprite = 474
+    if (global.charweapon[2] == 0)
+    {
+        self.idlesprite = 473
+        self.attackreadysprite = 479
+        self.attacksprite = 476
+    }
+    self.itemsprite = 468
+    self.itemreadysprite = 467
+    self.spellreadysprite = 462
+    self.spellsprite = 464
+    self.defeatsprite = 472
+    self.victorysprite = spr_susieb_victory
+    self.victoryframes = sprite_get_number(self.victorysprite)
+    self.mywidth = 70
+    self.myheight = 82
+}
+if (self.object_index == obj_heroralsei)
+{
+    self.attackframes = 5
+    self.itemframes = 7
+    self.defendframes = 6
+    self.actframes = 7
+    self.actreturnframes = 10
+    self.attackspeed = 0.5
+    self.normalsprite = 209
+    self.idlesprite = 482
+    self.defendsprite = 494
+    self.hurtsprite = 495
+    self.attackreadysprite = 490
+    self.attacksprite = 491
+    self.itemsprite = 492
+    self.itemreadysprite = 493
+    self.spellreadysprite = 498
+    self.spellsprite = 497
+    self.defeatsprite = 487
+    self.victorysprite = spr_ralseib_victory
+    self.actreadysprite = 485
+    self.actsprite = 484
+    self.victoryframes = sprite_get_number(self.victorysprite)
+    self.mywidth = 52
+    self.myheight = 86
+}

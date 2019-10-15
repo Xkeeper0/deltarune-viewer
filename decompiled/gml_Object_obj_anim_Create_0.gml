@@ -1,0 +1,10 @@
+self.target = 888888888
+self.targetsprite = 9999999
+self.image_speed = 0
+self.image_index = 0
+self.done = 0
+self.active = 0
+self.timer = 0
+self.frame = 0
+self.framespeed = 0
+self.maxframe = 0

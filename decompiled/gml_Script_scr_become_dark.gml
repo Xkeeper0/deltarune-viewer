@@ -1,0 +1,1 @@
+global.darkzone = 1

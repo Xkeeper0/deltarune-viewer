@@ -1,0 +1,1 @@
+self.touched = 0

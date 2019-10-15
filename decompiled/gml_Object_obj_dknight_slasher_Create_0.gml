@@ -1,0 +1,11 @@
+self.con = 0
+self.movecon = 0
+self.movetimer = 0
+self.timer = 0
+self.image_speed = 0
+self.image_index = 0
+self.image_xscale = 2
+self.image_yscale = 2
+self.movesiner = 0
+self.movefactor = 0
+self.type = 0

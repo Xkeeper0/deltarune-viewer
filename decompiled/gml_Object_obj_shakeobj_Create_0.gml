@@ -1,0 +1,9 @@
+self.active = 0
+self.target = 0
+self.shakeamt = 10
+self.shakereduct = 2
+self.shakespeed = 1
+self.nowx = 0
+self.nowy = 0
+self.on = 1
+self.timer = 0

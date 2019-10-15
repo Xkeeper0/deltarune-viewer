@@ -1,0 +1,1 @@
+self.burst = 0

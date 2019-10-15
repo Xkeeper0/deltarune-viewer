@@ -1,0 +1,1 @@
+self.canchoose = 1

@@ -1,0 +1,23 @@
+self.image_xscale = 0
+self.image_yscale = 0
+self.active = 0
+self.grazed = 0
+self.grazepoints = 5
+self.timepoints = 5
+self.target = 0
+self.dont = 1
+self.inv = 120
+self.damage = 1
+self.active = 0
+self.image_alpha = 0
+if (self.y < 50)
+    self.y = 50
+self.g = instance_create(self.x, self.y, obj_afterimage_grow)
+self.g.sprite_index = spr_smallbullet_outline
+self.g.image_alpha = 1.4
+self.g.xrate = 0.25
+self.g.yrate = 0.25
+self.g.image_xscale = 0
+self.g.image_yscale = 0
+self.special = 0
+self.alarm[0] = 20

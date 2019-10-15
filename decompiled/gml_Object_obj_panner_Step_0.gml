@@ -1,0 +1,5 @@
+__view_set(e__VW.XView, 0, (__view_get(e__VW.XView, 0) + self.panx))
+__view_set(e__VW.YView, 0, (__view_get(e__VW.YView, 0) + self.pany))
+self.pantimer = (self.pantimer + 1)
+if (self.pantimer >= self.panmax)
+    instance_destroy()
