@@ -1,78 +1,78 @@
-if (global.lang == "ja"@1566)
+if (global.lang == "ja")
     self.FN = string_to_hiragana(self.FN)
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_1_0"@9662))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_1_0"))
     self.FOUND = 2
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_2_0"@9663))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_2_0"))
     self.FOUND = 2
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_3_0"@9664))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_3_0"))
     self.FOUND = 2
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_4_0"@9665))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_4_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_5_0"@9666))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_5_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_6_0"@9667))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_6_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_7_0"@9668))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_7_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_8_0"@9669))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_8_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_9_0"@9670))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_9_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_10_0"@9671))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_10_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_11_0"@9672))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_11_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_12_0"@9673))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_12_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_13_0"@9674))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_13_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_14_0"@9675))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_14_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_15_0"@9676))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_15_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_16_0"@9677))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_16_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_17_0"@9678))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_17_0"))
     self.FOUND = 1
-if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_18_0"@9679))
+if (self.FN == scr_84_get_lang_string("DEVICE_CONTACT_slash_Other_10_gml_18_0"))
     self.FOUND = 1
-if (global.lang == "ja"@1566)
+if (global.lang == "ja")
 {
     self.FN = string_to_ascii_from_full_width(self.FN)
-    if (self.FN == scr_84_get_lang_string("special_name_check_01"@9681))
+    if (self.FN == scr_84_get_lang_string("special_name_check_01"))
         self.FOUND = 2
-    if (self.FN == scr_84_get_lang_string("special_name_check_02"@9682))
+    if (self.FN == scr_84_get_lang_string("special_name_check_02"))
         self.FOUND = 2
-    if (self.FN == scr_84_get_lang_string("special_name_check_03"@9683))
+    if (self.FN == scr_84_get_lang_string("special_name_check_03"))
         self.FOUND = 2
-    if (self.FN == scr_84_get_lang_string("special_name_check_04"@9684))
+    if (self.FN == scr_84_get_lang_string("special_name_check_04"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_05"@9685))
+    if (self.FN == scr_84_get_lang_string("special_name_check_05"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_06"@9686))
+    if (self.FN == scr_84_get_lang_string("special_name_check_06"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_07"@9687))
+    if (self.FN == scr_84_get_lang_string("special_name_check_07"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_08"@9688))
+    if (self.FN == scr_84_get_lang_string("special_name_check_08"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_09"@9689))
+    if (self.FN == scr_84_get_lang_string("special_name_check_09"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_10"@9690))
+    if (self.FN == scr_84_get_lang_string("special_name_check_10"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_11"@9691))
+    if (self.FN == scr_84_get_lang_string("special_name_check_11"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_12"@9692))
+    if (self.FN == scr_84_get_lang_string("special_name_check_12"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_13"@9693))
+    if (self.FN == scr_84_get_lang_string("special_name_check_13"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_14"@9694))
+    if (self.FN == scr_84_get_lang_string("special_name_check_14"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_15"@9695))
+    if (self.FN == scr_84_get_lang_string("special_name_check_15"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_16"@9696))
+    if (self.FN == scr_84_get_lang_string("special_name_check_16"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_17"@9697))
+    if (self.FN == scr_84_get_lang_string("special_name_check_17"))
         self.FOUND = 1
-    if (self.FN == scr_84_get_lang_string("special_name_check_18"@9698))
+    if (self.FN == scr_84_get_lang_string("special_name_check_18"))
         self.FOUND = 1
 }

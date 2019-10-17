@@ -8,15 +8,11 @@ if (global.hp[self.hltarget] > global.maxhp[self.hltarget])
     self.abovemaxhp = 1
 if (self.abovemaxhp == 0)
 {
-    global.hp[self.hltarget] = (global.hp[self.hltarget] + self.argument1)
+    global.hp[self.hltarget] += self.argument1
     if (global.hp[self.hltarget] > global.maxhp[self.hltarget])
         global.hp[self.hltarget] = global.maxhp[self.hltarget]
 }
-if (self.belowzero == 1)
-    _temp_local_var_1 = (global.hp[self.hltarget] >= 0)
-else
-    _temp_local_var_1 = 0
-if _temp_local_var_1
+if ((self.belowzero == 1) && (global.hp[self.hltarget] >= 0))
 {
     if (global.hp[self.hltarget] < ceil((global.maxhp[self.hltarget] / 6)))
         global.hp[self.hltarget] = ceil((global.maxhp[self.hltarget] / 6))
@@ -24,4 +20,4 @@ if _temp_local_var_1
 }
 snd_stop(snd_power)
 snd_play(snd_power)
-return (global.hp[self.hltarget] - self._curhp)
+return (global.hp[self.hltarget] - self._curhp);

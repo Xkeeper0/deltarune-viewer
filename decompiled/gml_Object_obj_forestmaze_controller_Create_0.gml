@@ -21,18 +21,11 @@ if (self.roomno == 1)
 {
     self.battlemoder = 1
     self.gen = 1
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < 4; self.i += 1)
     {
-        if (self.i < 4)
-        {
-            self.scizz = instance_create((80 + (self.i * 180)), 300, obj_scissordancer)
-            self.scizz.hspeed = -8
-            self.scizz.vspeed = 0
-            self.i = (self.i + 1)
-            continue
-        }
-        break
+        self.scizz = instance_create((80 + (self.i * 180)), 300, obj_scissordancer)
+        self.scizz.hspeed = -8
+        self.scizz.vspeed = 0
     }
     self.lancer_side = 0
     self.proper_choice = 1
@@ -46,13 +39,13 @@ if (self.roomno == 2)
 if (self.roomno == 3)
 {
     self.holesolid = instance_create(280, 280, obj_soliddark)
-    with(self.holesolid)
+    with (self.holesolid)
     {
         self.image_xscale = 2
         self.image_yscale = 2
     }
     self.hole = scr_dark_marker(280, 280, spr_darkponman_hole)
-    with(self.hole)
+    with (self.hole)
     {
         self.image_xscale = 2
         self.image_yscale = 2
@@ -62,7 +55,7 @@ if (self.roomno == 3)
     self.lancer_side = 0
     self.proper_choice = 1
     self.darkponman = instance_create(((self.room_width / 2) - 28), 268, obj_darkponman_ow)
-    with(obj_darkponman_ow)
+    with (obj_darkponman_ow)
     {
         self.boss = 0
         self.bmax = 8
@@ -75,21 +68,14 @@ if (self.roomno == 5)
     self.lancer_side = 2
     self.susie_side = 4
     self.gen = 1
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < 5; self.i += 1)
     {
-        if (self.i < 5)
-        {
-            self.scizz = instance_create((60 + (self.i * 140)), 300, obj_scissordancer)
-            self.scizz.hspeed = -8
-            self.scizz.vspeed = 0
-            self.scizz = instance_create((100 + (self.i * 140)), 460, obj_scissordancer)
-            self.scizz.hspeed = -8
-            self.scizz.vspeed = 0
-            self.i = (self.i + 1)
-            continue
-        }
-        break
+        self.scizz = instance_create((60 + (self.i * 140)), 300, obj_scissordancer)
+        self.scizz.hspeed = -8
+        self.scizz.vspeed = 0
+        self.scizz = instance_create((100 + (self.i * 140)), 460, obj_scissordancer)
+        self.scizz.hspeed = -8
+        self.scizz.vspeed = 0
     }
 }
 if (self.roomno == 6)
@@ -113,26 +99,26 @@ if (self.roomno == 7)
 if (self.roomno == 8)
 {
     self.holesolid = instance_create(180, 380, obj_soliddark)
-    with(self.holesolid)
+    with (self.holesolid)
     {
         self.image_xscale = 2
         self.image_yscale = 2
     }
     self.hole = scr_dark_marker(180, 380, spr_darkponman_hole)
-    with(self.hole)
+    with (self.hole)
     {
         self.image_xscale = 2
         self.image_yscale = 2
         self.depth = 950000
     }
     self.holesolid = instance_create(380, 380, obj_soliddark)
-    with(self.holesolid)
+    with (self.holesolid)
     {
         self.image_xscale = 2
         self.image_yscale = 2
     }
     self.hole = scr_dark_marker(380, 380, spr_darkponman_hole)
-    with(self.hole)
+    with (self.hole)
     {
         self.image_xscale = 2
         self.image_yscale = 2
@@ -143,14 +129,14 @@ if (self.roomno == 8)
     self.lancer_side = 2
     self.susie_side = 4
     self.darkponman = instance_create(((self.room_width / 2) - 126), 368, obj_darkponman_ow)
-    with(obj_darkponman_ow)
+    with (obj_darkponman_ow)
     {
         self.boss = 0
         self.bmax = 8
         self.rot = 180
     }
     self.darkponman = instance_create(((self.room_width / 2) + 72), 368, obj_darkponman_ow)
-    with(self.darkponman)
+    with (self.darkponman)
     {
         self.boss = 0
         self.bmax = 8

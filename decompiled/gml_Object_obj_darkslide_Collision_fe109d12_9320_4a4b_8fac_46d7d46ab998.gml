@@ -1,9 +1,5 @@
 self.cancollide = 0
-if (global.interact == 0)
-    _temp_local_var_1 = 1
-else
-    _temp_local_var_1 = (self.collide == 1)
-if _temp_local_var_1
+if ((global.interact == 0) || (self.collide == 1))
     self.cancollide = 1
 if (self.cancollide == 1)
 {
@@ -14,7 +10,7 @@ if (self.cancollide == 1)
             self.abovey = 1
             snd_play(snd_noise)
             self.slide_noise = snd_loop(snd_paper_surf)
-            with(obj_mainchara)
+            with (obj_mainchara)
             {
                 self.fun = 1
                 self.sprite_index = spr_krisd_slide
@@ -25,22 +21,18 @@ if (self.cancollide == 1)
     }
     self.collide = 1
     global.interact = 1
-    other.y = (other.y + 12)
+    other.y += 12
     self.collidetimer = 3
-    self.collider = (self.collider + 1)
-    if (self.slidetimer == 0)
-        _temp_local_var_2 = (self.abovey == 1)
-    else
-        _temp_local_var_2 = 0
-    if _temp_local_var_2
+    self.collider += 1
+    if ((self.slidetimer == 0) && (self.abovey == 1))
     {
         self.dust = instance_create((obj_mainchara.x + 20), (obj_mainchara.y + 30), obj_slidedust)
-        with(self.dust)
+        with (self.dust)
         {
             self.vspeed = -6
             self.hspeed = (-1 + random(2))
         }
         self.slidetimer = -6
     }
-    self.slidetimer = (self.slidetimer + 1)
+    self.slidetimer += 1
 }

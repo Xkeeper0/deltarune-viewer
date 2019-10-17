@@ -9,8 +9,6 @@ if (global.plot >= 14)
 else
 {
     self.partysus = instance_create(500, 500, obj_caterpillarchara)
-    with(self.partysus)
-    {
+    with (self.partysus)
         self.visible = 0
-    }
 }

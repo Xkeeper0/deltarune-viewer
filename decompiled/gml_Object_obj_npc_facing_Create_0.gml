@@ -1,7 +1,7 @@
-self.dtsprite = 97
-self.rtsprite = 102
-self.ltsprite = 104
-self.utsprite = 100
+self.dtsprite = spr_toriel_dt
+self.rtsprite = spr_toriel_rt
+self.ltsprite = spr_toriel_lt
+self.utsprite = spr_toriel_ut
 self.myinteract = 0
 self.facing = 0
 self.dfacing = 0
@@ -24,64 +24,64 @@ if (self.room == room_alphysclass)
     self.ourcase = 1
     if (self.y < 172)
     {
-        self.dtsprite = 124
-        self.rtsprite = 131
-        self.utsprite = 130
-        self.ltsprite = 132
+        self.dtsprite = spr_noelle_dt
+        self.rtsprite = spr_noelle_ut_r
+        self.utsprite = spr_noelle_ut
+        self.ltsprite = spr_noelle_ut_l
         if (self.x > 120)
         {
-            self.utsprite = 134
-            self.rtsprite = 138
-            self.ltsprite = 137
-            self.dtsprite = 134
+            self.utsprite = spr_berdly_ut
+            self.rtsprite = spr_berdly_ut_r
+            self.ltsprite = spr_berdly_ut_l
+            self.dtsprite = spr_berdly_ut
         }
     }
     if (self.y > 172)
     {
-        self.dtsprite = 139
-        self.utsprite = 139
-        self.rtsprite = 139
-        self.ltsprite = 139
+        self.dtsprite = spr_catti_ut
+        self.utsprite = spr_catti_ut
+        self.rtsprite = spr_catti_ut
+        self.ltsprite = spr_catti_ut
         if (self.x > 120)
         {
-            self.dtsprite = 152
-            self.rtsprite = 154
-            self.ltsprite = 155
-            self.utsprite = 152
+            self.dtsprite = spr_mkid_ut
+            self.rtsprite = spr_mkid_ut_r
+            self.ltsprite = spr_mkid_ut_l
+            self.utsprite = spr_mkid_ut
         }
     }
     if (self.y > 212)
     {
-        self.dtsprite = 140
-        self.utsprite = 140
-        self.rtsprite = 141
-        self.ltsprite = 142
+        self.dtsprite = spr_jockington_ut
+        self.utsprite = spr_jockington_ut
+        self.rtsprite = spr_jockington_rt
+        self.ltsprite = spr_jockington_lt
         if (self.x > 120)
         {
-            self.utsprite = 148
-            self.ltsprite = 150
-            self.rtsprite = 151
-            self.dtsprite = 148
+            self.utsprite = spr_snowy_ut
+            self.ltsprite = spr_snowy_ut_l
+            self.rtsprite = spr_snowy_ut_r
+            self.dtsprite = spr_snowy_ut
         }
     }
     if (self.y < 100)
     {
         self.facing = 0
         self.dfacing = 0
-        self.dtsprite = 119
-        self.ltsprite = 121
-        self.rtsprite = 122
-        self.utsprite = 120
+        self.dtsprite = spr_alphysd
+        self.ltsprite = spr_alphysl
+        self.rtsprite = spr_alphysr
+        self.utsprite = spr_alphysu
     }
 }
 if (self.room == room_field2)
 {
     self.facing = 0
     self.dfacing = 0
-    self.dtsprite = 211
-    self.utsprite = 211
-    self.rtsprite = 216
-    self.ltsprite = 220
+    self.dtsprite = spr_lancer_dt
+    self.utsprite = spr_lancer_dt
+    self.rtsprite = spr_lancer_rt
+    self.ltsprite = spr_lancer_lt
     if (self.room == room_field2)
     {
         if (global.plot >= 35)
@@ -94,11 +94,11 @@ if (self.room == room_forest_maze_deadend)
     self.dfacing = 0
     if (global.plot < 95)
         global.plot = 95
-    global.flag[293] = (global.flag[293] + 1)
-    self.dtsprite = 211
-    self.utsprite = 211
-    self.rtsprite = 216
-    self.ltsprite = 220
+    global.flag[293] += 1
+    self.dtsprite = spr_lancer_dt
+    self.utsprite = spr_lancer_dt
+    self.rtsprite = spr_lancer_rt
+    self.ltsprite = spr_lancer_lt
     if (global.plot >= 120)
         instance_destroy()
 }
@@ -106,11 +106,11 @@ if (self.room == room_forest_maze_deadend2)
 {
     self.facing = 2
     self.dfacing = 2
-    global.flag[294] = (global.flag[294] + 1)
-    self.dtsprite = 187
-    self.utsprite = 190
-    self.rtsprite = 183
-    self.ltsprite = 180
+    global.flag[294] += 1
+    self.dtsprite = spr_susied_dark
+    self.utsprite = spr_susieu_dark
+    self.rtsprite = spr_susier_dark
+    self.ltsprite = spr_susiel_dark
     if (global.plot >= 120)
         instance_destroy()
 }
@@ -120,21 +120,21 @@ if (self.room == room_field_boxpuzzle)
     if (self.x < (self.room_width / 2))
     {
         self.sprite_index = spr_ralseid
-        self.dtsprite = 204
-        self.utsprite = 206
-        self.rtsprite = 209
-        self.ltsprite = 207
-        self.y = (self.y + self.sprite_height)
+        self.dtsprite = spr_ralseid
+        self.utsprite = spr_ralseiu
+        self.rtsprite = spr_ralseir
+        self.ltsprite = spr_ralseil
+        self.y += self.sprite_height
     }
     else
     {
         self.type = 1
         self.sprite_index = spr_susied
-        self.dtsprite = 187
-        self.utsprite = 190
-        self.rtsprite = 183
-        self.ltsprite = 180
-        self.y = (self.y + self.sprite_height)
+        self.dtsprite = spr_susied_dark
+        self.utsprite = spr_susieu_dark
+        self.rtsprite = spr_susier_dark
+        self.ltsprite = spr_susiel_dark
+        self.y += self.sprite_height
     }
 }
 if (self.room == room_cc_kingbattle)
@@ -142,31 +142,31 @@ if (self.room == room_cc_kingbattle)
     if (global.plot < 240)
         instance_destroy()
     self.sprite_index = spr_ralseid
-    self.dtsprite = 204
-    self.utsprite = 206
-    self.rtsprite = 209
-    self.ltsprite = 207
-    self.y = (self.y + self.sprite_height)
+    self.dtsprite = spr_ralseid
+    self.utsprite = spr_ralseiu
+    self.rtsprite = spr_ralseir
+    self.ltsprite = spr_ralseil
+    self.y += self.sprite_height
 }
 if (self.room == room_cc_throneroom)
 {
     if (global.plot < 240)
         instance_destroy()
     self.sprite_index = spr_lancer_dt
-    self.dtsprite = 211
-    self.utsprite = 214
-    self.rtsprite = 216
-    self.ltsprite = 220
-    self.y = (self.y + self.sprite_height)
+    self.dtsprite = spr_lancer_dt
+    self.utsprite = spr_lancer_ut
+    self.rtsprite = spr_lancer_rt
+    self.ltsprite = spr_lancer_lt
+    self.y += self.sprite_height
     self.depthbonus = -250
 }
 if (self.room == room_forest_area1)
 {
     self.sprite_index = spr_susier_dark
-    self.rtsprite = 183
-    self.dtsprite = 187
-    self.utsprite = 190
-    self.ltsprite = 180
+    self.rtsprite = spr_susier_dark
+    self.dtsprite = spr_susied_dark
+    self.utsprite = spr_susieu_dark
+    self.ltsprite = spr_susiel_dark
     self.facing = 1
     self.dfacing = 1
     if (self.x >= 1160)
@@ -174,10 +174,10 @@ if (self.room == room_forest_area1)
         self.facing = 3
         self.dfacing = 3
         self.sprite_index = spr_lancer_lt
-        self.dtsprite = 211
-        self.utsprite = 211
-        self.rtsprite = 216
-        self.ltsprite = 220
+        self.dtsprite = spr_lancer_dt
+        self.utsprite = spr_lancer_dt
+        self.rtsprite = spr_lancer_rt
+        self.ltsprite = spr_lancer_lt
     }
     if (global.plot > 70)
         instance_destroy()
@@ -189,20 +189,20 @@ if (self.room == room_forest_area3)
         self.facing = 2
         self.dfacing = 2
         self.sprite_index = spr_lancer_ut
-        self.dtsprite = 211
-        self.utsprite = 214
-        self.rtsprite = 216
-        self.ltsprite = 220
+        self.dtsprite = spr_lancer_dt
+        self.utsprite = spr_lancer_ut
+        self.rtsprite = spr_lancer_rt
+        self.ltsprite = spr_lancer_lt
     }
     else
     {
         self.facing = 2
         self.dfacing = 2
         self.sprite_index = spr_susieut_dark
-        self.dtsprite = 188
-        self.utsprite = 192
-        self.rtsprite = 184
-        self.ltsprite = 181
+        self.dtsprite = spr_susiedt_dark
+        self.utsprite = spr_susieut_dark
+        self.rtsprite = spr_susiert_dark
+        self.ltsprite = spr_susielt_dark
     }
 }
 if (self.room == room_library)
@@ -211,10 +211,10 @@ if (self.room == room_library)
     {
         self.facing = 1
         self.dfacing = 1
-        self.dtsprite = 136
-        self.utsprite = 135
-        self.rtsprite = 136
-        self.ltsprite = 135
+        self.dtsprite = spr_berdly_library_r
+        self.utsprite = spr_berdly_library_u
+        self.rtsprite = spr_berdly_library_r
+        self.ltsprite = spr_berdly_library_u
         self.depthcancel = 1
         self.depth = 4000
     }
@@ -222,79 +222,79 @@ if (self.room == room_library)
     {
         self.facing = 1
         self.dfacing = 1
-        self.dtsprite = 140
-        self.utsprite = 140
-        self.rtsprite = 141
-        self.ltsprite = 142
+        self.dtsprite = spr_jockington_ut
+        self.utsprite = spr_jockington_ut
+        self.rtsprite = spr_jockington_rt
+        self.ltsprite = spr_jockington_lt
     }
     if (self.x > 220)
     {
         self.facing = 3
         self.dfacing = 3
-        self.dtsprite = 144
-        self.rtsprite = 145
-        self.utsprite = 143
-        self.ltsprite = 144
+        self.dtsprite = spr_tem_sit_l
+        self.rtsprite = spr_tem_sit_r
+        self.utsprite = spr_tem_sit
+        self.ltsprite = spr_tem_sit_l
     }
 }
 if (self.room == room_flowershop_1f)
 {
     self.facing = 0
     self.dfacing = 0
-    self.dtsprite = 270
-    self.utsprite = 275
-    self.rtsprite = 273
-    self.ltsprite = 272
+    self.dtsprite = spr_asgored
+    self.utsprite = spr_asgoreu
+    self.rtsprite = spr_asgorer
+    self.ltsprite = spr_asgorel
 }
 if (self.room == room_flowershop_2f)
 {
     self.facing = 2
     self.dfacing = 2
-    self.dtsprite = 270
-    self.utsprite = 275
-    self.rtsprite = 273
-    self.ltsprite = 272
+    self.dtsprite = spr_asgored
+    self.utsprite = spr_asgoreu
+    self.rtsprite = spr_asgorer
+    self.ltsprite = spr_asgorel
 }
 if (self.room == room_alphysalley)
 {
     self.facing = 3
     self.dfacing = 3
-    self.dtsprite = 119
-    self.utsprite = 120
-    self.rtsprite = 122
-    self.ltsprite = 121
+    self.dtsprite = spr_alphysd
+    self.utsprite = spr_alphysu
+    self.rtsprite = spr_alphysr
+    self.ltsprite = spr_alphysl
 }
 if (self.room == room_town_south)
 {
     self.facing = 0
     self.dfacing = 0
-    self.dtsprite = 281
-    self.utsprite = 284
-    self.rtsprite = 283
-    self.ltsprite = 282
+    self.dtsprite = spr_undyne_dt
+    self.utsprite = spr_undyne_ut
+    self.rtsprite = spr_undyne_rt
+    self.ltsprite = spr_undyne_lt
 }
 if (self.room == room_town_mid)
 {
     self.facing = 0
     self.dfacing = 0
-    self.dtsprite = 289
-    self.ltsprite = 290
-    self.utsprite = 292
-    self.rtsprite = 291
+    self.dtsprite = spr_sans_d
+    self.ltsprite = spr_sans_l
+    self.utsprite = spr_sans_u
+    self.rtsprite = spr_sans_r
 }
 if (self.room == room_town_north)
 {
     self.facing = 3
     self.dfacing = 3
-    self.dtsprite = 124
-    self.ltsprite = 129
-    self.utsprite = 130
-    self.rtsprite = 128
+    self.dtsprite = spr_noelle_dt
+    self.ltsprite = spr_noelle_lt
+    self.utsprite = spr_noelle_ut
+    self.rtsprite = spr_noelle_rt
     if (global.flag[255] < 1)
         instance_destroy()
 }
 scr_npcdir()
-self.y = (self.y - self.sprite_height)
+self.y -= self.sprite_height
 if (self.depthcancel == 0)
     scr_depth()
-self.depth = (self.depth + self.depthbonus)
+self.depth += self.depthbonus

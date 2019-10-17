@@ -1,1 +1,1 @@
-return global.input_held[2]
+return global.input_held[2];

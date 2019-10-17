@@ -12,10 +12,6 @@ else
     self.pwall.image_yscale = 3
 }
 self.lecturecon = 0
-if (global.plot >= 42)
-    _temp_local_var_1 = 1
-else
-    _temp_local_var_1 = (global.flag[211] == 3)
-if _temp_local_var_1
+if ((global.plot >= 42) || (global.flag[211] == 3))
     self.lecturecon = 100
 scr_depth()

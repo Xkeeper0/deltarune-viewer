@@ -1,4 +1,4 @@
-self.image_blend = 0x000000
+self.image_blend = 0x00000000
 self.fadespeed = 0.08
 self.image_alpha = 0
 self.length = (10 + (self.room_width / 4))

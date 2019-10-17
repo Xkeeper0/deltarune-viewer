@@ -1,1 +1,1 @@
-return instance_exists(obj_dialoguer)
+return instance_exists(obj_dialoguer);

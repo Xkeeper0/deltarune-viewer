@@ -6,9 +6,7 @@ if (global.plot >= 165)
 }
 else
 {
-    with(obj_doorw_musfade)
-    {
+    with (obj_doorw_musfade)
         instance_destroy()
-    }
 }
 self.black = 0

@@ -3,8 +3,8 @@ self.alarm[0] = 1
 self.charcon = 0
 self.chartimer = 0
 self.tp = 0
-self.xx = __view_get(e__VW.XView, 0)
-self.yy = __view_get(e__VW.YView, 0)
+self.xx = __view_get(0, 0)
+self.yy = __view_get(1, 0)
 global.fighting = 0
 self.movenoise = 0
 self.selectnoise = 0
@@ -17,8 +17,8 @@ self.hold_up = 0
 self.hold_down = 0
 self.dograndom = 0
 self.atalk = 0
-self.bcolor = merge_color(0x800080, 0x000000, 0.7)
-self.bcolor = merge_color(self.bcolor, 0x404040, 0.5)
+self.bcolor = merge_color(0x00800080, 0x00000000, 0.7)
+self.bcolor = merge_color(self.bcolor, 0x00404040, 0.5)
 self.chartotal = 0
 self.havechar[0] = 0
 self.havechar[1] = 0
@@ -33,63 +33,47 @@ self.mmy[1] = 0
 self.mmy[2] = 0
 global.submenu = 0
 global.charselect = -1
-self.i = 0
-while(true)
-{
-    if (self.i < 36)
-    {
-        global.submenucoord[self.i] = 0
-        self.i = (self.i + 1)
-        continue
-    }
-    break
-}
+for (self.i = 0; self.i < 36; self.i += 1)
+    global.submenucoord[self.i] = 0
 global.cinstance[0] = 4343434343
 global.cinstance[1] = 343434343434
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 3; self.i += 1)
 {
-    if (self.i < 3)
+    global.faceaction[self.i] = 0
+    if (global.char[self.i] != 0)
+        self.chartotal += 1
+    if (global.char[self.i] == 1)
     {
-        global.faceaction[self.i] = 0
-        if (global.char[self.i] != 0)
-            self.chartotal = (self.chartotal + 1)
-        if (global.char[self.i] == 1)
-        {
-            self.havechar[0] = 1
-            self.charpos[0] = self.i
-        }
-        if (global.char[self.i] == 2)
-        {
-            self.havechar[1] = 1
-            self.charpos[1] = self.i
-            if (self.i > 0)
-            {
-                global.cinstance[(self.i - 1)] = instance_create((obj_mainchara.x - 6), (obj_mainchara.y - 16), obj_caterpillarchara)
-                global.cinstance[(self.i - 1)].target = (self.i * 12)
-            }
-        }
-        if (global.char[self.i] == 3)
-        {
-            self.havechar[2] = 1
-            self.charpos[2] = self.i
-            if (self.i > 0)
-            {
-                global.cinstance[(self.i - 1)] = instance_create((obj_mainchara.x - 4), (obj_mainchara.y - 12), obj_caterpillarchara)
-                global.cinstance[(self.i - 1)].target = (self.i * 12)
-                with(global.cinstance[(self.i - 1)])
-                {
-                    self.usprite = 206
-                    self.dsprite = 204
-                    self.rsprite = 209
-                    self.lsprite = 207
-                }
-            }
-        }
-        self.i = (self.i + 1)
-        continue
+        self.havechar[0] = 1
+        self.charpos[0] = self.i
     }
-    break
+    if (global.char[self.i] == 2)
+    {
+        self.havechar[1] = 1
+        self.charpos[1] = self.i
+        if (self.i > 0)
+        {
+            global.cinstance[(self.i - 1)] = instance_create((obj_mainchara.x - 6), (obj_mainchara.y - 16), obj_caterpillarchara)
+            global.cinstance[(self.i - 1)].target = (self.i * 12)
+        }
+    }
+    if (global.char[self.i] == 3)
+    {
+        self.havechar[2] = 1
+        self.charpos[2] = self.i
+        if (self.i > 0)
+        {
+            global.cinstance[(self.i - 1)] = instance_create((obj_mainchara.x - 4), (obj_mainchara.y - 12), obj_caterpillarchara)
+            global.cinstance[(self.i - 1)].target = (self.i * 12)
+            with (global.cinstance[(self.i - 1)])
+            {
+                self.usprite = spr_ralseiu
+                self.dsprite = spr_ralseid
+                self.rsprite = spr_ralseir
+                self.lsprite = spr_ralseil
+            }
+        }
+    }
 }
 self.slmxx = 0
 self.slmyy = 0

@@ -1,14 +1,7 @@
-self._ti = 0
-while(true)
+for (self._ti = 0; self._ti < 3; self._ti += 1)
 {
-    if (self._ti < 3)
-    {
-        if (global.charcantarget[self._ti] == 1)
-            global.targeted[self._ti] = 1
-        self._ti = (self._ti + 1)
-        continue
-    }
-    break
+    if (global.charcantarget[self._ti] == 1)
+        global.targeted[self._ti] = 1
 }
 self.mytarget = 3
 self.target = 3

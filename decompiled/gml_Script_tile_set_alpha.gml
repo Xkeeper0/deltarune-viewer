@@ -1,3 +1,3 @@
-local.__index = self.argument0
-local.__alpha = self.argument1
-return layer_tile_alpha(local.__index, local.__alpha)
+var __index = self.argument0
+var __alpha = self.argument1
+return layer_tile_alpha(__index, __alpha);

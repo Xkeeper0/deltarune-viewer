@@ -1,1 +1,1 @@
-self.EVENT = (self.EVENT + 1)
+self.EVENT += 1

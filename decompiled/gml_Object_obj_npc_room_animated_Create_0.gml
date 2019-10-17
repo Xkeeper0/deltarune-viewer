@@ -10,11 +10,7 @@ if (global.darkzone == 1)
 if (self.room == room_dark1)
 {
     self.sprite_index = spr_shine
-    if (global.time > 14400)
-        _temp_local_var_1 = 1
-    else
-        _temp_local_var_1 = (global.flag[10] == 1)
-    if _temp_local_var_1
+    if ((global.time > 14400) || (global.flag[10] == 1))
         instance_destroy()
 }
 if (self.room == room_town_mid)

@@ -14,8 +14,8 @@ if instance_exists(obj_growtangle)
 self.timer = 0
 self.type = 0
 self.con = 0
-self.xx = __view_get(e__VW.XView, 0)
-self.yy = __view_get(e__VW.YView, 0)
+self.xx = __view_get(0, 0)
+self.yy = __view_get(1, 0)
 self.lx = (140 + self.xx)
 self.rx = (480 + self.xx)
 self.ux = (0 + self.yy)

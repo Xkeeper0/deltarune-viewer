@@ -1,39 +1,25 @@
-local.__depth = self.argument0
-local.__x = self.argument1
-local.__y = self.argument2
-local.__layers = layer_get_all()
-local.__numlayers = array_length_1d(local.__layers)
-local.__i = 0
-while(true)
+var __depth = self.argument0
+var __x = self.argument1
+var __y = self.argument2
+var __layers = layer_get_all()
+var __numlayers = array_length_1d(__layers)
+for (var __i = 0; __i < __numlayers; __i++)
 {
-    if (local.__i < local.__numlayers)
+    if (layer_get_depth(__layers[__i]) != __depth)
     {
-        if (layer_get_depth(local.__layers[local.__i]) != local.__depth)
+    }
+    else
+    {
+        var __els = layer_get_all_elements(__layers[__i])
+        var __numels = array_length_1d(__els)
+        for (var __j = 0; __j < __numels; __j++)
         {
-        }
-        else
-        {
-            local.__els = layer_get_all_elements(local.__layers[local.__i])
-            local.__numels = array_length_1d(local.__els)
-            local.__j = 0
-            while(true)
+            var __eltype = layer_get_element_type(__els[__j])
+            if (__eltype == 7)
             {
-                if (local.__j < local.__numels)
-                {
-                    local.__eltype = layer_get_element_type(local.__els[local.__j])
-                    if (local.__eltype == 7)
-                    {
-                        layer_tile_x(local.__els[local.__j], (layer_tile_get_x(local.__els[local.__j]) + local.__x))
-                        layer_tile_y(local.__els[local.__j], (layer_tile_get_y(local.__els[local.__j]) + local.__y))
-                    }
-                    local.__j = (local.__j + 1)
-                    continue
-                }
-                break
+                layer_tile_x(__els[__j], (layer_tile_get_x(__els[__j]) + __x))
+                layer_tile_y(__els[__j], (layer_tile_get_y(__els[__j]) + __y))
             }
         }
-        local.__i = (local.__i + 1)
-        continue
     }
-    break
 }

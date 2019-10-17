@@ -2,21 +2,14 @@ snd_free_all()
 self.filechoicebk = global.filechoice
 scr_gamestart()
 global.filechoice = self.filechoicebk
-self.file = ("filech1_"@2713 + string(global.filechoice))
+self.file = ("filech1_" + string(global.filechoice))
 self.myfileid = file_text_open_read(self.file)
 global.truename = file_text_read_string(self.myfileid)
 file_text_readln(self.myfileid)
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 6; self.i += 1)
 {
-    if (self.i < 6)
-    {
-        global.othername[self.i] = file_text_read_string(self.myfileid)
-        file_text_readln(self.myfileid)
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    global.othername[self.i] = file_text_read_string(self.myfileid)
+    file_text_readln(self.myfileid)
 }
 global.char[0] = file_text_read_real(self.myfileid)
 file_text_readln(self.myfileid)
@@ -36,73 +29,52 @@ global.invc = file_text_read_real(self.myfileid)
 file_text_readln(self.myfileid)
 global.darkzone = file_text_read_real(self.myfileid)
 file_text_readln(self.myfileid)
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 4; self.i += 1)
 {
-    if (self.i < 4)
+    global.hp[self.i] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    global.maxhp[self.i] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    global.at[self.i] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    global.df[self.i] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    global.mag[self.i] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    global.guts[self.i] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    global.charweapon[self.i] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    global.chararmor1[self.i] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    global.chararmor2[self.i] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    global.weaponstyle[self.i] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    for (self.q = 0; self.q < 4; self.q += 1)
     {
-        global.hp[self.i] = file_text_read_real(self.myfileid)
+        global.itemat[self.i, self.q] = file_text_read_real(self.myfileid)
         file_text_readln(self.myfileid)
-        global.maxhp[self.i] = file_text_read_real(self.myfileid)
+        global.itemdf[self.i, self.q] = file_text_read_real(self.myfileid)
         file_text_readln(self.myfileid)
-        global.at[self.i] = file_text_read_real(self.myfileid)
+        global.itemmag[self.i, self.q] = file_text_read_real(self.myfileid)
         file_text_readln(self.myfileid)
-        global.df[self.i] = file_text_read_real(self.myfileid)
+        global.itembolts[self.i, self.q] = file_text_read_real(self.myfileid)
         file_text_readln(self.myfileid)
-        global.mag[self.i] = file_text_read_real(self.myfileid)
+        global.itemgrazeamt[self.i, self.q] = file_text_read_real(self.myfileid)
         file_text_readln(self.myfileid)
-        global.guts[self.i] = file_text_read_real(self.myfileid)
+        global.itemgrazesize[self.i, self.q] = file_text_read_real(self.myfileid)
         file_text_readln(self.myfileid)
-        global.charweapon[self.i] = file_text_read_real(self.myfileid)
+        global.itemboltspeed[self.i, self.q] = file_text_read_real(self.myfileid)
         file_text_readln(self.myfileid)
-        global.chararmor1[self.i] = file_text_read_real(self.myfileid)
+        global.itemspecial[self.i, self.q] = file_text_read_real(self.myfileid)
         file_text_readln(self.myfileid)
-        global.chararmor2[self.i] = file_text_read_real(self.myfileid)
-        file_text_readln(self.myfileid)
-        global.weaponstyle[self.i] = file_text_read_real(self.myfileid)
-        file_text_readln(self.myfileid)
-        self.q = 0
-        while(true)
-        {
-            if (self.q < 4)
-            {
-                global.itemat[self.i][self.q] = file_text_read_real(self.myfileid)
-                file_text_readln(self.myfileid)
-                global.itemdf[self.i][self.q] = file_text_read_real(self.myfileid)
-                file_text_readln(self.myfileid)
-                global.itemmag[self.i][self.q] = file_text_read_real(self.myfileid)
-                file_text_readln(self.myfileid)
-                global.itembolts[self.i][self.q] = file_text_read_real(self.myfileid)
-                file_text_readln(self.myfileid)
-                global.itemgrazeamt[self.i][self.q] = file_text_read_real(self.myfileid)
-                file_text_readln(self.myfileid)
-                global.itemgrazesize[self.i][self.q] = file_text_read_real(self.myfileid)
-                file_text_readln(self.myfileid)
-                global.itemboltspeed[self.i][self.q] = file_text_read_real(self.myfileid)
-                file_text_readln(self.myfileid)
-                global.itemspecial[self.i][self.q] = file_text_read_real(self.myfileid)
-                file_text_readln(self.myfileid)
-                self.q = (self.q + 1)
-                continue
-            }
-            break
-        }
-        self.j = 0
-        while(true)
-        {
-            if (self.j < 12)
-            {
-                global.spell[self.i][self.j] = file_text_read_real(self.myfileid)
-                file_text_readln(self.myfileid)
-                self.j = (self.j + 1)
-                continue
-            }
-            break
-        }
-        self.i = (self.i + 1)
-        continue
     }
-    break
+    for (self.j = 0; self.j < 12; self.j += 1)
+    {
+        global.spell[self.i, self.j] = file_text_read_real(self.myfileid)
+        file_text_readln(self.myfileid)
+    }
 }
 global.boltspeed = file_text_read_real(self.myfileid)
 file_text_readln(self.myfileid)
@@ -110,23 +82,16 @@ global.grazeamt = file_text_read_real(self.myfileid)
 file_text_readln(self.myfileid)
 global.grazesize = file_text_read_real(self.myfileid)
 file_text_readln(self.myfileid)
-self.j = 0
-while(true)
+for (self.j = 0; self.j < 13; self.j += 1)
 {
-    if (self.j < 13)
-    {
-        global.item[self.j] = file_text_read_real(self.myfileid)
-        file_text_readln(self.myfileid)
-        global.keyitem[self.j] = file_text_read_real(self.myfileid)
-        file_text_readln(self.myfileid)
-        global.weapon[self.j] = file_text_read_real(self.myfileid)
-        file_text_readln(self.myfileid)
-        global.armor[self.j] = file_text_read_real(self.myfileid)
-        file_text_readln(self.myfileid)
-        self.j = (self.j + 1)
-        continue
-    }
-    break
+    global.item[self.j] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    global.keyitem[self.j] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    global.weapon[self.j] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    global.armor[self.j] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
 }
 global.tension = file_text_read_real(self.myfileid)
 file_text_readln(self.myfileid)
@@ -154,31 +119,17 @@ global.lwstrength = file_text_read_real(self.myfileid)
 file_text_readln(self.myfileid)
 global.ladef = file_text_read_real(self.myfileid)
 file_text_readln(self.myfileid)
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 8; self.i += 1)
 {
-    if (self.i < 8)
-    {
-        global.litem[self.i] = file_text_read_real(self.myfileid)
-        file_text_readln(self.myfileid)
-        global.phone[self.i] = file_text_read_real(self.myfileid)
-        file_text_readln(self.myfileid)
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    global.litem[self.i] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
+    global.phone[self.i] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
 }
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 9999; self.i += 1)
 {
-    if (self.i < 9999)
-    {
-        global.flag[self.i] = file_text_read_real(self.myfileid)
-        file_text_readln(self.myfileid)
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    global.flag[self.i] = file_text_read_real(self.myfileid)
+    file_text_readln(self.myfileid)
 }
 global.plot = file_text_read_real(self.myfileid)
 file_text_readln(self.myfileid)
@@ -195,17 +146,8 @@ audio_group_set_gain(1, global.flag[15], 0)
 audio_set_master_gain(0, global.flag[17])
 if (global.plot >= 156)
 {
-    self.i = 0
-    while(true)
-    {
-        if (self.i < 4)
-        {
-            global.charauto[self.i] = 0
-            self.i = (self.i + 1)
-            continue
-        }
-        break
-    }
+    for (self.i = 0; self.i < 4; self.i += 1)
+        global.charauto[self.i] = 0
 }
 self.__loadedroom = global.currentroom
 if scr_dogcheck()

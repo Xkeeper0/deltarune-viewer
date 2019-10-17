@@ -1,6 +1,6 @@
 global.fc = 0
 global.msc = self.argument0
-if (self.argument1 != "x"@37)
+if (self.argument1 != "x")
     global.msg[0] = self.argument1
 if (self.argument2 != 0)
     global.fc = self.argument2

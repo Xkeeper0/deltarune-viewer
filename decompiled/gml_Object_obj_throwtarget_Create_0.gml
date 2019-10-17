@@ -7,7 +7,7 @@ if (instance_number(self.object_index) == 1)
 {
     self.tt = instance_create(self.x, self.y, obj_throwtarget)
     self.tt.depth = (self.depth + 1)
-    with(self.tt)
+    with (self.tt)
     {
         self.offing = 0
         self.good = 0

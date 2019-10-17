@@ -1,7 +1,7 @@
 self.stringpos = 0
-self.mystring = " "@24
+self.mystring = " "
 self.part = 1
-self.partstring = " "@24
+self.partstring = " "
 self.type = 0
 self.rate = 1
 self.active = 0

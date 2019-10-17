@@ -1,10 +1,10 @@
 self.image_angle = self.direction
 if (self.con == 0)
 {
-    self.timer = (self.timer + 1)
+    self.timer += 1
     if (self.timer >= 2)
     {
-        self.sons = (self.sons + 1)
+        self.sons += 1
         self.son[self.sons] = instance_create(self.x, self.y, obj_fadechain)
         self.son[self.sons].image_angle = self.image_angle
         self.son[self.sons].direction = self.direction

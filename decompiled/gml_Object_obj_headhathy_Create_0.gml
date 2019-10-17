@@ -36,5 +36,5 @@ self.firstturn = 0
 self.image_xscale = 2
 self.image_yscale = 2
 self.idlesprite = 623
-self.hurtsprite = 626
+self.hurtsprite = spr_hathyx_hurt
 self.sparedsprite = 625

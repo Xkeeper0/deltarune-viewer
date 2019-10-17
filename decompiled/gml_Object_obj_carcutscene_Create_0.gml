@@ -1,19 +1,12 @@
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 20; self.i += 1)
 {
-    if (self.i < 20)
-    {
-        self.prevalpha[self.i] = 0
-        self.prevwx[self.i] = -200
-        self.prevwy[self.i] = -200
-        self.prevstringmax[self.i] = 0
-        self.prevhspace[self.i] = 0
-        self.prevlinecount[self.i] = 0
-        self.prevvspace[self.i] = 0
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    self.prevalpha[self.i] = 0
+    self.prevwx[self.i] = -200
+    self.prevwy[self.i] = -200
+    self.prevstringmax[self.i] = 0
+    self.prevhspace[self.i] = 0
+    self.prevlinecount[self.i] = 0
+    self.prevvspace[self.i] = 0
 }
 self.carcon = 0
 self.drawwave = 0
@@ -28,23 +21,17 @@ if (global.plot > 1)
 else
 {
     global.facing = 0
-    with(obj_npc_sign)
-    {
+    with (obj_npc_sign)
         instance_destroy()
-    }
-    global.currentsong[0] = snd_init("mus_introcar.ogg"@3956)
+    global.currentsong[0] = snd_init("mus_introcar.ogg")
     self.con = 1
     self.alarm[4] = 30
     global.interact = 1
     self.k = 326
     self.t = scr_marker(195, 240, spr_toriel_lt)
-    with(self.t)
-    {
+    with (self.t)
         self.depth = 400000
-    }
     self.c = scr_marker(131, 240, spr_torcar_d)
-    with(self.c)
-    {
+    with (self.c)
         self.depth = 500000
-    }
 }

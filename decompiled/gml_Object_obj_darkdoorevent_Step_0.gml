@@ -2,11 +2,7 @@ if (self.hcon == 1)
 {
     if instance_exists(obj_mainchara)
     {
-        if (obj_mainchara.x >= 220)
-            _temp_local_var_1 = (global.interact == 0)
-        else
-            _temp_local_var_1 = 0
-        if _temp_local_var_1
+        if ((obj_mainchara.x >= 220) && (global.interact == 0))
         {
             global.interact = 1
             self.hcon = 2
@@ -33,11 +29,7 @@ if (self.con == 1)
 {
     if instance_exists(obj_mainchara)
     {
-        if (obj_mainchara.y <= 200)
-            _temp_local_var_2 = (global.interact == 0)
-        else
-            _temp_local_var_2 = 0
-        if _temp_local_var_2
+        if ((obj_mainchara.y <= 200) && (global.interact == 0))
         {
             global.interact = 1
             self.con = 2
@@ -48,10 +40,8 @@ if (self.con == 1)
 }
 if (self.con == 2)
 {
-    with(obj_mainchara)
-    {
-        self.image_alpha = (self.image_alpha - 0.04)
-    }
+    with (obj_mainchara)
+        self.image_alpha -= 0.04
 }
 if (self.con == 3)
 {
@@ -63,11 +53,9 @@ if (self.con == 3)
 if (self.con == 4)
 {
     self.r = scr_dark_marker(global.cinstance[0].x, global.cinstance[0].y, spr_ralseiu)
-    with(global.cinstance[0])
-    {
+    with (global.cinstance[0])
         instance_destroy()
-    }
-    with(self.r)
+    with (self.r)
     {
         self.image_speed = 0.25
         scr_move_to_point_over_time(420, (obj_mainchara.y - 10), 20)
@@ -77,7 +65,7 @@ if (self.con == 4)
 }
 if (self.con == 6)
 {
-    with(self.r)
+    with (self.r)
     {
         scr_halt()
         self.sprite_index = spr_ralseid
@@ -87,10 +75,8 @@ if (self.con == 6)
 }
 if (self.con == 8)
 {
-    with(self.r)
-    {
+    with (self.r)
         self.visible = 0
-    }
     self.con = 20
 }
 if (self.con == 20)

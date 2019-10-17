@@ -8,10 +8,8 @@ if (global.plot >= 50)
     if (global.flag[212] == 2)
     {
         self.image_index = 2
-        with(obj_pushableblock)
-        {
+        with (obj_pushableblock)
             instance_destroy()
-        }
     }
 }
 else

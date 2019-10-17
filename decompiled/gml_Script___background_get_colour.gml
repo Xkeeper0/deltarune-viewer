@@ -1,5 +1,5 @@
-local.__colinfo = __background_get_colour_element()
-if (local.__colinfo[0] == -1)
-    return 0
-local.__col = layer_background_get_blend(local.__colinfo[0])
-return local.__col
+var __colinfo = __background_get_colour_element()
+if (__colinfo[0] == -1)
+    return 0;
+var __col = layer_background_get_blend(__colinfo[0])
+return __col;

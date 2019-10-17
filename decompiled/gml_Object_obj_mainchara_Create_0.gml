@@ -69,17 +69,8 @@ self.onebuffer = 0
 self.twobuffer = 0
 self.threebuffer = 0
 global.menuno = 0
-self.i = 0
-while(true)
-{
-    if (self.i < 10)
-    {
-        global.menucoord[self.i] = 0
-        self.i = (self.i + 1)
-        continue
-    }
-    break
-}
+for (self.i = 0; self.i < 10; self.i += 1)
+    global.menucoord[self.i] = 0
 if (global.interact == 3)
 {
     if (global.entrance > 0)
@@ -156,14 +147,5 @@ self.initwd = self.sprite_width
 self.initht = self.sprite_height
 self.mywidth = self.sprite_width
 self.myheight = self.sprite_height
-self.i = 0
-while(true)
-{
-    if (self.i < 3)
-    {
-        global.battledf[self.i] = (((global.df[global.char[self.i]] + global.itemdf[global.char[self.i]][0]) + global.itemdf[global.char[self.i]][1]) + global.itemdf[global.char[self.i]][2])
-        self.i = (self.i + 1)
-        continue
-    }
-    break
-}
+for (self.i = 0; self.i < 3; self.i += 1)
+    global.battledf[self.i] = (((global.df[global.char[self.i]] + global.itemdf[global.char[self.i], 0]) + global.itemdf[global.char[self.i], 1]) + global.itemdf[global.char[self.i], 2])

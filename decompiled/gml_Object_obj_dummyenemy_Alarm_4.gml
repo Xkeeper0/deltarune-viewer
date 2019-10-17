@@ -1,1 +1,1 @@
-self.actcon = (self.actcon + 1)
+self.actcon += 1

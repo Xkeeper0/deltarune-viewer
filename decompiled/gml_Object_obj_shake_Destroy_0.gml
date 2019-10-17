@@ -1,2 +1,2 @@
-__view_set(e__VW.XView, self.camera, self.camerax)
-__view_set(e__VW.YView, self.camera, self.cameray)
+__view_set(0, self.camera, self.camerax)
+__view_set(1, self.camera, self.cameray)

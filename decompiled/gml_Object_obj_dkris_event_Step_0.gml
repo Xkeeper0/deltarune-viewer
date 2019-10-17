@@ -40,7 +40,7 @@ if (self.con == 10)
 }
 if (self.con == 11)
 {
-    self.shaketimer = (self.shaketimer + 0.05)
+    self.shaketimer += 0.05
     self.x = ((self.remx + random((self.shaketimer / 2))) - random((self.shaketimer / 2)))
     self.y = ((self.remy + random((self.shaketimer / 4))) - random((self.shaketimer / 4)))
 }
@@ -90,8 +90,8 @@ if (self.con == 20)
 {
     snd_play(snd_noise)
     self.sprite_index = spr_dkris_dl
-    self.x = (self.x + 5)
-    self.y = (self.y - 12)
+    self.x += 5
+    self.y -= 12
     scr_minishakeobj()
     self.image_index = 0
     self.con = 21
@@ -110,8 +110,8 @@ if (self.con == 22)
 }
 if (self.con == 24)
 {
-    self.x = (self.x + self.stepx)
-    self.y = (self.y + self.stepy)
+    self.x += self.stepx
+    self.y += self.stepy
     snd_play(snd_step1)
     self.image_index = 1
     scr_minishakeobj()
@@ -121,7 +121,7 @@ if (self.con == 24)
 if (self.con == 26)
 {
     self.image_index = 0
-    self.stepcycle = (self.stepcycle + 1)
+    self.stepcycle += 1
     if (self.stepcycle >= self.stepmax)
     {
         self.con = 27
@@ -172,7 +172,7 @@ if (self.con == 34)
 }
 if (self.con == 33.1)
 {
-    self.animtimer = (self.animtimer + 1)
+    self.animtimer += 1
     if (self.animtimer == 13)
         snd_play(snd_heavyswing)
     if (self.animtimer == 14)
@@ -194,7 +194,7 @@ if (self.con == 34.1)
 }
 if (self.con == 35)
 {
-    self.htimer = (self.htimer + 1)
+    self.htimer += 1
     if (self.htimer == 1)
         snd_play(snd_hurt1)
     if (self.htimer >= 8)
@@ -215,11 +215,7 @@ if (self.con == 36)
 }
 if (self.con == 37)
 {
-    if (self.image_index >= 2)
-        _temp_local_var_1 = (self.gnoise == 0)
-    else
-        _temp_local_var_1 = 0
-    if _temp_local_var_1
+    if ((self.image_index >= 2) && (self.gnoise == 0))
     {
         self.burst = instance_create((self.x + 2), (self.y + 10), obj_heartburst)
         self.gnoise = 1
@@ -264,14 +260,14 @@ if (self.con == 40)
 }
 if (self.con == 41)
 {
-    self.samt = (self.samt + 1)
+    self.samt += 1
     if (self.samt == 10)
         snd_play(snd_step1)
     if (self.samt == 20)
         self.samt = 0
-    self.steps = (self.steps + 1)
-    self.x = (self.x + self.stepx)
-    self.y = (self.y + self.stepy)
+    self.steps += 1
+    self.x += self.stepx
+    self.y += self.stepy
     if (self.steps >= 100)
     {
         self.con = 52
@@ -284,10 +280,8 @@ if (self.con == 41)
 }
 if (self.con == 53)
 {
-    with(self.wagon)
-    {
+    with (self.wagon)
         self.visible = 0
-    }
     self.sprite_index = spr_dkris_heartthrow
     self.image_index = 0
     self.image_speed = 0.25
@@ -330,15 +324,15 @@ if (self.con == 57)
 }
 if (self.con == 59)
 {
-    self.samt = (self.samt + 1)
+    self.samt += 1
     if (self.samt == 10)
         snd_play(snd_step1)
     if (self.samt == 20)
         self.samt = 0
     self.image_speed = 0.1
-    self.x = (self.x - self.stepx)
-    self.y = (self.y - self.stepy)
-    self.steps = (self.steps + 1)
+    self.x -= self.stepx
+    self.y -= self.stepy
+    self.steps += 1
     if (self.steps >= 100)
     {
         self.image_index = 0
@@ -364,11 +358,9 @@ if (self.con == 63)
 if (self.con == 65)
 {
     self.eyeflash = scr_marker((self.x + 15), (self.y + 9), spr_asgore_eyeflash_serious)
-    self.eyeflash.image_blend = 0x0000FF
-    with(self.eyeflash)
-    {
+    self.eyeflash.image_blend = 0x000000FF
+    with (self.eyeflash)
         self.image_speed = 0.2
-    }
     self.image_speed = 0
     snd_play(snd_break2)
     self.con = 66
@@ -376,19 +368,17 @@ if (self.con == 65)
 }
 if (self.con == 67)
 {
-    with(self.eyeflash)
-    {
+    with (self.eyeflash)
         instance_destroy()
-    }
     self.con = 68
     self.alarm[4] = 60
 }
 if (self.con == 69)
 {
     self.pix = scr_marker(-10, -10, spr_pixel_white)
-    with(self.pix)
+    with (self.pix)
     {
-        self.image_blend = 0x000000
+        self.image_blend = 0x00000000
         self.image_xscale = 700
         self.image_yscale = 700
     }
@@ -399,30 +389,14 @@ if (self.con == 71)
     room_goto(PLACE_LOGO)
 if (self.heartwagon == 1)
 {
-    if left_p()
-        _temp_local_var_2 = (self.heartx > -4)
-    else
-        _temp_local_var_2 = 0
-    if _temp_local_var_2
-        self.heartx = (self.heartx - 1)
-    if right_p()
-        _temp_local_var_3 = (self.heartx < 4)
-    else
-        _temp_local_var_3 = 0
-    if _temp_local_var_3
-        self.heartx = (self.heartx + 1)
-    if down_p()
-        _temp_local_var_4 = (self.hearty < 4)
-    else
-        _temp_local_var_4 = 0
-    if _temp_local_var_4
-        self.hearty = (self.hearty + 1)
-    if up_p()
-        _temp_local_var_5 = (self.hearty > -4)
-    else
-        _temp_local_var_5 = 0
-    if _temp_local_var_5
-        self.hearty = (self.hearty - 1)
+    if (left_p() && (self.heartx > -4))
+        self.heartx -= 1
+    if (right_p() && (self.heartx < 4))
+        self.heartx += 1
+    if (down_p() && (self.hearty < 4))
+        self.hearty += 1
+    if (up_p() && (self.hearty > -4))
+        self.hearty -= 1
 }
 if (self.heartwagon == 2)
 {
@@ -435,19 +409,15 @@ if (self.heartwagon == 2)
         self.moved = 1
     if up_p()
         self.moved = 1
-    if (self.moved == 1)
-        _temp_local_var_6 = (self.shaketimer <= 0)
-    else
-        _temp_local_var_6 = 0
-    if _temp_local_var_6
+    if ((self.moved == 1) && (self.shaketimer <= 0))
     {
         self.shaketimer = 24
         self.cageamt = 4
         snd_play(snd_noise)
     }
     if (self.cageamt > 0)
-        self.cageamt = (self.cageamt - 0.5)
+        self.cageamt -= 0.5
     else
         self.cageamt = 0
-    self.shaketimer = (self.shaketimer - 1)
+    self.shaketimer -= 1
 }

@@ -20,11 +20,11 @@ self.py = 0
 if (self.press_r == 1)
     self.px = self.wspeed
 if (self.press_l == 1)
-    self.px = (variable)(- self.wspeed)
+    self.px = (-self.wspeed)
 if (self.press_d == 1)
     self.py = self.wspeed
 if (self.press_u == 1)
-    self.py = (variable)(- self.wspeed)
+    self.py = (-self.wspeed)
 self.xmeet = 0
 self.ymeet = 0
 self.xymeet = 0
@@ -35,38 +35,26 @@ if place_meeting((self.x + self.px), self.y, obj_battlesolid)
     if place_meeting((self.x + self.px), self.y, obj_battlesolid)
     {
         self.g = self.wspeed
-        while(true)
+        while (self.g > 0)
         {
-            if (self.g > 0)
+            self.mvd = 0
+            if ((self.press_d == 0) && (!place_meeting((self.x + self.px), (self.y - self.g), obj_battlesolid)))
             {
-                self.mvd = 0
-                if (self.press_d == 0)
-                    _temp_local_var_1 = (~ place_meeting((self.x + self.px), (self.y - self.g), obj_battlesolid))
-                else
-                    _temp_local_var_1 = 0
-                if _temp_local_var_1
-                    break
-                else
-                {
-                    if (self.press_u == 0)
-                    {
-                        if (self.mvd == 0)
-                            _temp_local_var_8 = (~ place_meeting((self.x + self.px), (self.y + self.g), obj_battlesolid))
-                        else
-                            _temp_local_var_8 = 0
-                    }
-                    else
-                        _temp_local_var_8 = 0
-                    if _temp_local_var_8
-                        break
-                    else
-                    {
-                        self.g = (self.g - 1)
-                        continue
-                    }
-                }
+                self.y -= self.g
+                self.py = 0
+                break
             }
-            break
+            else if ((self.press_u == 0) && ((self.mvd == 0) && (!place_meeting((self.x + self.px), (self.y + self.g), obj_battlesolid))))
+            {
+                self.y += self.g
+                self.py = 0
+                break
+            }
+            else
+            {
+                self.g -= 1
+                continue
+            }
         }
     }
     self.xmeet = 1
@@ -74,37 +62,37 @@ if place_meeting((self.x + self.px), self.y, obj_battlesolid)
     if (self.px > 0)
     {
         self.i = self.px
-        while(true)
+        while (self.i >= 0)
         {
-            if (self.i >= 0)
+            if (!place_meeting((self.x + self.i), self.y, obj_battlesolid))
             {
-                if (~ place_meeting((self.x + self.i), self.y, obj_battlesolid))
-                    break
-                else
-                {
-                    self.i = (self.i - 1)
-                    continue
-                }
+                self.px = self.i
+                self.bkx = 1
+                break
             }
-            break
+            else
+            {
+                self.i -= 1
+                continue
+            }
         }
     }
     if (self.px < 0)
     {
         self.i = self.px
-        while(true)
+        while (self.i <= 0)
         {
-            if (self.i <= 0)
+            if (!place_meeting((self.x + self.i), self.y, obj_battlesolid))
             {
-                if (~ place_meeting((self.x + self.i), self.y, obj_battlesolid))
-                    break
-                else
-                {
-                    self.i = (self.i + 1)
-                    continue
-                }
+                self.px = self.i
+                self.bkx = 1
+                break
             }
-            break
+            else
+            {
+                self.i += 1
+                continue
+            }
         }
     }
     if (self.bkx == 0)
@@ -117,74 +105,62 @@ if place_meeting(self.x, (self.y + self.py), obj_battlesolid)
     if place_meeting(self.x, (self.y + self.py), obj_battlesolid)
     {
         self.g = self.wspeed
-        while(true)
+        while (self.g > 0)
         {
-            if (self.g > 0)
+            self.mvd = 0
+            if ((self.press_r == 0) && (!place_meeting((self.x - self.g), (self.y + self.py), obj_battlesolid)))
             {
-                self.mvd = 0
-                if (self.press_r == 0)
-                    _temp_local_var_2 = (~ place_meeting((self.x - self.g), (self.y + self.py), obj_battlesolid))
-                else
-                    _temp_local_var_2 = 0
-                if _temp_local_var_2
-                    break
-                else
-                {
-                    if (self.mvd == 0)
-                    {
-                        if (self.press_l == 0)
-                            _temp_local_var_5 = (~ place_meeting((self.x + self.g), (self.y + self.py), obj_battlesolid))
-                        else
-                            _temp_local_var_5 = 0
-                    }
-                    else
-                        _temp_local_var_5 = 0
-                    if _temp_local_var_5
-                        break
-                    else
-                    {
-                        self.g = (self.g - 1)
-                        continue
-                    }
-                }
+                self.x -= self.g
+                self.px = 0
+                break
             }
-            break
+            else if ((self.mvd == 0) && ((self.press_l == 0) && (!place_meeting((self.x + self.g), (self.y + self.py), obj_battlesolid))))
+            {
+                self.x += self.g
+                self.px = 0
+                break
+            }
+            else
+            {
+                self.g -= 1
+                continue
+            }
         }
     }
     if (self.py > 0)
     {
         self.i = self.py
-        while(true)
+        while (self.i >= 0)
         {
-            if (self.i >= 0)
+            if (!place_meeting(self.x, (self.y + self.i), obj_battlesolid))
             {
-                if (~ place_meeting(self.x, (self.y + self.i), obj_battlesolid))
-                    break
-                else
-                {
-                    self.i = (self.i - 1)
-                    continue
-                }
+                self.py = self.i
+                self.bky = 1
+                break
             }
-            break
+            else
+            {
+                self.i -= 1
+                continue
+            }
         }
     }
     if (self.py < 0)
     {
         self.i = self.py
-        while(true)
+        while (self.i <= 0)
         {
-            if (self.i <= 0)
+            if (!place_meeting(self.x, (self.y + self.i), obj_battlesolid))
             {
-                if (~ place_meeting(self.x, (self.y + self.i), obj_battlesolid))
-                    break
-                else
-                {
-                    self.i = (self.i + 1)
-                    continue
-                }
+                self.py = self.i
+                self.bky = 1
+                break
             }
-            break
+            else
+            {
+                self.i += 1
+                continue
+            }
         }
     }
     if (self.bky == 0)
@@ -196,40 +172,37 @@ if place_meeting((self.x + self.px), (self.y + self.py), obj_battlesolid)
     self.bkxy = 0
     self.i = self.px
     self.j = self.py
-    while(true)
+    while ((self.j != 0) || (self.i != 0))
     {
-        if (self.j != 0)
-            _temp_local_var_3 = 1
-        else
-            _temp_local_var_3 = (self.i != 0)
-        if _temp_local_var_3
+        if (!place_meeting((self.x + self.i), (self.y + self.j), obj_battlesolid))
         {
-            if (~ place_meeting((self.x + self.i), (self.y + self.j), obj_battlesolid))
-                break
-            else
-            {
-                if (abs(self.j) >= 1)
-                {
-                    if (self.j > 0)
-                        self.j = (self.j - 1)
-                    if (self.j < 0)
-                        self.j = (self.j + 1)
-                }
-                else
-                    self.j = 0
-                if (abs(self.i) >= 1)
-                {
-                    if (self.i > 0)
-                        self.i = (self.i - 1)
-                    if (self.i < 0)
-                        self.i = (self.i + 1)
-                }
-                else
-                    self.i = 0
-                continue
-            }
+            self.px = self.i
+            self.py = self.j
+            self.bkxy = 1
+			break
         }
-        break
+        else
+        {
+            if (abs(self.j) >= 1)
+            {
+                if (self.j > 0)
+                    self.j -= 1
+                if (self.j < 0)
+                    self.j += 1
+            }
+            else
+                self.j = 0
+            if (abs(self.i) >= 1)
+            {
+                if (self.i > 0)
+                    self.i -= 1
+                if (self.i < 0)
+                    self.i += 1
+            }
+            else
+                self.i = 0
+            continue
+        }
     }
     if (self.bkxy == 0)
     {
@@ -237,23 +210,23 @@ if place_meeting((self.x + self.px), (self.y + self.py), obj_battlesolid)
         self.py = 0
     }
 }
-if ((self.x + self.px) >= ((__view_get(e__VW.XView, 0) + 640) - self.sprite_width))
-    self.px = (((__view_get(e__VW.XView, 0) + 640) - self.sprite_width) - self.x)
+if ((self.x + self.px) >= ((__view_get(0, 0) + 640) - self.sprite_width))
+    self.px = (((__view_get(0, 0) + 640) - self.sprite_width) - self.x)
 if ((self.x + self.px) <= 0)
-    self.px = (variable)(- self.x)
+    self.px = (-self.x)
 if ((self.y + self.py) <= 0)
-    self.py = (variable)(- self.y)
-if ((self.y + self.py) >= (((__view_get(e__VW.YView, 0) + 320) - self.sprite_height) + self.boundaryup))
-    self.py = ((((__view_get(e__VW.YView, 0) + 320) - self.sprite_height) - self.y) + self.boundaryup)
-self.x = (self.x + self.px)
-self.y = (self.y + self.py)
+    self.py = (-self.y)
+if ((self.y + self.py) >= (((__view_get(1, 0) + 320) - self.sprite_height) + self.boundaryup))
+    self.py = ((((__view_get(1, 0) + 320) - self.sprite_height) - self.y) + self.boundaryup)
+self.x += self.px
+self.y += self.py
 if (self.dmgnoise == 1)
 {
     self.dmgnoise = 0
     snd_stop(snd_hurt1)
     snd_play(snd_hurt1)
 }
-global.inv = (global.inv - 1)
+global.inv -= 1
 if (global.inv > 0)
     self.image_speed = 0.25
 else
@@ -261,5 +234,5 @@ else
     self.image_speed = 0
     self.image_index = 0
 }
-global.heartx = ((self.x + 2) - __view_get(e__VW.XView, 0))
-global.hearty = ((self.y + 2) - __view_get(e__VW.YView, 0))
+global.heartx = ((self.x + 2) - __view_get(0, 0))
+global.hearty = ((self.y + 2) - __view_get(1, 0))

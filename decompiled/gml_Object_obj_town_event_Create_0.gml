@@ -17,19 +17,15 @@ if (self.room == room_town_mid)
 if (self.room == room_town_south)
 {
     self.policewindow = scr_marker(292, 57, spr_policewindow)
-    with(self.policewindow)
-    {
+    with (self.policewindow)
         self.depth = 940000
-    }
 }
 if (self.room == room_graveyard)
 {
     self.overlay = instance_create(0, 0, obj_backgrounder_sprite)
-    with(obj_mainchara)
-    {
+    with (obj_mainchara)
         self.bg = 1
-    }
-    with(self.overlay)
+    with (self.overlay)
     {
         self.image_alpha = 0.4
         self.ss = 0.1

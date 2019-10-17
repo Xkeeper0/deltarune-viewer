@@ -4,7 +4,7 @@ if (self.active == 2)
 {
     if instance_exists(self.target)
     {
-        self.frame = (self.frame + self.framespeed)
+        self.frame += self.framespeed
         if (self.frame >= (self.maxframe - 1))
         {
             self.done = 1

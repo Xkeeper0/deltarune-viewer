@@ -1,4 +1,4 @@
-self.buffer = (self.buffer + 1)
+self.buffer += 1
 if (self.buffer == 19)
 {
     self.gravity = 0
@@ -11,32 +11,23 @@ if (self.buffer >= 19)
     self.y = (obj_battlesolid.y - (obj_battlesolid.sprite_height / 2))
     if (self.x <= ((obj_battlesolid.x - (obj_battlesolid.sprite_width / 2)) + 20))
     {
-        self.x = (self.x + 4)
+        self.x += 4
         if (self.hspeed < 0)
-            self.hspeed = (variable)(- self.hspeed)
+            self.hspeed = (-self.hspeed)
     }
     if (self.x <= ((obj_battlesolid.x - (obj_battlesolid.sprite_width / 2)) + 20))
     {
-        self.x = (self.x + 4)
+        self.x += 4
         if (self.hspeed < 0)
-            self.hspeed = (variable)(- self.hspeed)
+            self.hspeed = (-self.hspeed)
     }
     if (self.x >= ((obj_battlesolid.x + (obj_battlesolid.sprite_width / 2)) - 20))
     {
-        self.x = (self.x - 4)
+        self.x -= 4
         if (self.hspeed > 0)
-            self.hspeed = (variable)(- self.hspeed)
+            self.hspeed = (-self.hspeed)
     }
-    if (self.buffer >= 20)
-    {
-        if (self.con == 0)
-            _temp_local_var_1 = (abs((self.x - (obj_heart.x + 10))) < 30)
-        else
-            _temp_local_var_1 = 0
-    }
-    else
-        _temp_local_var_1 = 0
-    if _temp_local_var_1
+    if ((self.buffer >= 20) && ((self.con == 0) && (abs((self.x - (obj_heart.x + 10))) < 30)))
         self.con = 5
     if (self.con == 5)
     {
@@ -45,16 +36,12 @@ if (self.buffer >= 19)
     }
     if (self.con == 6)
     {
-        if (self.image_index >= 2)
-            _temp_local_var_2 = (self.throw == 0)
-        else
-            _temp_local_var_2 = 0
-        if _temp_local_var_2
+        if ((self.image_index >= 2) && (self.throw == 0))
         {
             self.throw = 1
             self.carrot = instance_create(self.x, self.y, obj_collidebullet)
             scr_bullet_inherit(self.carrot)
-            with(self.carrot)
+            with (self.carrot)
             {
                 self.speedmax = 7
                 if (scr_monsterpop() == 2)

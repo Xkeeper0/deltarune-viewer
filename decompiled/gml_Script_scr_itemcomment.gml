@@ -4,8 +4,6 @@ self.itemcomment.msg = self.argument1
 self.itemcomment.who = self.argument0
 if (global.flag[32] == 1)
 {
-    with(self.itemcomment)
-    {
+    with (self.itemcomment)
         instance_destroy()
-    }
 }

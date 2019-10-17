@@ -1,18 +1,11 @@
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 4; self.i += 1)
 {
-    if (self.i < 4)
-    {
-        global.maxhp[self.i] = self.remmaxhp[self.i]
-        if (global.hp[self.i] >= global.maxhp[self.i])
-            global.hp[self.i] = global.maxhp[self.i]
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    global.maxhp[self.i] = self.remmaxhp[self.i]
+    if (global.hp[self.i] >= global.maxhp[self.i])
+        global.hp[self.i] = global.maxhp[self.i]
 }
 global.invc = self.reminvc
-with(obj_joker_body)
+with (obj_joker_body)
 {
     self.image_xscale = 2
     self.image_yscale = 2
@@ -23,26 +16,22 @@ with(obj_joker_body)
 }
 if (global.monsterhp[self.myself] > 0)
 {
-    with(obj_joker_body)
+    with (obj_joker_body)
     {
-        self.x = (self.x + 20)
-        self.y = (self.y + 18)
+        self.x += 20
+        self.y += 18
         scr_spareanim()
-        self.x = (self.x - 20)
-        self.y = (self.y - 18)
+        self.x -= 20
+        self.y -= 18
     }
 }
-with(obj_battlecontroller)
-{
+with (obj_battlecontroller)
     self.skipvictory = 1
-}
 snd_free_all()
 self.body.dancelv = 4
 self.body.condition = 0
-with(obj_jokerbg_triangle_real)
-{
+with (obj_jokerbg_triangle_real)
     self.on = 0
-}
 scr_monsterdefeat()
 global.invc = self.reminvc
 instance_destroy()

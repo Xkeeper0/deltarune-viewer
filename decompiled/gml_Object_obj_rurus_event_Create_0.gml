@@ -1,27 +1,16 @@
 self.image_speed = 0
 self.boxfinished = 0
 self.con = 0
-if (self.room == room_cc_rurus1)
-    _temp_local_var_1 = 1
-else
-    _temp_local_var_1 = (self.room == room_cc_rurus2)
-if _temp_local_var_1
+if ((self.room == room_cc_rurus1) || (self.room == room_cc_rurus2))
 {
     self.spike[0] = scr_dark_marker(80, 240, spr_spiketile)
     self.spike[1] = scr_dark_marker(80, 280, spr_spiketile)
     self.spike[2] = scr_dark_marker(920, 200, spr_spiketile)
     self.spike[3] = scr_dark_marker(920, 240, spr_spiketile)
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < 4; self.i += 1)
     {
-        if (self.i < 4)
-        {
-            self.spike[self.i].depth = 900000
-            self.spike[self.i].image_index = 1
-            self.i = (self.i + 1)
-            continue
-        }
-        break
+        self.spike[self.i].depth = 900000
+        self.spike[self.i].image_index = 1
     }
     if (self.room == room_cc_rurus1)
     {
@@ -43,7 +32,7 @@ if _temp_local_var_1
         else
         {
             self.flashobj = scr_dark_marker(520, 260, spr_lightfairy)
-            with(self.flashobj)
+            with (self.flashobj)
             {
                 self.image_speed = 0.1
                 self.depth = 90000
@@ -60,7 +49,7 @@ if _temp_local_var_1
         else
         {
             self.flashobj = scr_dark_marker(520, 260, spr_lightfairy)
-            with(self.flashobj)
+            with (self.flashobj)
             {
                 self.image_speed = 0.1
                 self.depth = 90000

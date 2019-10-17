@@ -6,17 +6,10 @@ self.image_alpha = 0
 self.image_xscale = 2
 self.image_yscale = 2
 self.image_speed = 1
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 10; self.i += 1)
 {
-    if (self.i < 10)
-    {
-        self.prevx[self.i] = self.x
-        self.prevy[self.i] = self.y
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    self.prevx[self.i] = self.x
+    self.prevy[self.i] = self.y
 }
 self.a = 0
 self.targetx = 0

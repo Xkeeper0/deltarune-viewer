@@ -14,104 +14,65 @@ self.areay2[2] = 1360
 self.battlealpha = 0
 if (self.room == room_forest_dancers1)
 {
-    local.i = 0
-    while(true)
+    for (var i = 0; i < 5; i += 1)
     {
-        if (local.i < 5)
+        self.sc = instance_create(320, (160 + (80 * i)), obj_scissordancer)
+        with (self.sc)
         {
-            self.sc = instance_create(320, (160 + (80 * local.i)), obj_scissordancer)
-            with(self.sc)
-            {
-                self.hspeed = 0
-                self.vspeed = -5
-            }
-            local.i = (local.i + 1)
-            continue
+            self.hspeed = 0
+            self.vspeed = -5
         }
-        break
     }
-    local.i = 0
-    while(true)
+    for (i = 0; i < 4; i += 1)
     {
-        if (local.i < 4)
+        self.sc = instance_create((520 + (80 * i)), 450, obj_scissordancer)
+        with (self.sc)
         {
-            self.sc = instance_create((520 + (80 * local.i)), 450, obj_scissordancer)
-            with(self.sc)
-            {
-                self.vspeed = 0
-                self.hspeed = -5
-            }
-            local.i = (local.i + 1)
-            continue
+            self.vspeed = 0
+            self.hspeed = -5
         }
-        break
     }
-    local.i = 0
-    while(true)
+    for (i = 0; i < 2; i += 1)
     {
-        if (local.i < 2)
+        self.sc = instance_create(500, (170 - (80 * i)), obj_scissordancer)
+        with (self.sc)
         {
-            self.sc = instance_create(500, (170 - (80 * local.i)), obj_scissordancer)
-            with(self.sc)
-            {
-                self.vspeed = 5
-                self.hspeed = 0
-            }
-            local.i = (local.i + 1)
-            continue
+            self.vspeed = 5
+            self.hspeed = 0
         }
-        break
     }
-    local.i = 0
-    while(true)
+    for (i = 0; i < 4; i += 1)
     {
-        if (local.i < 4)
-        {
-            self.sc = instance_create(960, (440 - (80 * local.i)), obj_scissordancer)
-            with(self.sc)
-            {
-                self.vspeed = 5
-            }
-            local.i = (local.i + 1)
-            continue
-        }
-        break
+        self.sc = instance_create(960, (440 - (80 * i)), obj_scissordancer)
+        with (self.sc)
+            self.vspeed = 5
     }
-    local.i = 0
-    while(true)
+    for (i = 0; i < 4; i += 1)
     {
-        if (local.i < 4)
-        {
-            self.sc = instance_create(960, (40 - (80 * local.i)), obj_scissordancer)
-            with(self.sc)
-            {
-                self.vspeed = 5
-            }
-            local.i = (local.i + 1)
-            continue
-        }
-        break
+        self.sc = instance_create(960, (40 - (80 * i)), obj_scissordancer)
+        with (self.sc)
+            self.vspeed = 5
     }
     self.sc = instance_create(280, 830, obj_scissordancer)
-    with(self.sc)
+    with (self.sc)
     {
         self.vspeed = -5
         self.hspeed = 0
     }
     self.sc = instance_create(580, 820, obj_scissordancer)
-    with(self.sc)
+    with (self.sc)
     {
         self.hspeed = 5
         self.vspeed = 0
     }
     self.sc = instance_create(590, 1050, obj_scissordancer)
-    with(self.sc)
+    with (self.sc)
     {
         self.vspeed = 5
         self.hspeed = 0
     }
     self.sc = instance_create(290, 1060, obj_scissordancer)
-    with(self.sc)
+    with (self.sc)
     {
         self.hspeed = -5
         self.vspeed = 0
@@ -126,24 +87,11 @@ if (self.room == room_cc_4f)
     self.areas = 1
 }
 self.tile_fade = 0
-if (self.room == room_forest_dancers1)
-    _temp_local_var_1 = 1
-else
-    _temp_local_var_1 = (self.room == room_cc_4f)
-if _temp_local_var_1
+if ((self.room == room_forest_dancers1) || (self.room == room_cc_4f))
 {
     self.alpha_changed = 0
     self.tile_fade = 1
     self.tilearray = tile_get_ids_at_depth(777777)
-    local.i = 0
-    while(true)
-    {
-        if (local.i < array_length_1d(self.tilearray))
-        {
-            tile_set_alpha(self.tilearray[local.i], 0)
-            local.i = (local.i + 1)
-            continue
-        }
-        break
-    }
+    for (i = 0; i < array_length_1d(self.tilearray); i++)
+        tile_set_alpha(self.tilearray[i], 0)
 }

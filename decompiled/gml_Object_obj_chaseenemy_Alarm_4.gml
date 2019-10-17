@@ -1,1 +1,1 @@
-self.alertcon = (self.alertcon + 1)
+self.alertcon += 1

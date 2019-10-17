@@ -1,5 +1,5 @@
 self.dustparticle = instance_create(((self.x + random((self.sprite_width - 10))) + 10), ((self.y + 20) + random((self.sprite_height - 20))), obj_animation)
-with(self.dustparticle)
+with (self.dustparticle)
 {
     self.sprite_index = spr_rabbick_dustorb
     self.speed = 6
@@ -16,7 +16,7 @@ with(self.dustparticle)
 }
 if (self.blown == 1)
 {
-    with(self.dustparticle)
+    with (self.dustparticle)
     {
         self.image_alpha = 1
         self.depth = -10

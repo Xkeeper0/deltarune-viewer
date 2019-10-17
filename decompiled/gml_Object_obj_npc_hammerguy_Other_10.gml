@@ -9,4 +9,4 @@ global.msc = 315
 scr_text(global.msc)
 self.myinteract = 3
 self.mydialoguer = instance_create(0, 0, obj_dialoguer)
-self.talked = (self.talked + 1)
+self.talked += 1

@@ -14,5 +14,5 @@ self.inv = 60
 self.grazetimer = 0
 self.target = 0
 self.sndcon = 0
-if (self.x < (__view_get(e__VW.XView, 0) + (__view_get(e__VW.WView, 0) / 2)))
+if (self.x < (__view_get(0, 0) + (__view_get(2, 0) / 2)))
     self.sprite_index = spr_joker_teleport_r

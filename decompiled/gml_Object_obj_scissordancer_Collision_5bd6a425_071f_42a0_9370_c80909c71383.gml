@@ -1,3 +1,3 @@
-self.y = (self.y - self.vspeed)
-self.x = (self.x - self.hspeed)
-self.direction = (self.direction + 90)
+self.y -= self.vspeed
+self.x -= self.hspeed
+self.direction += 90

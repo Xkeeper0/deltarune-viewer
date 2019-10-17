@@ -10,14 +10,12 @@ if (self.loc_check == 0)
 if (self.myinteract == 3)
 {
     self.myinteract = 0
-    with(obj_mainchara)
-    {
+    with (obj_mainchara)
         self.onebuffer = 5
-    }
 }
 if (self.bellcon == 1)
 {
-    self.belltimer = (self.belltimer + 1)
+    self.belltimer += 1
     if (self.belltimer >= 30)
     {
         self.belltimer = 0

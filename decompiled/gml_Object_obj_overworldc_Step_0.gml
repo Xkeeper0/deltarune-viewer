@@ -16,7 +16,7 @@ if (global.interact == 5)
             {
                 global.menuno = 9
                 script_execute(scr_litemdesc, global.litem[global.menucoord[1]])
-                script_execute(scr_writetext, 0, "x"@37, 0, 0)
+                script_execute(scr_writetext, 0, "x", 0, 0)
             }
             if (global.menucoord[5] == 2)
             {
@@ -28,30 +28,30 @@ if (global.interact == 5)
                 {
                     self.i = round(random(30))
                     if (self.i == 0)
-                        global.msg[0] = ((scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_32_0"@10058) + global.litemname[global.menucoord[1]]) + "."@1543)
+                        global.msg[0] = ((scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_32_0") + global.litemname[global.menucoord[1]]) + ".")
                     if (self.i == 1)
-                        global.msg[0] = scr_84_get_subst_string(scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_33_0"@10059), global.litemname[global.menucoord[1]])
+                        global.msg[0] = scr_84_get_subst_string(scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_33_0"), global.litemname[global.menucoord[1]])
                     if (self.i == 2)
-                        global.msg[0] = scr_84_get_subst_string(scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_35_0"@10060), global.litemname[global.menucoord[1]])
+                        global.msg[0] = scr_84_get_subst_string(scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_35_0"), global.litemname[global.menucoord[1]])
                     if (self.i == 3)
-                        global.msg[0] = ((scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_36_0"@10061) + global.litemname[global.menucoord[1]]) + "."@1543)
+                        global.msg[0] = ((scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_36_0") + global.litemname[global.menucoord[1]]) + ".")
                     if (self.i > 3)
-                        global.msg[0] = scr_84_get_subst_string(scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_37_0"@10062), global.litemname[global.menucoord[1]])
-                    global.msg[0] = (global.msg[0] + scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_38_0"@10063))
+                        global.msg[0] = scr_84_get_subst_string(scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_37_0"), global.litemname[global.menucoord[1]])
+                    global.msg[0] += scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_38_0")
                     if (global.litem[global.menucoord[1]] == 8)
                     {
-                        global.msg[0] = scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_41_0"@10064)
+                        global.msg[0] = scr_84_get_lang_string("obj_overworldc_slash_Step_0_gml_41_0")
                         if (global.flag[263] == 0)
                             global.flag[263] = 1
                     }
-                    script_execute(scr_writetext, 0, "x"@37, 0, 0)
+                    script_execute(scr_writetext, 0, "x", 0, 0)
                     script_execute(scr_litemshift, global.menucoord[1], 0)
                 }
                 if (self.dontthrow == 1)
                 {
                     global.msc = 10
                     scr_text(global.msc)
-                    script_execute(scr_writetext, 10, "x"@37, 0, 0)
+                    script_execute(scr_writetext, 10, "x", 0, 0)
                 }
             }
         }
@@ -66,7 +66,7 @@ if (global.interact == 5)
             global.menucoord[5] = 0
         }
         if (global.menuno == 0)
-            global.menuno = (global.menuno + (global.menucoord[0] + 1))
+            global.menuno += (global.menucoord[0] + 1)
         if (global.menuno == 3)
         {
             script_execute(scr_phonename)
@@ -88,17 +88,17 @@ if (global.interact == 5)
         if (global.menuno == 0)
         {
             if (global.menucoord[0] != 0)
-                global.menucoord[0] = (global.menucoord[0] - 1)
+                global.menucoord[0] -= 1
         }
         if (global.menuno == 1)
         {
             if (global.menucoord[1] != 0)
-                global.menucoord[1] = (global.menucoord[1] - 1)
+                global.menucoord[1] -= 1
         }
         if (global.menuno == 3)
         {
             if (global.menucoord[3] != 0)
-                global.menucoord[3] = (global.menucoord[3] - 1)
+                global.menucoord[3] -= 1
         }
     }
     if down_p()
@@ -106,14 +106,14 @@ if (global.interact == 5)
         if (global.menuno == 0)
         {
             if (global.menucoord[0] != 2)
-                global.menucoord[0] = (global.menucoord[0] + 1)
+                global.menucoord[0] += 1
         }
         if (global.menuno == 1)
         {
             if (global.menucoord[1] != 7)
             {
                 if (global.litem[(global.menucoord[1] + 1)] != 0)
-                    global.menucoord[1] = (global.menucoord[1] + 1)
+                    global.menucoord[1] += 1
             }
         }
         if (global.menuno == 3)
@@ -121,26 +121,19 @@ if (global.interact == 5)
             if (global.menucoord[3] != 7)
             {
                 if (global.phone[(global.menucoord[3] + 1)] != 0)
-                    global.menucoord[3] = (global.menucoord[3] + 1)
+                    global.menucoord[3] += 1
             }
         }
     }
-    if button2_p()
-        _temp_local_var_1 = (self.buffer >= 0)
-    else
-        _temp_local_var_1 = 0
-    if _temp_local_var_1
+    if (button2_p() && (self.buffer >= 0))
     {
         if (global.menuno == 0)
         {
             global.menuno = -1
             global.interact = 0
         }
-        else
-        {
-            if (global.menuno <= 3)
-                global.menuno = 0
-        }
+        else if (global.menuno <= 3)
+            global.menuno = 0
         if (global.menuno == 5)
             global.menuno = 1
     }
@@ -149,7 +142,7 @@ if (global.interact == 5)
         if (global.menuno == 5)
         {
             if (global.menucoord[5] != 2)
-                global.menucoord[5] = (global.menucoord[5] + 1)
+                global.menucoord[5] += 1
         }
     }
     if left_p()
@@ -157,7 +150,7 @@ if (global.interact == 5)
         if (global.menuno == 5)
         {
             if (global.menucoord[5] != 0)
-                global.menucoord[5] = (global.menucoord[5] - 1)
+                global.menucoord[5] -= 1
         }
     }
     if button3_p()
@@ -168,30 +161,15 @@ if (global.interact == 5)
             global.interact = 0
         }
     }
-    if (self.currentmenu < global.menuno)
-        _temp_local_var_2 = (global.menuno != 9)
-    else
-        _temp_local_var_2 = 0
-    if _temp_local_var_2
+    if ((self.currentmenu < global.menuno) && (global.menuno != 9))
         self.selnoise = 1
-    else
+    else if ((global.menuno >= 0) && (global.menuno < 6))
     {
-        if (global.menuno >= 0)
-            _temp_local_var_5 = (global.menuno < 6)
-        else
-            _temp_local_var_5 = 0
-        if _temp_local_var_5
-        {
-            if (self.currentspot != global.menucoord[global.menuno])
-                self.movenoise = 1
-        }
+        if (self.currentspot != global.menucoord[global.menuno])
+            self.movenoise = 1
     }
 }
-if (global.menuno == 9)
-    _temp_local_var_3 = (instance_exists(obj_dialoguer) == 0)
-else
-    _temp_local_var_3 = 0
-if _temp_local_var_3
+if ((global.menuno == 9) && (instance_exists(obj_dialoguer) == 0))
 {
     global.menuno = -1
     global.interact = 0
@@ -208,12 +186,12 @@ if (self.movenoise == 1)
 }
 if scr_debug()
 {
-    if keyboard_check_pressed('S')
+    if keyboard_check_pressed(ord("S"))
         instance_create(0, 0, obj_savemenu)
-    if keyboard_check_pressed('F')
+    if keyboard_check_pressed(ord("F"))
         self.room_speed = 58
-    if keyboard_check_pressed('L')
+    if keyboard_check_pressed(ord("L"))
         scr_load()
-    if keyboard_check_pressed('R')
+    if keyboard_check_pressed(ord("R"))
         game_restart_true()
 }

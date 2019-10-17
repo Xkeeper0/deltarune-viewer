@@ -5,7 +5,7 @@ if (self.chaincon == 0)
         self.chain_noise = 1
         self.chainsnd = snd_loop(snd_chain_extend)
     }
-    self.sons = (self.sons + 1)
+    self.sons += 1
     self.son[self.sons] = instance_create(self.x, self.y, obj_chainpiece)
     if (self.x <= obj_nonsolid_growtangle.x)
     {
@@ -20,10 +20,8 @@ if (self.chaincon == 0)
         self.remx_box = obj_nonsolid_growtangle.x
         self.remy_box = obj_nonsolid_growtangle.y
         self.chaincon = 2.1
-        with(obj_growtangle)
-        {
+        with (obj_growtangle)
             self.megakeep = 1
-        }
     }
 }
 if (self.chaincon == 2.1)
@@ -35,11 +33,11 @@ if (self.chaincon == 2.1)
     self.shakedir = random(360)
     self.xshake = lengthdir_x(self.shakeamt, self.shakedir)
     self.yshake = lengthdir_y(self.shakeamt, self.shakedir)
-    obj_heart.x = (obj_heart.x + self.xshake)
-    obj_heart.y = (obj_heart.y + self.yshake)
-    obj_nonsolid_growtangle.x = (obj_nonsolid_growtangle.x + self.xshake)
-    obj_nonsolid_growtangle.y = (obj_nonsolid_growtangle.y + self.yshake)
-    self.shakeamt = (self.shakeamt - 2)
+    obj_heart.x += self.xshake
+    obj_heart.y += self.yshake
+    obj_nonsolid_growtangle.x += self.xshake
+    obj_nonsolid_growtangle.y += self.yshake
+    self.shakeamt -= 2
     if (self.shakeamt < 0)
         self.chaincon = 3
 }
@@ -52,12 +50,12 @@ if (self.chaincon == 3)
     }
     if (self.type == 0)
     {
-        self.siner = (self.siner + 1)
+        self.siner += 1
         obj_chainking.y = (self.initkingy + (sin((self.siner / 12)) * 80))
-        self.btimer = (self.btimer + 1)
+        self.btimer += 1
         if (self.btimer >= 20)
         {
-            self.regbul = instance_create((__view_get(e__VW.XView, 0) - 20), self.initboxy, obj_regularbullet)
+            self.regbul = instance_create((__view_get(0, 0) - 20), self.initboxy, obj_regularbullet)
             self.regbul.sprite_index = spr_spadebullet
             self.regbul.hspeed = 4
             scr_bullet_inherit(self.regbul)
@@ -68,12 +66,12 @@ if (self.chaincon == 3)
     }
     if (self.type == 1)
     {
-        self.siner = (self.siner + 1)
+        self.siner += 1
         obj_chainking.y = (self.initkingy + (sin((self.siner / 10)) * 80))
-        self.btimer = (self.btimer + 1)
+        self.btimer += 1
         if (self.btimer >= 18)
         {
-            self.regbul = instance_create((__view_get(e__VW.XView, 0) - 20), self.initboxy, obj_regularbullet)
+            self.regbul = instance_create((__view_get(0, 0) - 20), self.initboxy, obj_regularbullet)
             self.regbul.sprite_index = spr_spadebullet
             self.regbul.hspeed = 4
             scr_bullet_inherit(self.regbul)
@@ -84,12 +82,12 @@ if (self.chaincon == 3)
     }
     if (self.type == 2)
     {
-        self.siner = (self.siner + 1)
+        self.siner += 1
         obj_chainking.y = (self.initkingy + (sin((self.siner / 9)) * 80))
-        self.btimer = (self.btimer + 1)
+        self.btimer += 1
         if (self.btimer >= 16)
         {
-            self.regbul = instance_create((__view_get(e__VW.XView, 0) - 20), self.initboxy, obj_regularbullet)
+            self.regbul = instance_create((__view_get(0, 0) - 20), self.initboxy, obj_regularbullet)
             self.regbul.sprite_index = spr_spadebullet
             self.regbul.hspeed = 4
             scr_bullet_inherit(self.regbul)
@@ -100,12 +98,12 @@ if (self.chaincon == 3)
     }
     if (self.type == 3)
     {
-        self.siner = (self.siner + 1)
+        self.siner += 1
         obj_chainking.y = (self.initkingy + ((sin((self.siner / 7)) * 80) * self.wavefactor))
-        self.btimer = (self.btimer + 1)
+        self.btimer += 1
         if (self.btimer >= 14)
         {
-            self.regbul = instance_create((__view_get(e__VW.XView, 0) - 20), self.initboxy, obj_regularbullet)
+            self.regbul = instance_create((__view_get(0, 0) - 20), self.initboxy, obj_regularbullet)
             self.regbul.sprite_index = spr_spadebullet
             self.regbul.hspeed = 4
             scr_bullet_inherit(self.regbul)
@@ -119,29 +117,15 @@ if instance_exists(obj_chainking)
 {
     self.kingx[0] = (obj_chainking.x - self.initkingx)
     self.kingy[0] = (obj_chainking.y - self.initkingy)
-    self.i = 40
-    while(true)
+    for (self.i = 40; self.i > 0; self.i -= 1)
     {
-        if (self.i > 0)
-        {
-            self.kingx[self.i] = self.kingx[(self.i - 1)]
-            self.kingy[self.i] = self.kingy[(self.i - 1)]
-            self.i = (self.i - 1)
-            continue
-        }
-        break
+        self.kingx[self.i] = self.kingx[(self.i - 1)]
+        self.kingy[self.i] = self.kingy[(self.i - 1)]
     }
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i <= self.sons; self.i += 1)
     {
-        if (self.i <= self.sons)
-        {
-            self.son[self.i].x = (self.kingx[self.i] + self.son[self.i].xstart)
-            self.son[self.i].y = (self.kingy[self.i] + self.son[self.i].ystart)
-            self.i = (self.i + 1)
-            continue
-        }
-        break
+        self.son[self.i].x = (self.kingx[self.i] + self.son[self.i].xstart)
+        self.son[self.i].y = (self.kingy[self.i] + self.son[self.i].ystart)
     }
     if (self.chaincon >= 3)
     {
@@ -151,18 +135,16 @@ if instance_exists(obj_chainking)
         obj_nonsolid_growtangle.y = (self.kingy[self.sons] + self.initboxy)
     }
 }
-self.t = (self.t + 1)
+self.t += 1
 if (self.t >= (self.tmax - 10))
 {
-    self.wavefactor = (self.wavefactor * 0.8)
-    with(obj_chainpiece)
-    {
-        self.image_alpha = (self.image_alpha - 0.1)
-    }
-    with(obj_regularbullet)
+    self.wavefactor *= 0.8
+    with (obj_chainpiece)
+        self.image_alpha -= 0.1
+    with (obj_regularbullet)
     {
         self.active = 0
-        self.image_alpha = (self.image_alpha - 0.1)
+        self.image_alpha -= 0.1
     }
 }
 if (self.t >= self.tmax)
@@ -173,17 +155,11 @@ if (self.t >= self.tmax)
         snd_stop(self.wavenoise)
     }
     global.turntimer = 3
-    with(obj_regularbullet)
-    {
+    with (obj_regularbullet)
         instance_destroy()
-    }
-    with(obj_chainking)
-    {
+    with (obj_chainking)
         self.sprite_index = spr_chainking_receive
-    }
-    with(obj_chainking)
-    {
+    with (obj_chainking)
         instance_destroy()
-    }
     instance_destroy()
 }

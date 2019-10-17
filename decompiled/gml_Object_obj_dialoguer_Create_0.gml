@@ -3,8 +3,8 @@ self.active = 0
 self.alarm[0] = 1
 self.skippable = 1
 self.free = 0
-self.xxx = __view_get(e__VW.XView, 0)
-self.yyy = __view_get(e__VW.YView, 0)
+self.xxx = __view_get(0, 0)
+self.yyy = __view_get(1, 0)
 self.writer = 432432
 self.side = 1
 if instance_exists(obj_mainchara)

@@ -6,4 +6,4 @@ self._oflash.image_yscale = self.image_yscale
 self._oflash.sprite_index = self.sprite_index
 self._oflash.depth = (self.depth - 1)
 self._oflash.target = self.id
-return self._oflash
+return self._oflash;

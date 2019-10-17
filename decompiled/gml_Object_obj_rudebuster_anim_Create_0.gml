@@ -7,8 +7,6 @@ self.damage = 1
 self.caster = 0
 self.star = 0
 self.depth = obj_herosusie.depth
-with(obj_herosusie)
-{
+with (obj_herosusie)
     self.visible = 0
-}
 self.red = 0

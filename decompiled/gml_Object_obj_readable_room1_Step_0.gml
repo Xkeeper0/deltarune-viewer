@@ -4,9 +4,7 @@ if (self.myinteract == 3)
     {
         global.interact = 0
         self.myinteract = 0
-        with(obj_mainchara)
-        {
+        with (obj_mainchara)
             self.onebuffer = 3
-        }
     }
 }

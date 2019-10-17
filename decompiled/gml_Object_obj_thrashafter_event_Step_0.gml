@@ -1,10 +1,6 @@
 if (self.con == 1)
 {
-    if (obj_mainchara.x >= (self.x - 140))
-        _temp_local_var_1 = (global.interact == 0)
-    else
-        _temp_local_var_1 = 0
-    if _temp_local_var_1
+    if ((obj_mainchara.x >= (self.x - 140)) && (global.interact == 0))
     {
         snd_free_all()
         global.facing = 1
@@ -21,31 +17,27 @@ if (self.con == 3)
     global.fe = 6
     global.fc = 5
     global.typer = 32
-    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_22_0"@4698)
-    global.msg[1] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_23_0"@4699)
+    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_22_0")
+    global.msg[1] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_23_0")
     scr_ralface(2, 6)
-    global.msg[3] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_25_0"@4700)
+    global.msg[3] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_25_0")
     scr_susface(4, 0)
-    global.msg[5] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_27_0"@4701)
-    global.msg[6] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_28_0"@4702)
-    self.name = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_29_0"@4703)
+    global.msg[5] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_27_0")
+    global.msg[6] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_28_0")
+    self.name = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_29_0")
     if (global.flag[214] == 1)
-        self.name = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_30_0"@4704)
+        self.name = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_30_0")
     if (global.flag[214] == 2)
-        self.name = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_31_0"@4705)
+        self.name = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_31_0")
     if (global.flag[214] == 3)
-        self.name = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_32_0"@4706)
+        self.name = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_32_0")
     scr_lanface(7, 3)
-    global.msg[8] = scr_84_get_subst_string(scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_34_0"@4707), self.name)
-    global.msg[9] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_35_0"@4708)
+    global.msg[8] = scr_84_get_subst_string(scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_34_0"), self.name)
+    global.msg[9] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_35_0")
     instance_create(0, 0, obj_dialoguer)
     self.con = 4
 }
-if (self.con == 4)
-    _temp_local_var_2 = (~ d_ex())
-else
-    _temp_local_var_2 = 0
-if _temp_local_var_2
+if ((self.con == 4) && (!d_ex()))
 {
     self.sprite_index = spr_lancer_rt_unhappy
     self.hspeed = 4
@@ -61,17 +53,13 @@ if (self.con == 5)
 if (self.con == 7)
 {
     global.fe = 7
-    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_59_0"@4709)
-    global.msg[1] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_60_0"@4710)
-    global.msg[2] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_61_0"@4711)
+    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_59_0")
+    global.msg[1] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_60_0")
+    global.msg[2] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_61_0")
     instance_create(0, 0, obj_dialoguer)
     self.con = 8
 }
-if (self.con == 8)
-    _temp_local_var_3 = (~ d_ex())
-else
-    _temp_local_var_3 = 0
-if _temp_local_var_3
+if ((self.con == 8) && (!d_ex()))
 {
     self.con = 9
     self.alarm[4] = 20
@@ -81,18 +69,14 @@ if (self.con == 10)
     global.typer = 30
     global.fe = 12
     global.fc = 1
-    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_77_0"@4712)
-    global.msg[1] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_78_0"@4713)
-    global.msg[2] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_79_0"@4714)
-    global.msg[3] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_80_0"@4715)
+    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_77_0")
+    global.msg[1] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_78_0")
+    global.msg[2] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_79_0")
+    global.msg[3] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_80_0")
     self.con = 11
     instance_create(0, 0, obj_dialoguer)
 }
-if (self.con == 11)
-    _temp_local_var_4 = (~ d_ex())
-else
-    _temp_local_var_4 = 0
-if _temp_local_var_4
+if ((self.con == 11) && (!d_ex()))
 {
     self.sprite_index = spr_lancer_lt
     self.hspeed = -8
@@ -109,20 +93,16 @@ if (self.con == 15)
 {
     global.fc = 5
     global.fe = 6
-    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_104_0"@4716)
+    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_104_0")
     scr_susface(1, 2)
-    global.msg[2] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_106_0"@4717)
+    global.msg[2] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_106_0")
     scr_lanface(3, 3)
-    global.msg[4] = scr_84_get_subst_string(scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_108_0"@4718), self.name)
-    global.msg[5] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_109_0"@4719)
+    global.msg[4] = scr_84_get_subst_string(scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_108_0"), self.name)
+    global.msg[5] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_109_0")
     instance_create(0, 0, obj_dialoguer)
     self.con = 16
 }
-if (self.con == 16)
-    _temp_local_var_5 = (~ d_ex())
-else
-    _temp_local_var_5 = 0
-if _temp_local_var_5
+if ((self.con == 16) && (!d_ex()))
 {
     self.sprite_index = spr_lancer_dt
     self.con = 17
@@ -132,28 +112,24 @@ if (self.con == 18)
 {
     self.sprite_index = spr_lancer_lt
     global.fe = 3
-    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_125_0"@4720)
+    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_125_0")
     scr_susface(1, 2)
-    global.msg[2] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_127_0"@4721)
+    global.msg[2] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_127_0")
     scr_ralface(3, 3)
-    global.msg[4] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_129_0"@4722)
-    global.msg[5] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_130_0"@4723)
+    global.msg[4] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_129_0")
+    global.msg[5] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_130_0")
     scr_lanface(6, 8)
-    global.msg[7] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_132_0"@4724)
+    global.msg[7] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_132_0")
     instance_create(0, 0, obj_dialoguer)
     self.con = 19
-    global.currentsong[0] = snd_init("fanfare.ogg"@4495)
+    global.currentsong[0] = snd_init("fanfare.ogg")
 }
-if (self.con == 19)
-    _temp_local_var_6 = (~ d_ex())
-else
-    _temp_local_var_6 = 0
-if _temp_local_var_6
+if ((self.con == 19) && (!d_ex()))
 {
     global.currentsong[1] = mus_play(global.currentsong[0])
     global.fc = 0
     global.typer = 51
-    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_144_0"@4725)
+    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_144_0")
     self.d = instance_create(0, 0, obj_dialoguer)
     self.d.skippable = 0
     self.con = 20
@@ -162,37 +138,25 @@ if _temp_local_var_6
 if (self.con == 21)
 {
     snd_free_all()
-    with(obj_dialoguer)
-    {
+    with (obj_dialoguer)
         instance_destroy()
-    }
-    with(obj_writer)
-    {
+    with (obj_writer)
         instance_destroy()
-    }
     global.typer = 30
     global.fe = 8
     global.fc = 1
-    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_159_0"@4726)
+    global.msg[0] = scr_84_get_lang_string("obj_thrashafter_event_slash_Step_0_gml_159_0")
     instance_create(0, 0, obj_dialoguer)
     self.con = 22
 }
-if (self.con == 22)
-    _temp_local_var_7 = (~ d_ex())
-else
-    _temp_local_var_7 = 0
-if _temp_local_var_7
+if ((self.con == 22) && (!d_ex()))
 {
     self.sprite_index = spr_lancer_dt
     self.vspeed = -8
     self.con = 24
     self.alarm[4] = 10
 }
-if (self.con == 25)
-    _temp_local_var_8 = (~ d_ex())
-else
-    _temp_local_var_8 = 0
-if _temp_local_var_8
+if ((self.con == 25) && (!d_ex()))
 {
     self.npc = instance_create(self.x, self.y, obj_npc_room)
     self.npc.sprite_index = spr_lancer_dt

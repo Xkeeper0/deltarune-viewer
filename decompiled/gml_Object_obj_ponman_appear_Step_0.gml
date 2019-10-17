@@ -1,10 +1,6 @@
 if (self.con == 0)
 {
-    if (obj_mainchara.x >= (self.x - 60))
-        _temp_local_var_1 = (obj_mainchara.x <= (self.x + 60))
-    else
-        _temp_local_var_1 = 0
-    if _temp_local_var_1
+    if ((obj_mainchara.x >= (self.x - 60)) && (obj_mainchara.x <= (self.x + 60)))
     {
         self.con = 1
         self.image_speed = 0.334
@@ -31,7 +27,7 @@ if (self.con == 4)
 if (self.con == 5)
 {
     if (self.eye_factor < 5)
-        self.eye_factor = (self.eye_factor + 1)
+        self.eye_factor += 1
     self.eye_angle = 270
     self.eye_radius = (((self.vspeed * self.eye_factor) / 5) * 0.7)
     if (self.y >= self.maxy)
@@ -46,7 +42,7 @@ if (self.con == 5)
     }
 }
 if (self.con == 6)
-    self.eye_radius = (self.eye_radius * 0.5)
+    self.eye_radius *= 0.5
 if (self.con == 7)
 {
     if (global.interact == 0)
@@ -58,7 +54,7 @@ if (self.con == 7)
         }
         scr_depth()
         if (self.eye_radius < 8)
-            self.eye_radius = (self.eye_radius + 2)
+            self.eye_radius += 2
         self.eye_angle = point_direction((self.x + 32), (self.y + 28), (obj_mainchara.x + 20), (obj_mainchara.y + 20))
         self.image_speed = 0.25
         self.direction = self.eye_angle
@@ -70,7 +66,7 @@ if (self.con == 7)
         if (self.room == room_field_checkers5)
             self.maxspeed = 9
         if (self.speed < self.maxspeed)
-            self.speed = (self.speed + 2)
+            self.speed += 2
         if collision_rectangle(self.bbox_left, self.bbox_top, self.bbox_right, self.bbox_bottom, obj_mainchara, 0, 1)
         {
             self.myencounter = 13
@@ -80,23 +76,21 @@ if (self.con == 7)
                 self.myencounter = choose(13, 14)
             if (self.room == room_field_checkers5)
                 self.myencounter = 14
-            global.flag[502] = (global.flag[502] + 1)
+            global.flag[502] += 1
             self.newme = instance_create(self.x, self.y, obj_testoverworldenemy)
             self.newme.sprite_index = spr_ponman_touched
             self.newme.touchsprite = 555
             self.newme.slidesprite = 555
             self.newme.image_index = 5
             self.newme.image_speed = 0
-            with(self.newme)
+            with (self.newme)
             {
                 event_user(0)
                 scr_depth()
             }
             global.encounterno = self.myencounter
-            with(obj_ponman_appear)
-            {
+            with (obj_ponman_appear)
                 self.fadecon = 1
-            }
             instance_destroy()
         }
     }

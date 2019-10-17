@@ -1,17 +1,10 @@
 self.con = 0
 self.timer = 0
-self.lyric = " "@24
+self.lyric = " "
 self.textalpha = 1
 self.creditalpha = 1
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 8; self.i += 1)
 {
-    if (self.i < 8)
-    {
-        self.line[self.i] = " "@24
-        self.linecolor[self.i] = 16777215
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    self.line[self.i] = " "
+    self.linecolor[self.i] = 16777215
 }

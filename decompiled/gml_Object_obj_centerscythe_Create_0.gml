@@ -51,21 +51,21 @@ if (instance_number(obj_centerscythe) == 1)
     self.x = (self.centerx - self.radius)
     self.y = self.centery
     self.s2 = instance_create((self.centerx + self.radius), self.centery, obj_centerscythe)
-    with(self.s2)
+    with (self.s2)
     {
         self.sine = 0
         self.dir = 180
         self.un = 1
     }
     self.s3 = instance_create(self.centerx, (self.centery - self.radius), obj_centerscythe)
-    with(self.s3)
+    with (self.s3)
     {
         self.sine = 0
         self.dir = 90
         self.un = 0
     }
     self.s4 = instance_create(self.centerx, (self.centery + self.radius), obj_centerscythe)
-    with(self.s4)
+    with (self.s4)
     {
         self.sine = 0
         self.dir = 270
@@ -75,10 +75,10 @@ if (instance_number(obj_centerscythe) == 1)
     obj_centerscythe.sinespeed = self.sinespeed
     obj_centerscythe.dirspeed = self.dirspeed
     obj_centerscythe.insanity = self.insanity
-    with(obj_centerscythe)
+    with (obj_centerscythe)
     {
         if (self.dir != self.mydir)
-            self.dir = (self.dir + self.mydir)
+            self.dir += self.mydir
         self.x = (self.centerx - lengthdir_x(self.radius, self.dir))
         self.y = (self.centery - lengthdir_y(self.radius, self.dir))
     }

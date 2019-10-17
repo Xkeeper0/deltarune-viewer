@@ -1,4 +1,2 @@
-with(other.id)
-{
+with (other.id)
     event_user(5)
-}

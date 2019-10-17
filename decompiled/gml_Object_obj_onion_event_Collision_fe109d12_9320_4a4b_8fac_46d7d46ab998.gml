@@ -1,2 +1,2 @@
 if (global.interact == 0)
-    self.onioncount = (self.onioncount + 2)
+    self.onioncount += 2

@@ -9,4 +9,4 @@ if (global.charmove[self.argument0] == 0)
     self.charcan = 0
 if (global.charauto[global.char[self.argument0]] == 1)
     self.charcan = 0
-return self.charcan
+return self.charcan;

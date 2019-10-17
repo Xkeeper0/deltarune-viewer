@@ -1,10 +1,8 @@
 self.image_index = (self.t / 2)
 if (self.t >= 28)
 {
-    with(obj_herosusie)
-    {
+    with (obj_herosusie)
         self.visible = 1
-    }
     instance_destroy()
 }
 if instance_exists(self.target)
@@ -21,4 +19,4 @@ if instance_exists(self.target)
             self.blast.red = 1
     }
 }
-self.t = (self.t + 1)
+self.t += 1

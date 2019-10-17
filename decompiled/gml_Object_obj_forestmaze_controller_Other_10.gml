@@ -19,7 +19,7 @@ if (self.room == room_forest_maze2)
     self.roomchoice = room_forest_maze2
 if (self.sidechoice == self.proper_choice)
 {
-    global.flag[291] = (global.flag[291] + 1)
+    global.flag[291] += 1
     global.flag[292] = 0
     if (global.flag[291] == 4)
     {
@@ -42,7 +42,7 @@ else
 {
     self.rem291 = global.flag[291]
     global.flag[291] = 0
-    global.flag[292] = (global.flag[292] + 1)
+    global.flag[292] += 1
     if (global.flag[293] >= 1)
         global.flag[292] = 3
     if (self.room == room_forest_maze2)

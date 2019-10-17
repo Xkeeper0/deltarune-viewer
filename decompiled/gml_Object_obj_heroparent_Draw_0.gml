@@ -1,16 +1,8 @@
 if (global.hp[global.char[self.myself]] > 0)
 {
-    if (global.myfight == 3)
-        _temp_local_var_1 = (global.faceaction[self.myself] == 6)
-    else
-        _temp_local_var_1 = 0
-    if _temp_local_var_1
+    if ((global.myfight == 3) && (global.faceaction[self.myself] == 6))
         self.state = 6
-    if (self.state == 0)
-        _temp_local_var_2 = (self.hurt == 0)
-    else
-        _temp_local_var_2 = 0
-    if _temp_local_var_2
+    if ((self.state == 0) && (self.hurt == 0))
     {
         self.acttimer = 0
         self.thissprite = self.idlesprite
@@ -32,22 +24,18 @@ if (global.hp[global.char[self.myself]] > 0)
             self.thissprite = self.defendsprite
             self.index = self.defendtimer
             if (self.defendtimer < self.defendframes)
-                self.defendtimer = (self.defendtimer + 0.5)
+                self.defendtimer += 0.5
         }
         else
         {
             self.defendtimer = 0
             self.index = (self.siner / 5)
         }
-        self.siner = (self.siner + 1)
+        self.siner += 1
     }
-    if (self.state == 1)
-        _temp_local_var_3 = (self.hurt == 0)
-    else
-        _temp_local_var_3 = 0
-    if _temp_local_var_3
+    if ((self.state == 1) && (self.hurt == 0))
     {
-        self.siner = (self.siner + 1)
+        self.siner += 1
         if (self.attacked == 0)
         {
             snd_stop(snd_laz_c)
@@ -67,27 +55,16 @@ if (global.hp[global.char[self.myself]] > 0)
             {
                 snd_stop(snd_criticalswing)
                 snd_play(snd_criticalswing)
-                _temp_local_var_4 = 3
-                if (3 <= 0)
+                repeat (3)
                 {
-                }
-                else
-                {
-                    while(true)
-                    {
-                        self.anim = instance_create(((self.x + self.mywidth) + random(50)), ((self.y + 30) + random(30)), obj_afterimage)
-                        self.anim.sprite_index = spr_lightfairy
-                        self.anim.image_speed = 0.25
-                        self.anim.depth = -20
-                        self.anim.image_xscale = 2
-                        self.anim.image_yscale = 2
-                        self.anim.hspeed = (2 + random(4))
-                        self.anim.friction = -0.25
-                        _temp_local_var_4 = (_temp_local_var_4 - 1)
-                        if (_temp_local_var_4 - 1)
-                            continue
-                        break
-                    }
+                    self.anim = instance_create(((self.x + self.mywidth) + random(50)), ((self.y + 30) + random(30)), obj_afterimage)
+                    self.anim.sprite_index = spr_lightfairy
+                    self.anim.image_speed = 0.25
+                    self.anim.depth = -20
+                    self.anim.image_xscale = 2
+                    self.anim.image_yscale = 2
+                    self.anim.hspeed = (2 + random(4))
+                    self.anim.friction = -0.25
                 }
             }
             self.attacked = 1
@@ -99,15 +76,11 @@ if (global.hp[global.char[self.myself]] > 0)
             self.image_index = self.attackframes
         self.thissprite = self.attacksprite
         self.index = self.image_index
-        self.attacktimer = (self.attacktimer + self.attackspeed)
+        self.attacktimer += self.attackspeed
     }
-    if (self.state == 2)
-        _temp_local_var_5 = (self.hurt == 0)
-    else
-        _temp_local_var_5 = 0
-    if _temp_local_var_5
+    if ((self.state == 2) && (self.hurt == 0))
     {
-        self.siner = (self.siner + 1)
+        self.siner += 1
         if (self.itemed == 0)
         {
             self.itemed = 1
@@ -121,15 +94,11 @@ if (global.hp[global.char[self.myself]] > 0)
             self.attacktimer = 0
         self.thissprite = self.spellsprite
         self.index = self.image_index
-        self.attacktimer = (self.attacktimer + 0.5)
+        self.attacktimer += 0.5
     }
-    if (self.state == 4)
-        _temp_local_var_6 = (self.hurt == 0)
-    else
-        _temp_local_var_6 = 0
-    if _temp_local_var_6
+    if ((self.state == 4) && (self.hurt == 0))
     {
-        self.siner = (self.siner + 1)
+        self.siner += 1
         if (self.itemed == 0)
         {
             self.itemed = 1
@@ -143,17 +112,17 @@ if (global.hp[global.char[self.myself]] > 0)
             self.attacktimer = 0
         self.index = self.image_index
         self.thissprite = self.itemsprite
-        self.attacktimer = (self.attacktimer + 0.5)
+        self.attacktimer += 0.5
     }
     if (self.state == 6)
     {
         if (global.myfight == 3)
         {
             if (self.acttimer < self.actframes)
-                self.acttimer = (self.acttimer + 0.5)
+                self.acttimer += 0.5
         }
         else
-            self.acttimer = (self.acttimer + 0.5)
+            self.acttimer += 0.5
         self.thissprite = self.actsprite
         self.index = self.acttimer
         if (self.acttimer >= self.actreturnframes)
@@ -171,7 +140,7 @@ if (global.hp[global.char[self.myself]] > 0)
         {
             self.thissprite = self.victorysprite
             self.index = self.victoryanim
-            self.victoryanim = (self.victoryanim + 0.334)
+            self.victoryanim += 0.334
         }
         else
         {
@@ -211,7 +180,7 @@ if (global.hp[global.char[self.myself]] > 0)
             if (global.faceaction[self.myself] == 5)
                 global.faceaction[self.myself] = 0
         }
-        self.hurttimer = (self.hurttimer + 1)
+        self.hurttimer += 1
     }
 }
 else
@@ -221,7 +190,7 @@ else
     self.hurt = 0
     self.thissprite = self.defeatsprite
     self.index = 0
-    self.siner = (self.siner + 1)
+    self.siner += 1
 }
 if (self.specdraw == 0)
 {
@@ -230,9 +199,9 @@ if (self.specdraw == 0)
     draw_sprite_ext(self.thissprite, self.index, self.x, self.y, 2, 2, 0, self.image_blend, self.image_alpha)
     if (self.flash == 1)
     {
-        self.fsiner = (self.fsiner + 1)
+        self.fsiner += 1
         d3d_set_fog(1, 16777215, 0, 1)
-        draw_sprite_ext(self.thissprite, self.index, self.x, self.y, 2, 2, 0, self.image_blend, (((variable)(- cos((self.fsiner / 5))) * 0.4) + 0.6))
+        draw_sprite_ext(self.thissprite, self.index, self.x, self.y, 2, 2, 0, self.image_blend, (((-cos((self.fsiner / 5))) * 0.4) + 0.6))
         d3d_set_fog(0, 0, 0, 0)
     }
 }
@@ -242,28 +211,21 @@ if (self.becomeflash == 0)
 if (global.targeted[self.myself] == 1)
 {
     if (global.mnfight == 1)
-        draw_sprite_ext(spr_chartarget, (self.siner / 10), self.x, self.y, 2, 2, 0, 0xFFFFFF, 1)
+        draw_sprite_ext(spr_chartarget, (self.siner / 10), self.x, self.y, 2, 2, 0, 0x00FFFFFF, 1)
 }
-else
+else if ((self.combatdarken == 1) && instance_exists(obj_darkener))
 {
-    if (self.combatdarken == 1)
-        _temp_local_var_7 = instance_exists(obj_darkener)
-    else
-        _temp_local_var_7 = 0
-    if _temp_local_var_7
+    if (self.darkify == 1)
     {
-        if (self.darkify == 1)
-        {
-            if (self.darkentimer < 15)
-                self.darkentimer = (self.darkentimer + 1)
-            self.image_blend = merge_color(0xFFFFFF, 0x000000, (self.darkentimer / 30))
-        }
+        if (self.darkentimer < 15)
+            self.darkentimer += 1
+        self.image_blend = merge_color(0x00FFFFFF, 0x00000000, (self.darkentimer / 30))
     }
 }
 if (self.darkify == 0)
 {
     if (self.darkentimer > 0)
-        self.darkentimer = (self.darkentimer - 3)
-    self.image_blend = merge_color(0xFFFFFF, 0x000000, (self.darkentimer / 30))
+        self.darkentimer -= 3
+    self.image_blend = merge_color(0x00FFFFFF, 0x00000000, (self.darkentimer / 30))
 }
 self.becomeflash = 0

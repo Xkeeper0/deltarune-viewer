@@ -66,11 +66,7 @@ if (self.room == room_forest_fightsusie)
     else
         room_goto(room_forest_castlefront)
 }
-if (self.room == room_forest_maze1)
-    _temp_local_var_1 = 1
-else
-    _temp_local_var_1 = (self.room == room_forest_maze2)
-if _temp_local_var_1
+if ((self.room == room_forest_maze1) || (self.room == room_forest_maze2))
 {
     if (self.y >= (self.room_width / 2))
     {
@@ -88,9 +84,7 @@ if _temp_local_var_1
     }
     else
     {
-        with(obj_forestmaze_controller)
-        {
+        with (obj_forestmaze_controller)
             event_user(0)
-        }
     }
 }

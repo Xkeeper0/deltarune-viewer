@@ -30,17 +30,8 @@ self.hypnosis = 0
 self.hypnosiscounter = 0
 self.chaosdance = 0
 self.reminvc = global.invc
-self.i = 0
-while(true)
-{
-    if (self.i < 4)
-    {
-        self.remmaxhp[self.i] = global.maxhp[self.i]
-        self.i = (self.i + 1)
-        continue
-    }
-    break
-}
+for (self.i = 0; self.i < 4; self.i += 1)
+    self.remmaxhp[self.i] = global.maxhp[self.i]
 self.attacks = 0
 self.dodgetimer = 0
 self.candodge = 0
@@ -52,7 +43,7 @@ self.image_speed = 0
 self.image_xscale = 2
 self.image_yscale = 2
 self.idlesprite = 580
-self.hurtsprite = 580
+self.hurtsprite = spr_joker_main
 self.sparedsprite = 580
 self.body = instance_create(self.x, self.y, obj_joker_body)
 self.laughnoise = 0

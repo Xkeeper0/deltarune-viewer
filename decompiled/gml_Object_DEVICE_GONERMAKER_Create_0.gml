@@ -19,17 +19,10 @@ self.PARTX[1] = 0
 self.IDEALX[1] = 0
 self.PARTX[2] = 0
 self.IDEALX[2] = 0
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 3; self.i += 1)
 {
-    if (self.i < 3)
-    {
-        self.IDEALX[self.i] = (self.PART[self.i] * -50)
-        self.PARTX[self.i] = self.IDEALX[self.i]
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    self.IDEALX[self.i] = (self.PART[self.i] * -50)
+    self.PARTX[self.i] = self.IDEALX[self.i]
 }
 self.LOCK[0] = 0
 self.LOCK[1] = 0
@@ -41,8 +34,8 @@ self.siner = 0
 self.obacktimer = 0
 self.OB_DEPTH = 0
 self.flashtimer = 0
-self.midscreenx = (__view_get(e__VW.XView, 0) + (__view_get(e__VW.WView, 0) / 2))
-self.midscreeny = (__view_get(e__VW.YView, 0) + (__view_get(e__VW.HView, 0) / 2))
+self.midscreenx = (__view_get(0, 0) + (__view_get(2, 0) / 2))
+self.midscreeny = (__view_get(1, 0) + (__view_get(3, 0) / 2))
 self.STEP = 1
 self.FINISH = 0
 self.ONEBUFFER = 10

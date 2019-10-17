@@ -1,4 +1,4 @@
-self.siner = (self.siner + 1)
+self.siner += 1
 if (self.spec < 2)
 {
     draw_sprite_ext(spr_blocktree_parts, 1, self.x, self.y, 2, 2, 0, self.image_blend, 1)

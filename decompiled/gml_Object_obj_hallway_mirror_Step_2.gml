@@ -1,4 +1,4 @@
-with(self.shadow)
+with (self.shadow)
 {
     self.x = obj_mainchara.x
     self.sprite_index = obj_mainchara.sprite_index

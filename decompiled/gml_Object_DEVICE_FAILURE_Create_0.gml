@@ -6,7 +6,7 @@ self.OBMADE = 0
 global.flag[20] = 0
 global.flag[6] = 1
 global.typer = 667
-scr_windowcaption(scr_84_get_lang_string("DEVICE_FAILURE_slash_Create_0_gml_10_0"@9699))
+scr_windowcaption(scr_84_get_lang_string("DEVICE_FAILURE_slash_Create_0_gml_10_0"))
 self.FADEFACTOR = 0
 self.WHITEFADE = 0
 self.FADEUP = 0

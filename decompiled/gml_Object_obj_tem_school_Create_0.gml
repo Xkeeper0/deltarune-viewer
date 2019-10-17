@@ -1,7 +1,7 @@
-self.dtsprite = 143
-self.rtsprite = 145
-self.ltsprite = 144
-self.utsprite = 143
+self.dtsprite = spr_tem_sit
+self.rtsprite = spr_tem_sit_r
+self.ltsprite = spr_tem_sit_l
+self.utsprite = spr_tem_sit
 self.myinteract = 0
 self.facing = 0
 self.dfacing = 0

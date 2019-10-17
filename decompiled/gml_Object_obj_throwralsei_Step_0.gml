@@ -1,40 +1,23 @@
 if (self.throwcon == 1)
 {
     if (self.throwready == 0)
-        self.angle = (self.angle + self.anglespeed)
+        self.angle += self.anglespeed
     if (self.angle >= 30)
         self.anglespeed = -2
     if (self.angle <= -15)
         self.anglespeed = 2
-    if button3_p()
-    {
-        if (self.throwalpha >= 0.9)
-            _temp_local_var_1 = (self.throwready == 1)
-        else
-            _temp_local_var_1 = 0
-    }
-    else
-        _temp_local_var_1 = 0
-    if _temp_local_var_1
+    if (button3_p() && ((self.throwalpha >= 0.9) && (self.throwready == 1)))
     {
         self.activatethrow = 1
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
     }
-    if button3_p()
-        _temp_local_var_2 = (self.throwready == 0)
-    else
-        _temp_local_var_2 = 0
-    if _temp_local_var_2
+    if (button3_p() && (self.throwready == 0))
     {
         self.throwready = 1
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = ((scr_84_get_lang_string("obj_throwralsei_slash_Step_0_gml_26_0"@8302) + scr_get_input_name(6)) + scr_84_get_lang_string("obj_throwralsei_slash_Step_0_gml_26_1"@8303))
+        global.msg[0] = ((scr_84_get_lang_string("obj_throwralsei_slash_Step_0_gml_26_0") + scr_get_input_name(6)) + scr_84_get_lang_string("obj_throwralsei_slash_Step_0_gml_26_1"))
         scr_battletext_default()
     }
     if (self.activatethrow == 1)
@@ -58,7 +41,7 @@ if (self.throwcon == 1)
     }
     if (self.throwready == 1)
     {
-        self.mypower = (self.mypower + (self.powerdir * self.powerspeed))
+        self.mypower += (self.powerdir * self.powerspeed)
         if (self.mypower >= self.maxpower)
             self.powerdir = -1
         if (self.mypower <= self.minpower)
@@ -74,19 +57,12 @@ if (self.angledraw == 1)
 {
     self.lx = lengthdir_x(self.mypower, self.angle)
     self.ly = lengthdir_y(self.mypower, self.angle)
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < 42; self.i += 1)
     {
-        if (self.i < 42)
-        {
-            self.ralyadd = (self.ralgrav + (self.ralgrav * self.i))
-            if (self.i > 0)
-                self.ralyoff[self.i] = (self.ralyoff[(self.i - 1)] + self.ralyadd)
-            else
-                self.ralyoff[0] = self.ralyadd
-            self.i = (self.i + 1)
-            continue
-        }
-        break
+        self.ralyadd = (self.ralgrav + (self.ralgrav * self.i))
+        if (self.i > 0)
+            self.ralyoff[self.i] = (self.ralyoff[(self.i - 1)] + self.ralyadd)
+        else
+            self.ralyoff[0] = self.ralyadd
     }
 }

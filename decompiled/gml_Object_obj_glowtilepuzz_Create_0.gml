@@ -20,43 +20,26 @@ if (self.room == room_field_puzzle1)
     self.failmax = 240
     self.wonmax = 3
     self.plotamt = 35
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < self.wonmax; self.i += 1)
     {
-        if (self.i < self.wonmax)
+        self.block[self.i] = instance_create((1280 + (self.i * 40)), 280, obj_soliddark)
+        self.block[self.i].image_yscale = 2
+        self.spike1[self.i] = scr_dark_marker((1280 + (self.i * 40)), 280, spr_spiketile)
+        with (self.spike1[self.i])
+            self.depth = 900000
+        self.spike2[self.i] = scr_dark_marker((1280 + (self.i * 40)), 320, spr_spiketile)
+        with (self.spike2[self.i])
+            self.depth = 900000
+        if (global.plot >= 35)
         {
-            self.block[self.i] = instance_create((1280 + (self.i * 40)), 280, obj_soliddark)
-            self.block[self.i].image_yscale = 2
-            self.spike1[self.i] = scr_dark_marker((1280 + (self.i * 40)), 280, spr_spiketile)
-            with(self.spike1[self.i])
-            {
-                self.depth = 900000
-            }
-            self.spike2[self.i] = scr_dark_marker((1280 + (self.i * 40)), 320, spr_spiketile)
-            with(self.spike2[self.i])
-            {
-                self.depth = 900000
-            }
-            if (global.plot >= 35)
-            {
-                self.active = 2
-                with(self.spike1[self.i])
-                {
-                    self.image_index = 1
-                }
-                with(self.spike2[self.i])
-                {
-                    self.image_index = 1
-                }
-                with(self.block[self.i])
-                {
-                    instance_destroy()
-                }
-            }
-            self.i = (self.i + 1)
-            continue
+            self.active = 2
+            with (self.spike1[self.i])
+                self.image_index = 1
+            with (self.spike2[self.i])
+                self.image_index = 1
+            with (self.block[self.i])
+                instance_destroy()
         }
-        break
     }
 }
 if (self.room == room_field_puzzle2)
@@ -64,17 +47,10 @@ if (self.room == room_field_puzzle2)
     self.failmax = 240
     self.wonmax = 3
     self.plotamt = 38
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < self.wonmax; self.i += 1)
     {
-        if (self.i < self.wonmax)
-        {
-            if (global.plot >= 38)
-                self.active = 2
-            self.i = (self.i + 1)
-            continue
-        }
-        break
+        if (global.plot >= 38)
+            self.active = 2
     }
 }
 self.shakecon = 0

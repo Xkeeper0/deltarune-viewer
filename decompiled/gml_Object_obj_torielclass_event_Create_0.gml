@@ -8,22 +8,13 @@ self.obj[5] = scr_marker(158, 145, spr_smalldesk)
 self.obj[6] = scr_marker(208, 145, spr_smalldesk)
 self.obj[7] = scr_marker(49, 179, spr_toyblock)
 self.obj[8] = scr_marker(261, 183, spr_godthrone)
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 9; self.i += 1)
 {
-    if (self.i < 9)
-    {
-        with(self.obj[self.i])
-        {
-            scr_depth()
-        }
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    with (self.obj[self.i])
+        scr_depth()
 }
 self.sunset = scr_marker(0, 0, spr_torielclass_sunsetoverlay)
-with(self.sunset)
+with (self.sunset)
 {
     self.image_alpha = 0.4
     self.depth = 2000

@@ -1,34 +1,20 @@
-local.__depth = self.argument0
-local.__layers = layer_get_all()
-local.__numlayers = array_length_1d(local.__layers)
-local.__i = 0
-while(true)
+var __depth = self.argument0
+var __layers = layer_get_all()
+var __numlayers = array_length_1d(__layers)
+for (var __i = 0; __i < __numlayers; __i++)
 {
-    if (local.__i < local.__numlayers)
+    if (layer_get_depth(__layers[__i]) != __depth)
     {
-        if (layer_get_depth(local.__layers[local.__i]) != local.__depth)
-        {
-        }
-        else
-        {
-            local.__els = layer_get_all_elements(local.__layers[local.__i])
-            local.__numels = array_length_1d(local.__els)
-            local.__j = 0
-            while(true)
-            {
-                if (local.__j < local.__numels)
-                {
-                    local.__eltype = layer_get_element_type(local.__els[local.__j])
-                    if (local.__eltype == 7)
-                        layer_tile_visible(local.__els[local.__j], 0)
-                    local.__j = (local.__j + 1)
-                    continue
-                }
-                break
-            }
-        }
-        local.__i = (local.__i + 1)
-        continue
     }
-    break
+    else
+    {
+        var __els = layer_get_all_elements(__layers[__i])
+        var __numels = array_length_1d(__els)
+        for (var __j = 0; __j < __numels; __j++)
+        {
+            var __eltype = layer_get_element_type(__els[__j])
+            if (__eltype == 7)
+                layer_tile_visible(__els[__j], 0)
+        }
+    }
 }

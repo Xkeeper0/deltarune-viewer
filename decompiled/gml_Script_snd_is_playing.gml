@@ -1,1 +1,1 @@
-return audio_is_playing(self.argument0)
+return audio_is_playing(self.argument0);

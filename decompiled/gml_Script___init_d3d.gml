@@ -10,4 +10,4 @@ vertex_format_add_normal()
 vertex_format_add_colour()
 vertex_format_add_textcoord()
 global.__d3dPrimVF = vertex_format_end()
-global.__d3dDeprecatedMessage = @@NewGMLArray@@(0)
+global.__d3dDeprecatedMessage = [0]

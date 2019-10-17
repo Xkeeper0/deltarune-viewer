@@ -9,11 +9,11 @@ if (global.plot < 6)
     scr_getchar(3)
     global.cinstance[0] = instance_create((obj_mainchara.x - 6), (obj_mainchara.y - 16), obj_caterpillarchara)
     global.cinstance[0].target = 12
-    with(global.cinstance[0])
+    with (global.cinstance[0])
     {
-        self.usprite = 206
-        self.dsprite = 204
-        self.rsprite = 209
-        self.lsprite = 207
+        self.usprite = spr_ralseiu
+        self.dsprite = spr_ralseid
+        self.rsprite = spr_ralseir
+        self.lsprite = spr_ralseil
     }
 }

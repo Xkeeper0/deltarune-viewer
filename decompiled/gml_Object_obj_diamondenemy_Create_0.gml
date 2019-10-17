@@ -33,5 +33,5 @@ self.image_speed = 0
 self.image_xscale = 2
 self.image_yscale = 2
 self.idlesprite = 503
-self.hurtsprite = 504
+self.hurtsprite = spr_diamondm_hurt
 self.sparedsprite = 506

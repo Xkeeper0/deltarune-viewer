@@ -1,4 +1,4 @@
-global.currentsong[0] = snd_init("legend.ogg"@9992)
+global.currentsong[0] = snd_init("legend.ogg")
 snd_pitch(global.currentsong[0], 0.95)
 global.currentsong[1] = mus_play(global.currentsong[0])
 self.contimer = 0

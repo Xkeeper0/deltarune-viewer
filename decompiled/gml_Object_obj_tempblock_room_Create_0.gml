@@ -8,19 +8,13 @@ if (self.room == room_forest_area5)
     self.talkto.image_xscale = self.image_xscale
     self.talkto.image_yscale = self.image_yscale
     self.tree = instance_create((self.x - 40), (self.y - 120), obj_blocktree_bg)
-    with(self.tree)
-    {
+    with (self.tree)
         scr_depth()
-    }
     if (global.flag[237] > 0)
     {
-        with(self.tree)
-        {
+        with (self.tree)
             instance_destroy()
-        }
-        with(self.block)
-        {
+        with (self.block)
             instance_destroy()
-        }
     }
 }

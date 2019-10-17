@@ -4,4 +4,4 @@ self.dcolor[2] = make_color_hsv((global.flag[225] * 8), 255, (255 * self.value))
 self.part[1] = global.flag[220]
 self.part[0] = global.flag[221]
 self.part[2] = global.flag[222]
-self.basecolor = merge_color(0x000000, 0xFFFFFF, self.value)
+self.basecolor = merge_color(0x00000000, 0x00FFFFFF, self.value)

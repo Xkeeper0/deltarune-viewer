@@ -7,4 +7,4 @@ self.afterimage.depth = self.depth
 self.afterimage.image_xscale = self.image_xscale
 self.afterimage.image_yscale = self.image_yscale
 self.afterimage.image_angle = self.image_angle
-return self.afterimage
+return self.afterimage;

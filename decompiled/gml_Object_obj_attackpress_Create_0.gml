@@ -13,52 +13,33 @@ self.maxdelay = 0
 self.maxdelaytimer = 0
 if (self.spelluse == 0)
 {
-    self.xyz = 0
-    while(true)
+    for (self.xyz = 0; self.xyz < 3; self.xyz += 1)
     {
-        if (self.xyz < 3)
+        self.havechar[self.xyz] = 0
+        self.charitem[self.xyz] = 0
+        self.charspell[self.xyz] = 0
+        if (global.charaction[self.xyz] == 1)
+            self.havechar[self.xyz] = 1
+        if ((global.charaction[self.xyz] == 4) || (global.charaction[self.xyz] == 2))
         {
-            self.havechar[self.xyz] = 0
-            self.charitem[self.xyz] = 0
-            self.charspell[self.xyz] = 0
-            if (global.charaction[self.xyz] == 1)
-                self.havechar[self.xyz] = 1
-            if (global.charaction[self.xyz] == 4)
-                _temp_local_var_1 = 1
-            else
-                _temp_local_var_1 = (global.charaction[self.xyz] == 2)
-            if _temp_local_var_1
+            if (self.maxdelay == 0)
+                self.maxdelay = 25
+            self.maxdelay += 15
+            if ((self.xyz == 2) && (self.spelluse == 1))
             {
-                if (self.maxdelay == 0)
-                    self.maxdelay = 25
-                self.maxdelay = (self.maxdelay + 15)
-                if (self.xyz == 2)
-                    _temp_local_var_2 = (self.spelluse == 1)
+                if (self.spelldelay[1] == 25)
+                    self.spelldelay[2] = 45
                 else
-                    _temp_local_var_2 = 0
-                if _temp_local_var_2
-                {
-                    if (self.spelldelay[1] == 25)
-                        self.spelldelay[2] = 45
-                    else
-                        self.spelldelay[2] = 25
-                }
-                if (self.xyz == 1)
-                    _temp_local_var_3 = (self.spelluse == 1)
-                else
-                    _temp_local_var_3 = 0
-                if _temp_local_var_3
-                    self.spelldelay[1] = 25
-                self.spelluse = 1
-                if (global.charaction[self.xyz] == 4)
-                    self.charitem[self.xyz] = 1
-                else
-                    self.charspell[self.xyz] = 1
+                    self.spelldelay[2] = 25
             }
-            self.xyz = (self.xyz + 1)
-            continue
+            if ((self.xyz == 1) && (self.spelluse == 1))
+                self.spelldelay[1] = 25
+            self.spelluse = 1
+            if (global.charaction[self.xyz] == 4)
+                self.charitem[self.xyz] = 1
+            else
+                self.charspell[self.xyz] = 1
         }
-        break
     }
 }
 self.spelluse = 0
@@ -73,37 +54,20 @@ self.target = 0
 global.hittarget[0] = global.chartarget[0]
 global.hittarget[1] = global.chartarget[1]
 global.hittarget[2] = global.chartarget[2]
-self.boltcolor[0] = merge_color(0xFFFF00, 0xFFFFFF, 0.5)
-self.boltcolor[1] = merge_color(0xFF00FF, 0xFFFFFF, 0.5)
-self.boltcolor[2] = merge_color(0x00FF00, 0xFFFFFF, 0.5)
+self.boltcolor[0] = merge_color(0x00FFFF00, 0x00FFFFFF, 0.5)
+self.boltcolor[1] = merge_color(0x00FF00FF, 0x00FFFFFF, 0.5)
+self.boltcolor[2] = merge_color(0x0000FF00, 0x00FFFFFF, 0.5)
 self.imagetimer = 0
 self.posttimer = 0
 self.timermax = 50
-if (self.havechar[0] == 0)
-{
-    if (self.havechar[1] == 0)
-        _temp_local_var_7 = (self.havechar[2] == 0)
-    else
-        _temp_local_var_7 = 0
-}
-else
-    _temp_local_var_7 = 0
-if _temp_local_var_7
+if ((self.havechar[0] == 0) && ((self.havechar[1] == 0) && (self.havechar[2] == 0)))
 {
     self.timermax = 3
-    if (self.spelluse == 1)
-        _temp_local_var_8 = (self.fastmode == 1)
-    else
-        _temp_local_var_8 = 0
-    if _temp_local_var_8
-        self.timermax = (self.timermax + self.maxdelay)
+    if ((self.spelluse == 1) && (self.fastmode == 1))
+        self.timermax += self.maxdelay
 }
 self.boltorder[0] = choose(0, 1, 2)
-if (self.havechar[1] == 0)
-    _temp_local_var_9 = (self.havechar[2] == 0)
-else
-    _temp_local_var_9 = 0
-if _temp_local_var_9
+if ((self.havechar[1] == 0) && (self.havechar[2] == 0))
     self.boltorder[0] = 0
 if (self.boltorder[0] == 2)
     self.boltorder[1] = choose(0, 1)
@@ -111,47 +75,19 @@ if (self.boltorder[0] == 1)
     self.boltorder[1] = choose(0, 2)
 if (self.boltorder[0] == 0)
     self.boltorder[1] = choose(1, 2)
-if (self.boltorder[1] == 2)
-    _temp_local_var_10 = (self.boltorder[0] == 0)
-else
-    _temp_local_var_10 = 0
-if _temp_local_var_10
+if ((self.boltorder[1] == 2) && (self.boltorder[0] == 0))
     self.boltorder[2] = 1
-if (self.boltorder[1] == 0)
-    _temp_local_var_11 = (self.boltorder[0] == 2)
-else
-    _temp_local_var_11 = 0
-if _temp_local_var_11
+if ((self.boltorder[1] == 0) && (self.boltorder[0] == 2))
     self.boltorder[2] = 1
-if (self.boltorder[1] == 1)
-    _temp_local_var_12 = (self.boltorder[0] == 0)
-else
-    _temp_local_var_12 = 0
-if _temp_local_var_12
+if ((self.boltorder[1] == 1) && (self.boltorder[0] == 0))
     self.boltorder[2] = 2
-if (self.boltorder[1] == 0)
-    _temp_local_var_13 = (self.boltorder[0] == 1)
-else
-    _temp_local_var_13 = 0
-if _temp_local_var_13
+if ((self.boltorder[1] == 0) && (self.boltorder[0] == 1))
     self.boltorder[2] = 2
-if (self.boltorder[1] == 2)
-    _temp_local_var_14 = (self.boltorder[0] == 1)
-else
-    _temp_local_var_14 = 0
-if _temp_local_var_14
+if ((self.boltorder[1] == 2) && (self.boltorder[0] == 1))
     self.boltorder[2] = 0
-if (self.boltorder[1] == 1)
-    _temp_local_var_15 = (self.boltorder[0] == 2)
-else
-    _temp_local_var_15 = 0
-if _temp_local_var_15
+if ((self.boltorder[1] == 1) && (self.boltorder[0] == 2))
     self.boltorder[2] = 0
-if (self.havechar[1] == 1)
-    _temp_local_var_16 = (self.havechar[2] == 0)
-else
-    _temp_local_var_16 = 0
-if _temp_local_var_16
+if ((self.havechar[1] == 1) && (self.havechar[2] == 0))
 {
     self.boltorder[0] = choose(0, 1)
     if (self.boltorder[0] == 1)
@@ -172,17 +108,10 @@ self.pressbuffer[3] = 0
 self.charbolt[0] = 1
 self.charbolt[1] = 1
 self.charbolt[2] = 1
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 3; self.i += 1)
 {
-    if (self.i < 3)
-    {
-        if (self.havechar[self.i] == 0)
-            self.charbolt[self.i] = 0
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    if (self.havechar[self.i] == 0)
+        self.charbolt[self.i] = 0
 }
 self.attacked[0] = 0
 self.attacked[1] = 0
@@ -198,141 +127,73 @@ self.lastbolt = -1
 self.boltchar[0] = -1
 self.diff = 10
 if (global.flag[13] == 0)
-    self.diff = (self.diff + 2)
+    self.diff += 2
 if (self.method == 1)
 {
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < self.bolttotal; self.i += 1)
     {
-        if (self.i < self.bolttotal)
-        {
-            self.boltalive[self.i] = 1
+        self.boltalive[self.i] = 1
+        self.c = choose(0, 1, 2)
+        while (self.havechar[self.c] == 0)
             self.c = choose(0, 1, 2)
-            while(true)
-            {
-                if (self.havechar[self.c] == 0)
-                {
-                    self.c = choose(0, 1, 2)
-                    continue
-                }
-                break
-            }
-            while(true)
-            {
-                if (self.boltuse[self.c] >= self.charbolt[self.c])
-                {
-                    self.c = choose(0, 1, 2)
-                    while(true)
-                    {
-                        if (self.havechar[self.c] == 0)
-                        {
-                            self.c = choose(0, 1, 2)
-                            continue
-                        }
-                        break
-                    }
-                    continue
-                }
-                break
-            }
-            self.boltchar[self.i] = self.c
-            self.boltuse[self.c] = (self.boltuse[self.c] + 1)
-            self.i = (self.i + 1)
-            continue
-        }
-        break
-    }
-    self.i = 0
-    while(true)
-    {
-        if (self.i < self.bolttotal)
+        while (self.boltuse[self.c] >= self.charbolt[self.c])
         {
-            self.boltred[self.i] = 0
-            self.boltxoff = (self.boltxoff + self.lastbolt)
-            self.boltframe[self.i] = (30 + self.boltxoff)
-            if (self.i < (self.bolttotal - 1))
+            self.c = choose(0, 1, 2)
+            while (self.havechar[self.c] == 0)
+                self.c = choose(0, 1, 2)
+        }
+        self.boltchar[self.i] = self.c
+        self.boltuse[self.c] += 1
+    }
+    for (self.i = 0; self.i < self.bolttotal; self.i += 1)
+    {
+        self.boltred[self.i] = 0
+        self.boltxoff += self.lastbolt
+        self.boltframe[self.i] = (30 + self.boltxoff)
+        if (self.i < (self.bolttotal - 1))
+        {
+            if ((self.lastbolt != 0) && (self.boltchar[self.i] != self.boltchar[(self.i + 1)]))
             {
-                if (self.lastbolt != 0)
-                    _temp_local_var_17 = (self.boltchar[self.i] != self.boltchar[(self.i + 1)])
-                else
-                    _temp_local_var_17 = 0
-                if _temp_local_var_17
-                {
-                    self.lastbolt = choose(0, self.diff, (self.diff * 1.5))
-                    self.boltred[self.i] = 1
-                }
-                else
-                    self.lastbolt = choose(self.diff, (self.diff * 1.5))
+                self.lastbolt = choose(0, self.diff, (self.diff * 1.5))
+                self.boltred[self.i] = 1
             }
             else
                 self.lastbolt = choose(self.diff, (self.diff * 1.5))
-            self.i = (self.i + 1)
-            continue
         }
-        break
+        else
+            self.lastbolt = choose(self.diff, (self.diff * 1.5))
     }
 }
 if (self.method == 2)
 {
-    self.c = 0
-    while(true)
+    for (self.c = 0; self.c < 3; self.c += 1)
     {
-        if (self.c < 3)
+        if (self.havechar[self.c] == 1)
         {
-            if (self.havechar[self.c] == 1)
+            for (self.i = 0; self.i < self.boltnum; self.i += 1)
             {
-                self.i = 0
-                while(true)
+                self.boltframe[self.i, self.c] = ((30 + (self.boltorder[self.c] * self.boltgap)) + (self.i * choose(5, 10, 15)))
+                if (self.i == 2)
                 {
-                    if (self.i < self.boltnum)
-                    {
-                        self.boltframe[self.i][self.c] = ((30 + (self.boltorder[self.c] * self.boltgap)) + (self.i * choose(5, 10, 15)))
-                        if (self.i == 2)
-                        {
-                            if (self.boltframe[self.i][2] == self.boltframe[self.i][0])
-                                _temp_local_var_19 = (self.boltframe[self.i][2] == self.boltframe[self.i][1])
-                            else
-                                _temp_local_var_19 = 0
-                            if _temp_local_var_19
-                                self.boltframe[self.i][2] = (self.boltframe[self.i][2] + 10)
-                        }
-                        self.i = (self.i + 1)
-                        continue
-                    }
-                    break
+                    if ((self.boltframe[self.i, 2] == self.boltframe[self.i, 0]) && (self.boltframe[self.i, 2] == self.boltframe[self.i, 1]))
+                        self.boltframe[self.i, 2] += 10
                 }
             }
-            self.c = (self.c + 1)
-            continue
         }
-        break
     }
 }
 self.haveauto = 0
 self.autoed = 0
 if (global.charauto[2] == 1)
 {
-    if (global.char[0] == 2)
-        _temp_local_var_21 = 1
-    else
-    {
-        if (global.char[1] == 2)
-            _temp_local_var_21 = 1
-        else
-            _temp_local_var_21 = (global.char[2] == 2)
-    }
-    if _temp_local_var_21
+    if ((global.char[0] == 2) || ((global.char[1] == 2) || (global.char[2] == 2)))
     {
         self.sus = 0
         if (global.char[1] == 2)
             self.sus = 1
         if (global.char[2] == 2)
             self.sus = 2
-        if (global.hp[2] >= 0)
-            _temp_local_var_22 = (global.charmove[self.sus] == 1)
-        else
-            _temp_local_var_22 = 0
-        if _temp_local_var_22
+        if ((global.hp[2] >= 0) && (global.charmove[self.sus] == 1))
         {
             self.haveauto = 1
             if (self.timermax == 3)

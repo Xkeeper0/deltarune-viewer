@@ -1,4 +1,4 @@
-self.msgno = (self.msgno + 1)
+self.msgno += 1
 self.lineno = 0
 self.aster = 0
 self.halt = 0

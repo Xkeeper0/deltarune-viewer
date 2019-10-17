@@ -1,19 +1,11 @@
-if (self.t == 0)
-    _temp_local_var_1 = (self.kingcon == 0)
-else
-    _temp_local_var_1 = 0
-if _temp_local_var_1
+if ((self.t == 0) && (self.kingcon == 0))
 {
     self.sprite_index = spr_chainking_toss
     self.image_index = 0
     self.image_speed = 0.5
     self.kingcon = 1
     self.soundplayed = 0
-    if (self.type == 2)
-        _temp_local_var_2 = (self.subtype == 1)
-    else
-        _temp_local_var_2 = 0
-    if _temp_local_var_2
+    if ((self.type == 2) && (self.subtype == 1))
         snd_play(snd_dadlaugh)
     else
         snd_play(snd_dadblast)
@@ -22,11 +14,7 @@ if (self.kingcon == 1)
 {
     if (self.image_index >= 3)
     {
-        if (self.image_index >= 2)
-            _temp_local_var_3 = (self.soundplayed == 0)
-        else
-            _temp_local_var_3 = 0
-        if _temp_local_var_3
+        if ((self.image_index >= 2) && (self.soundplayed == 0))
         {
             snd_play(snd_criticalswing)
             self.soundplayed = 1
@@ -76,4 +64,4 @@ if (self.type == 0)
         }
     }
 }
-self.t = (self.t + 1)
+self.t += 1

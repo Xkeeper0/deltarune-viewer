@@ -1,7 +1,7 @@
 self.done = 0
 if (self.x < 600)
 {
-    with(obj_darkeyepuzzle)
+    with (obj_darkeyepuzzle)
     {
         if (self.eye[0] == 0)
             self.eye[0] = 1
@@ -14,13 +14,9 @@ if (self.x < 600)
     }
     self.done = 1
 }
-if (self.x < 700)
-    _temp_local_var_1 = (self.done == 0)
-else
-    _temp_local_var_1 = 0
-if _temp_local_var_1
+if ((self.x < 700) && (self.done == 0))
 {
-    with(obj_darkeyepuzzle)
+    with (obj_darkeyepuzzle)
     {
         if (self.eye[0] == 0)
             self.eye[0] = 1
@@ -33,13 +29,9 @@ if _temp_local_var_1
     }
     self.done = 1
 }
-if (self.x < 800)
-    _temp_local_var_2 = (self.done == 0)
-else
-    _temp_local_var_2 = 0
-if _temp_local_var_2
+if ((self.x < 800) && (self.done == 0))
 {
-    with(obj_darkeyepuzzle)
+    with (obj_darkeyepuzzle)
     {
         if (self.eye[2] == 0)
             self.eye[2] = 1
@@ -49,7 +41,5 @@ if _temp_local_var_2
     self.done = 1
 }
 snd_play(snd_noise)
-with(obj_mainchara)
-{
+with (obj_mainchara)
     self.onebuffer = 3
-}

@@ -8,7 +8,7 @@ if (self.con == 0)
     }
     self.image_index = 0
     if (self.image_xscale < 2)
-        self.image_xscale = (self.image_xscale + 0.4)
+        self.image_xscale += 0.4
     else
     {
         self.image_xscale = 2
@@ -18,14 +18,10 @@ if (self.con == 0)
 }
 if (self.con == 1)
 {
-    self.timer = (self.timer + 1)
+    self.timer += 1
     if (self.timer >= 8)
     {
-        if (self.sndcon == 1)
-            _temp_local_var_1 = (self.type < 3)
-        else
-            _temp_local_var_1 = 0
-        if _temp_local_var_1
+        if ((self.sndcon == 1) && (self.type < 3))
         {
             snd_play(snd_joker_oh)
             self.sndcon = 2
@@ -39,7 +35,7 @@ if (self.con == 1)
             self.bullet.sprite_index = spr_diamondbullet
             self.bullet.active = 1
             scr_bullet_inherit(self.bullet)
-            with(self.bullet)
+            with (self.bullet)
             {
                 move_towards_point((obj_heart.x + 10), (obj_heart.y + 10), 8)
                 self.image_angle = self.direction
@@ -49,35 +45,28 @@ if (self.con == 1)
         }
         if (self.type == 1)
         {
-            self.i = 0
-            while(true)
+            for (self.i = 0; self.i < 5; self.i += 1)
             {
-                if (self.i < 5)
+                self.bullet = instance_create(self.x, self.y, obj_collidebullet)
+                self.bullet.sprite_index = spr_spadebullet
+                self.bullet.active = 1
+                self.bullet.offset = (18 * self.i)
+                scr_bullet_inherit(self.bullet)
+                with (self.bullet)
                 {
-                    self.bullet = instance_create(self.x, self.y, obj_collidebullet)
-                    self.bullet.sprite_index = spr_spadebullet
-                    self.bullet.active = 1
-                    self.bullet.offset = (18 * self.i)
-                    scr_bullet_inherit(self.bullet)
-                    with(self.bullet)
-                    {
-                        move_towards_point((obj_heart.x + 10), (obj_heart.y + 10), 4.5)
-                        self.direction = ((self.direction - 36) + self.offset)
-                        self.image_angle = self.direction
-                        self.image_xscale = 0.4
-                        self.image_yscale = 0.4
-                    }
-                    self.i = (self.i + 1)
-                    continue
+                    move_towards_point((obj_heart.x + 10), (obj_heart.y + 10), 4.5)
+                    self.direction = ((self.direction - 36) + self.offset)
+                    self.image_angle = self.direction
+                    self.image_xscale = 0.4
+                    self.image_yscale = 0.4
                 }
-                break
             }
         }
     }
 }
 if (self.con == 2)
 {
-    self.timer = (self.timer + 1)
+    self.timer += 1
     if (self.timer >= 10)
     {
         self.con = 4
@@ -94,8 +83,8 @@ if (self.con == 4)
     }
     if (self.image_xscale > 0)
     {
-        self.image_xscale = (self.image_xscale - 0.4)
-        self.image_yscale = (self.image_yscale + 0.2)
+        self.image_xscale -= 0.4
+        self.image_yscale += 0.2
     }
     else
     {

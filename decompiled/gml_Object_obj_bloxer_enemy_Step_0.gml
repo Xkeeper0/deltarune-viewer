@@ -1,82 +1,62 @@
 if (global.monster[self.myself] == 1)
 {
-    if (global.mnfight == 1)
-        _temp_local_var_1 = (self.talked == 0)
-    else
-        _temp_local_var_1 = 0
-    if _temp_local_var_1
+    if ((global.mnfight == 1) && (self.talked == 0))
     {
         scr_randomtarget()
-        if (~ instance_exists(obj_darkener))
+        if (!instance_exists(obj_darkener))
             instance_create(0, 0, obj_darkener)
         global.typer = 50
         self.rr = choose(0, 1, 2, 3)
         if (self.rr == 0)
-            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_11_0"@8506)
+            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_11_0")
         if (self.rr == 1)
-            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_12_0"@8507)
+            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_12_0")
         if (self.rr == 2)
-            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_13_0"@8508)
+            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_13_0")
         if (self.rr == 3)
-            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_14_0"@8509)
+            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_14_0")
         if (self.acting == 2)
         {
-            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_18_0"@8510)
+            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_18_0")
             if (self.part[2] == 3)
-                global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_19_0"@8511)
+                global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_19_0")
             if (self.part[1] == 3)
-                global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_20_0"@8512)
+                global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_20_0")
             if (self.part[1] == 2)
-                global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_21_0"@8513)
+                global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_21_0")
             if (self.part[1] == 1)
-                global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_22_0"@8514)
+                global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_22_0")
             if (global.mercymod[self.myself] >= 100)
-                global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_24_0"@8515)
+                global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_24_0")
         }
         if (self.acting == 3)
-            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_29_0"@8516)
+            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_29_0")
         scr_enemyblcon((self.x - 160), self.y, 3)
         self.talked = 1
         self.talktimer = 0
     }
-    if (self.talked == 1)
-        _temp_local_var_2 = (global.mnfight == 1)
-    else
-        _temp_local_var_2 = 0
-    if _temp_local_var_2
+    if ((self.talked == 1) && (global.mnfight == 1))
     {
         self.rtimer = 0
         scr_blconskip(15)
         if (global.mnfight == 2)
         {
-            if (~ instance_exists(obj_moveheart))
+            if (!instance_exists(obj_moveheart))
                 scr_moveheart()
-            if (~ instance_exists(obj_growtangle))
-                instance_create((__view_get(e__VW.XView, 0) + 320), (__view_get(e__VW.YView, 0) + 170), obj_growtangle)
+            if (!instance_exists(obj_growtangle))
+                instance_create((__view_get(0, 0) + 320), (__view_get(1, 0) + 170), obj_growtangle)
         }
     }
-    if (global.mnfight == 2)
-        _temp_local_var_3 = (self.attacked == 0)
-    else
-        _temp_local_var_3 = 0
-    if _temp_local_var_3
+    if ((global.mnfight == 2) && (self.attacked == 0))
     {
-        self.rtimer = (self.rtimer + 1)
+        self.rtimer += 1
         if (self.rtimer == 12)
         {
             self.rr = choose(0, 1)
             self.biglegoqual = 1
-            if (scr_monsterpop() >= 2)
-                _temp_local_var_4 = (self.myself >= 1)
-            else
-                _temp_local_var_4 = 0
-            if _temp_local_var_4
+            if ((scr_monsterpop() >= 2) && (self.myself >= 1))
                 self.biglegoqual = 0
-            if (self.rr == 0)
-                _temp_local_var_5 = (self.biglegoqual == 1)
-            else
-                _temp_local_var_5 = 0
-            if _temp_local_var_5
+            if ((self.rr == 0) && (self.biglegoqual == 1))
             {
                 self.dc = instance_create(self.x, self.y, obj_dbulletcontroller)
                 self.dc.type = 26
@@ -93,26 +73,26 @@ if (global.monster[self.myself] == 1)
                 self.dc.damage = (global.monsterat[self.myself] * 5)
                 self.dc.grazepoints = 5
             }
-            self.turns = (self.turns + 1)
+            self.turns += 1
             global.turntimer = 170
             self.attacked = 1
             global.typer = 6
             global.fc = 0
             self.rr = choose(0, 1, 2, 3, 4)
             if (self.rr == 0)
-                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_86_0"@8518)
+                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_86_0")
             if (self.rr == 1)
-                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_87_0"@8519)
+                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_87_0")
             if (self.rr == 2)
-                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_88_0"@8520)
+                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_88_0")
             if (self.rr == 3)
-                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_89_0"@8521)
+                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_89_0")
             if (self.rr == 4)
-                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_90_0"@8522)
+                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_90_0")
             if (global.monsterstatus[self.myself] == 1)
-                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_92_0"@8523)
+                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_92_0")
             if (global.mercymod[self.myself] >= global.mercymax[self.myself])
-                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_93_0"@8524)
+                global.battlemsg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_93_0")
         }
         else
             global.turntimer = 120
@@ -125,10 +105,8 @@ if (global.monster[self.myself] == 1)
                 global.mercymod[self.myself] = 999
             if (self.battlecancel == 2)
             {
-                with(obj_battlecontroller)
-                {
+                with (obj_battlecontroller)
                     self.noreturn = 1
-                }
                 self.con = 1
                 self.battlecancel = 3
             }
@@ -137,25 +115,17 @@ if (global.monster[self.myself] == 1)
 }
 if (global.myfight == 3)
 {
-    self.xx = __view_get(e__VW.XView, 0)
-    self.yy = __view_get(e__VW.YView, 0)
-    if (self.acting == 1)
-        _temp_local_var_6 = (self.actcon == 0)
-    else
-        _temp_local_var_6 = 0
-    if _temp_local_var_6
+    self.xx = __view_get(0, 0)
+    self.yy = __view_get(1, 0)
+    if ((self.acting == 1) && (self.actcon == 0))
     {
         self.actcon = 1
-        global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_127_0"@8525)
+        global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_127_0")
         scr_battletext_default()
     }
-    if (self.acting == 2)
-        _temp_local_var_7 = (self.actcon == 0)
-    else
-        _temp_local_var_7 = 0
-    if _temp_local_var_7
+    if ((self.acting == 2) && (self.actcon == 0))
     {
-        global.msg[0] = ((scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_135_0"@8526) + scr_get_input_name(6)) + scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_135_1"@8527))
+        global.msg[0] = ((scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_135_0") + scr_get_input_name(6)) + scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_135_1"))
         global.mercymod[self.myself] = 0
         scr_battletext_default()
         self.actcon = 10
@@ -175,62 +145,41 @@ if (global.myfight == 3)
         self.movex[2] = 0
         self.finishtimer = 0
     }
-    if (self.acting == 3)
-        _temp_local_var_8 = (self.actcon == 0)
-    else
-        _temp_local_var_8 = 0
-    if _temp_local_var_8
+    if ((self.acting == 3) && (self.actcon == 0))
     {
         self.actcon = 1
-        global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_162_0"@8528)
+        global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_162_0")
         self.rr = choose(0, 1, 2)
         scr_susface(1, 2)
-        global.msg[2] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_165_0"@8529)
+        global.msg[2] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_165_0")
         if (self.rr == 1)
-            global.msg[2] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_166_0"@8530)
+            global.msg[2] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_166_0")
         if (self.rr == 2)
-            global.msg[2] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_167_0"@8531)
-        global.msg[3] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_168_0"@8532)
-        self.i = 0
-        while(true)
+            global.msg[2] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_167_0")
+        global.msg[3] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_168_0")
+        for (self.i = 0; self.i < 3; self.i += 1)
         {
-            if (self.i < 3)
-            {
-                global.monstercomment[self.i] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_171_0"@8533)
-                global.monsterstatus[self.i] = 1
-                self.i = (self.i + 1)
-                continue
-            }
-            break
+            global.monstercomment[self.i] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_171_0")
+            global.monsterstatus[self.i] = 1
         }
         scr_battletext_default()
     }
-    if (self.actcon == 1)
-        _temp_local_var_9 = (~ instance_exists(obj_writer))
-    else
-        _temp_local_var_9 = 0
-    if _temp_local_var_9
+    if ((self.actcon == 1) && (!instance_exists(obj_writer)))
     {
         self.actcon = 0
         scr_attackphase()
     }
-    if (self.actcon == 10)
-        _temp_local_var_10 = (self.swaptime == 0)
-    else
-        _temp_local_var_10 = 0
-    if _temp_local_var_10
+    if ((self.actcon == 10) && (self.swaptime == 0))
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
         if (global.mercymod[self.myself] >= 100)
         {
-            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_193_0"@8534)
+            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_193_0")
             self.fixed = 1
         }
         else
-            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_194_0"@8535)
+            global.msg[0] = scr_84_get_lang_string("obj_bloxer_enemy_slash_Step_0_gml_194_0")
         scr_battletext_default()
         self.actcon = 1
     }

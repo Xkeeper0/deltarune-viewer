@@ -1,7 +1,7 @@
-if (self.y < (__view_get(e__VW.YView, 0) + 20))
-    self.y = (__view_get(e__VW.YView, 0) + 20)
-if (self.y > (__view_get(e__VW.YView, 0) + 460))
-    self.y = (__view_get(e__VW.YView, 0) + 460)
+if (self.y < (__view_get(1, 0) + 20))
+    self.y = (__view_get(1, 0) + 20)
+if (self.y > (__view_get(1, 0) + 460))
+    self.y = (__view_get(1, 0) + 460)
 self.difficulty = 1
 self.times = 0
 self.activetimer = 0
@@ -14,6 +14,6 @@ self.inv = 120
 self.damage = 124
 self.active = 0
 self.image_alpha = 0
-if (~ instance_exists(obj_heart))
+if (!instance_exists(obj_heart))
     instance_destroy()
 self.type = 0

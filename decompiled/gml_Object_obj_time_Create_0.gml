@@ -14,21 +14,10 @@ else
     self.display_height = display_get_height()
     self.display_width = display_get_width()
     self.window_size_multiplier = 1
-    self._ww = 2
-    while(true)
+    for (self._ww = 2; self._ww < 6; self._ww += 1)
     {
-        if (self._ww < 6)
-        {
-            if (self.display_width > (640 * self._ww))
-                _temp_local_var_1 = (self.display_height > (480 * self._ww))
-            else
-                _temp_local_var_1 = 0
-            if _temp_local_var_1
-                self.window_size_multiplier = self._ww
-            self._ww = (self._ww + 1)
-            continue
-        }
-        break
+        if ((self.display_width > (640 * self._ww)) && (self.display_height > (480 * self._ww)))
+            self.window_size_multiplier = self._ww
     }
     if (self.window_size_multiplier > 1)
     {
@@ -37,17 +26,10 @@ else
     }
     scr_controls_default()
     scr_ascii_input_names()
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < 10; self.i += 1)
     {
-        if (self.i < 10)
-        {
-            global.input_pressed[self.i] = 0
-            global.input_held[self.i] = 0
-            global.input_released[self.i] = 0
-            self.i = (self.i + 1)
-            continue
-        }
-        break
+        global.input_pressed[self.i] = 0
+        global.input_held[self.i] = 0
+        global.input_released[self.i] = 0
     }
 }

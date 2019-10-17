@@ -1,8 +1,4 @@
-if (self.con > 0)
-    _temp_local_var_1 = (self.con < 50)
-else
-    _temp_local_var_1 = 0
-if _temp_local_var_1
+if ((self.con > 0) && (self.con < 50))
 {
     if (self.con == 1)
     {
@@ -16,7 +12,7 @@ if _temp_local_var_1
     {
         global.facing = 2
         self.k = scr_marker(obj_mainchara.x, obj_mainchara.y, spr_krisu)
-        with(self.k)
+        with (self.k)
         {
             self.vspeed = -1
             self.image_speed = 0.1
@@ -29,10 +25,8 @@ if _temp_local_var_1
     {
         obj_mainchara.y = self.k.y
         obj_mainchara.visible = 1
-        with(self.k)
-        {
+        with (self.k)
             instance_destroy()
-        }
         self.con = 2
         self.alarm[4] = 30
     }
@@ -40,18 +34,14 @@ if _temp_local_var_1
     {
         global.fc = 0
         global.typer = 18
-        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_44_0"@3915)
-        global.msg[1] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_45_0"@3916)
-        global.msg[2] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_46_0"@3917)
-        global.msg[3] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_47_0"@3918)
+        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_44_0")
+        global.msg[1] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_45_0")
+        global.msg[2] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_46_0")
+        global.msg[3] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_47_0")
         self.con = 4
         instance_create(0, 0, obj_dialoguer)
     }
-    if (self.con == 4)
-        _temp_local_var_2 = (~ d_ex())
-    else
-        _temp_local_var_2 = 0
-    if _temp_local_var_2
+    if ((self.con == 4) && (!d_ex()))
     {
         self.image_speed = 0.25
         self.con = 5
@@ -66,15 +56,11 @@ if _temp_local_var_1
     }
     if (self.con == 8)
     {
-        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_69_0"@3919)
+        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_69_0")
         instance_create(0, 0, obj_dialoguer)
         self.con = 9
     }
-    if (self.con == 9)
-        _temp_local_var_3 = (d_ex() == 0)
-    else
-        _temp_local_var_3 = 0
-    if _temp_local_var_3
+    if ((self.con == 9) && (d_ex() == 0))
     {
         self.con = 10
         self.alarm[4] = 20
@@ -97,15 +83,11 @@ if _temp_local_var_1
         global.fc = 10
         global.fe = 1
         global.msc = 0
-        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_100_0"@3920)
+        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_100_0")
         instance_create(0, 0, obj_dialoguer)
         self.con = 15
     }
-    if (self.con == 15)
-        _temp_local_var_4 = (~ d_ex())
-    else
-        _temp_local_var_4 = 0
-    if _temp_local_var_4
+    if ((self.con == 15) && (!d_ex()))
     {
         self.exc = instance_create((self.x + 25), (self.y - 2), obj_excblcon)
         snd_play(snd_b)
@@ -115,15 +97,11 @@ if _temp_local_var_1
     if (self.con == 17)
     {
         global.fe = 4
-        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_116_0"@3921)
+        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_116_0")
         self.con = 18
         instance_create(0, 0, obj_dialoguer)
     }
-    if (self.con == 18)
-        _temp_local_var_5 = (d_ex() == 0)
-    else
-        _temp_local_var_5 = 0
-    if _temp_local_var_5
+    if ((self.con == 18) && (d_ex() == 0))
     {
         self.sprite_index = spr_asgored
         self.image_speed = 0.334
@@ -168,16 +146,12 @@ if _temp_local_var_1
         self.image_index = 0
         self.image_speed = 0
         global.fe = 2
-        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_171_0"@3922)
-        global.msg[1] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_172_0"@3923)
+        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_171_0")
+        global.msg[1] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_172_0")
         instance_create(0, 0, obj_dialoguer)
         self.con = 24
     }
-    if (self.con == 24)
-        _temp_local_var_6 = (~ d_ex())
-    else
-        _temp_local_var_6 = 0
-    if _temp_local_var_6
+    if ((self.con == 24) && (!d_ex()))
     {
         self.sprite_index = spr_asgorer
         self.con = 25
@@ -212,16 +186,12 @@ if _temp_local_var_1
     {
         self.sprite_index = spr_asgored
         global.fe = 1
-        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_216_0"@3924)
-        global.msg[1] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_217_0"@3925)
+        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_216_0")
+        global.msg[1] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_217_0")
         instance_create(0, 0, obj_dialoguer)
         self.con = 32
     }
-    if (self.con == 32)
-        _temp_local_var_7 = (~ d_ex())
-    else
-        _temp_local_var_7 = 0
-    if _temp_local_var_7
+    if ((self.con == 32) && (!d_ex()))
     {
         global.interact = 0
         self.visible = 0
@@ -234,16 +204,10 @@ if (self.con >= 50)
 {
     if (self.con == 50)
     {
-        if (obj_mainchara.y >= 180)
-            _temp_local_var_8 = (global.interact == 0)
-        else
-            _temp_local_var_8 = 0
-        if _temp_local_var_8
+        if ((obj_mainchara.y >= 180) && (global.interact == 0))
         {
-            with(obj_npc_facing)
-            {
+            with (obj_npc_facing)
                 instance_destroy()
-            }
             self.sprite_index = spr_asgored
             self.visible = 1
             global.interact = 1
@@ -260,15 +224,11 @@ if (self.con >= 50)
         global.typer = 18
         global.fc = 10
         global.fe = 2
-        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_260_0"@3927)
+        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_260_0")
         self.con = 52
         instance_create(0, 0, obj_dialoguer)
     }
-    if (self.con == 52)
-        _temp_local_var_9 = (~ d_ex())
-    else
-        _temp_local_var_9 = 0
-    if _temp_local_var_9
+    if ((self.con == 52) && (!d_ex()))
     {
         self.con = 53
         self.alarm[4] = 10
@@ -295,30 +255,22 @@ if (self.con >= 50)
     if (self.con == 58)
     {
         global.fe = 6
-        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_297_0"@3928)
+        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_297_0")
         scr_noface(1)
         global.writersnd[0] = 97
-        global.msg[2] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_300_0"@3929)
+        global.msg[2] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_300_0")
         global.flag[262] = 2
         scr_litemget(4)
         instance_create(0, 0, obj_dialoguer)
         self.con = 59
     }
-    if (self.con == 59)
-        _temp_local_var_10 = (~ d_ex())
-    else
-        _temp_local_var_10 = 0
-    if _temp_local_var_10
+    if ((self.con == 59) && (!d_ex()))
     {
         self.vspeed = -3
         self.image_speed = 0.25
         self.con = 60
     }
-    if (self.con == 60)
-        _temp_local_var_11 = (self.y <= self.ystart)
-    else
-        _temp_local_var_11 = 0
-    if _temp_local_var_11
+    if ((self.con == 60) && (self.y <= self.ystart))
     {
         self.y = self.ystart
         scr_halt()
@@ -330,15 +282,11 @@ if (self.con >= 50)
         global.typer = 18
         global.fc = 10
         global.fe = 0
-        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_327_0"@3930)
+        global.msg[0] = scr_84_get_lang_string("obj_flowershop_event_slash_Step_0_gml_327_0")
         instance_create(0, 0, obj_dialoguer)
         self.con = 63
     }
-    if (self.con == 63)
-        _temp_local_var_12 = (~ d_ex())
-    else
-        _temp_local_var_12 = 0
-    if _temp_local_var_12
+    if ((self.con == 63) && (!d_ex()))
     {
         self.asg = instance_create(self.x, (self.y + self.sprite_height), obj_npc_facing)
         global.interact = 0

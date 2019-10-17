@@ -1,1 +1,1 @@
-self.con = (self.con + 1)
+self.con += 1

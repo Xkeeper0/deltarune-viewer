@@ -6,22 +6,19 @@ self.image_xscale = self.dar
 self.image_yscale = self.dar
 self.remfc = global.fc
 global.fc = 0
-self.xx = __view_get(e__VW.XView, self.view_current)
-self.yy = __view_get(e__VW.YView, self.view_current)
+self.xx = __view_get(0, self.view_current)
+self.yy = __view_get(1, self.view_current)
 self.d = -1
 if instance_exists(obj_dialoguer)
     self.d = obj_dialoguer.side
 self.d_add = 0
 if (self.d == -1)
 {
-    if (obj_mainchara.y <= (__view_get(e__VW.YView, self.view_current) + (130 * self.dar)))
+    if (obj_mainchara.y <= (__view_get(1, self.view_current) + (130 * self.dar)))
         self.d_add = 155
 }
-else
-{
-    if (self.d != 0)
-        self.d_add = 155
-}
+else if (self.d != 0)
+    self.d_add = 155
 self.chx = ((140 * self.dar) + self.xx)
 self.chy = (((36 + self.d_add) * self.dar) + self.yy)
 self.hx = self.chx

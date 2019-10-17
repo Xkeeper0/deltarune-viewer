@@ -2,7 +2,7 @@ self.con = 1
 self.image_speed = 0
 self.mcon = 1
 self.puzz1 = instance_create(780, 60, obj_suitspuzz)
-with(self.puzz1)
+with (self.puzz1)
 {
     self.sol[0] = 1
     self.sol[1] = 2
@@ -11,7 +11,7 @@ with(self.puzz1)
 }
 if (global.plot >= 154)
 {
-    with(self.puzz1)
+    with (self.puzz1)
     {
         self.suit[0] = 1
         self.suit[1] = 2

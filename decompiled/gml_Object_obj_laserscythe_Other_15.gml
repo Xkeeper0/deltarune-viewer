@@ -6,32 +6,18 @@ if (self.active == 1)
         snd_stop(snd_hurt1)
         snd_play(snd_hurt1)
         global.inv = (global.invc * 40)
-        self.i = 0
-        while(true)
+        for (self.i = 0; self.i < 3; self.i += 1)
         {
-            if (self.i < 3)
-            {
-                self.temphp[self.i] = global.hp[global.char[self.i]]
-                if (self.temphp[self.i] < 0)
-                    self.temphp[self.i] = 0
-                self.i = (self.i + 1)
-                continue
-            }
-            break
+            self.temphp[self.i] = global.hp[global.char[self.i]]
+            if (self.temphp[self.i] < 0)
+                self.temphp[self.i] = 0
         }
         if ((ceil(((self.temphp[0] + self.temphp[1]) + self.temphp[2])) / 3) >= 10)
         {
-            self.i = 0
-            while(true)
+            for (self.i = 0; self.i < 3; self.i += 1)
             {
-                if (self.i < 3)
-                {
-                    if (self.temphp[self.i] > 0)
-                        global.hp[global.char[self.i]] = ceil((global.hp[global.char[self.i]] * 0.7))
-                    self.i = (self.i + 1)
-                    continue
-                }
-                break
+                if (self.temphp[self.i] > 0)
+                    global.hp[global.char[self.i]] = ceil((global.hp[global.char[self.i]] * 0.7))
             }
         }
         else

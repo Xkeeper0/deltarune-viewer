@@ -15,7 +15,7 @@ if (self.holecon == 1)
 {
     if (self.distance <= (self.maxdist + 20))
     {
-        self.image_index = (self.image_index + 0.5)
+        self.image_index += 0.5
         if (self.image_index >= 10)
         {
             self.image_index = 0
@@ -25,7 +25,7 @@ if (self.holecon == 1)
     }
     else
     {
-        self.image_index = (self.image_index - 0.5)
+        self.image_index -= 0.5
         if (self.image_index <= 0)
         {
             self.image_index = 0
@@ -35,7 +35,7 @@ if (self.holecon == 1)
 }
 if (self.holecon == 2)
 {
-    self.image_index = (self.image_index + 0.334)
+    self.image_index += 0.334
     if (self.distance > (self.maxdist + 10))
     {
         self.sprite_index = spr_cloverhole

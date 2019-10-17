@@ -1,33 +1,25 @@
 if scr_debug()
 {
-    if keyboard_check_pressed('2')
+    if keyboard_check_pressed(ord("2"))
     {
-        if (self.mergecon == 0)
-            _temp_local_var_1 = (self.cno < self.cmax)
-        else
-            _temp_local_var_1 = 0
-        if _temp_local_var_1
+        if ((self.mergecon == 0) && (self.cno < self.cmax))
         {
             self.mergecon = 1
             self.newcno = (self.cno + 1)
         }
     }
-    if keyboard_check_pressed('0')
+    if keyboard_check_pressed(ord("0"))
     {
         if (global.interact == 0)
         {
             global.interact = 1
             if (self.movecon == 0)
                 self.movecon = 1
-            if (self.mergecon == 0)
-                _temp_local_var_2 = (self.cno > 0)
-            else
-                _temp_local_var_2 = 0
-            if _temp_local_var_2
+            if ((self.mergecon == 0) && (self.cno > 0))
                 self.newcno = (self.cno - 1)
         }
     }
-    if keyboard_check_pressed('1')
+    if keyboard_check_pressed(ord("1"))
     {
         if (self.movecon == 4)
             self.movecon = 2
@@ -41,10 +33,8 @@ if scr_debug()
 }
 if (self.movecon == 1)
 {
-    with(obj_mainchara)
-    {
+    with (obj_mainchara)
         self.cutscene = 1
-    }
     self.maxrectspeed = 14
     self.movetimer = 0
     self.movecon = 2
@@ -56,7 +46,7 @@ if (self.movecon == 1)
 }
 if (self.movecon == 2)
 {
-    self.movetimer = (self.movetimer + 1)
+    self.movetimer += 1
     if (self.movetimer == 10)
     {
         self.mergecon = 1
@@ -81,10 +71,8 @@ if (self.movecon == 2)
 }
 if (self.movecon == 3)
 {
-    with(obj_mainchara)
-    {
+    with (obj_mainchara)
         self.cutscene = 1
-    }
     self.doorcon = 2
     self.maxrectspeed = 10
     self.movetimer = 0
@@ -105,7 +93,7 @@ if (self.mergecon == 1)
 }
 if (self.mergecon == 2)
 {
-    self.merge_amt = (self.merge_amt + self.mergespeed)
+    self.merge_amt += self.mergespeed
     if (self.merge_amt >= 1)
     {
         self.merge_amt = 1
@@ -123,8 +111,8 @@ if (self.shakecon == 1)
 }
 if (self.shakecon == 2)
 {
-    if (abs(__view_get(e__VW.YView, 0)) < 4)
-        __view_set(e__VW.YView, 0, (__view_get(e__VW.YView, 0) - (self.dir * 0.5)))
+    if (abs(__view_get(1, 0)) < 4)
+        __view_set(1, 0, (__view_get(1, 0) - (self.dir * 0.5)))
 }
 if (self.shakecon == 3)
 {
@@ -136,14 +124,14 @@ if (self.shakecon == 4)
 {
     if (self.shakeamt >= 0)
     {
-        __view_set(e__VW.XView, 0, ((0 - random(self.shakeamt)) + random(self.shakeamt)))
-        __view_set(e__VW.YView, 0, ((0 - random(self.shakeamt)) + random(self.shakeamt)))
-        self.shakeamt = (self.shakeamt - 0.5)
+        __view_set(0, 0, ((0 - random(self.shakeamt)) + random(self.shakeamt)))
+        __view_set(1, 0, ((0 - random(self.shakeamt)) + random(self.shakeamt)))
+        self.shakeamt -= 0.5
     }
     else
     {
-        __view_set(e__VW.XView, 0, 0)
-        __view_set(e__VW.YView, 0, 0)
+        __view_set(0, 0, 0)
+        __view_set(1, 0, 0)
         self.shakecon = 0
     }
 }
@@ -160,20 +148,20 @@ if (self.rectcon == 2)
     if (self.dir == 1)
     {
         if (self.rectspeed < self.maxrectspeed)
-            self.rectspeed = (self.rectspeed + 1)
+            self.rectspeed += 1
     }
     if (self.dir == -1)
     {
-        if (self.rectspeed > (variable)(- self.maxrectspeed))
-            self.rectspeed = (self.rectspeed - 1)
+        if (self.rectspeed > (-self.maxrectspeed))
+            self.rectspeed -= 1
     }
     if (self.rect_alpha < 0.2)
-        self.rect_alpha = (self.rect_alpha + 0.02)
-    self.recty = (self.recty + self.rectspeed)
+        self.rect_alpha += 0.02
+    self.recty += self.rectspeed
     if (self.recty >= self.rectspacing)
-        self.recty = (self.recty - self.rectspacing)
-    if (self.recty <= (variable)(- self.rectspacing))
-        self.recty = (self.recty + self.rectspacing)
+        self.recty -= self.rectspacing
+    if (self.recty <= (-self.rectspacing))
+        self.recty += self.rectspacing
 }
 if (self.rectcon == 3)
 {
@@ -182,32 +170,28 @@ if (self.rectcon == 3)
     if (self.rectspeed <= -6)
         self.rectspeed = -6
     if (self.rectspeed > 0)
-        self.rectspeed = (self.rectspeed - 0.5)
+        self.rectspeed -= 0.5
     if (self.rectspeed < 0)
-        self.rectspeed = (self.rectspeed + 0.5)
+        self.rectspeed += 0.5
     if (self.rect_alpha > 0)
-        self.rect_alpha = (self.rect_alpha - 0.02)
-    self.recty = (self.recty + self.rectspeed)
+        self.rect_alpha -= 0.02
+    self.recty += self.rectspeed
     if (self.recty >= self.rectspacing)
-        self.recty = (self.recty - self.rectspacing)
-    if (self.recty <= (variable)(- self.rectspacing))
-        self.recty = (self.recty + self.rectspacing)
-    if (self.rectspeed == 0)
-        _temp_local_var_3 = (self.rect_alpha == 0)
-    else
-        _temp_local_var_3 = 0
-    if _temp_local_var_3
+        self.recty -= self.rectspacing
+    if (self.recty <= (-self.rectspacing))
+        self.recty += self.rectspacing
+    if ((self.rectspeed == 0) && (self.rect_alpha == 0))
         self.rectcon = 0
 }
 if (self.doorcon == 1)
 {
     if (self.doorx <= 40)
-        self.doorx = (self.doorx + 5)
+        self.doorx += 5
 }
 if (self.doorcon == 2)
 {
     if (self.doorx >= 0)
-        self.doorx = (self.doorx - 5)
+        self.doorx -= 5
     if (self.doorx <= 0)
     {
         self.doorx = 0
@@ -235,72 +219,48 @@ if (self.charadjustcon == 1)
 }
 if (self.charadjustcon == 2)
 {
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < 2; self.i += 1)
     {
-        if (self.i < 2)
+        if (self.exist[self.i] == 1)
         {
-            if (self.exist[self.i] == 1)
+            with (global.cinstance[self.i])
             {
-                with(global.cinstance[self.i])
-                {
-                    if (self.y >= 260)
-                        self.y = (self.y - 10)
-                }
+                if (self.y >= 260)
+                    self.y -= 10
             }
-            self.i = (self.i + 1)
-            continue
         }
-        break
     }
 }
 if (self.charadjustcon == 3)
 {
     self.ok[0] = 0
     self.ok[1] = 0
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < 2; self.i += 1)
     {
-        if (self.i < 2)
+        if (self.exist[self.i] == 1)
         {
-            if (self.exist[self.i] == 1)
+            if (global.cinstance[self.i].y < self.charremy[self.i])
             {
-                if (global.cinstance[self.i].y < self.charremy[self.i])
-                {
-                    with(global.cinstance[self.i])
-                    {
-                        self.y = (self.y + 10)
-                    }
-                }
-                if (global.cinstance[self.i].y >= self.charremy[self.i])
-                    self.ok[self.i] = 1
+                with (global.cinstance[self.i])
+                    self.y += 10
             }
-            else
+            if (global.cinstance[self.i].y >= self.charremy[self.i])
                 self.ok[self.i] = 1
-            self.i = (self.i + 1)
-            continue
         }
-        break
+        else
+            self.ok[self.i] = 1
     }
-    if (self.ok[0] == 1)
-        _temp_local_var_4 = (self.ok[1] == 1)
-    else
-        _temp_local_var_4 = 0
-    if _temp_local_var_4
+    if ((self.ok[0] == 1) && (self.ok[1] == 1))
         self.charadjustcon = 0
 }
 if (self.con >= 1)
 {
     if (self.con == 1)
     {
-        with(obj_caterpillarchara)
-        {
+        with (obj_caterpillarchara)
             instance_destroy()
-        }
-        with(obj_mainchara)
-        {
+        with (obj_mainchara)
             self.visible = 0
-        }
         global.interact = 1
         self.k = scr_dark_marker(300, 420, spr_krisu_dark)
         self.s = scr_dark_marker(300, 460, spr_susieu_dark)
@@ -308,21 +268,14 @@ if (self.con >= 1)
         self.cc[0] = self.k
         self.cc[1] = self.s
         self.cc[2] = self.r
-        self.i = 0
-        while(true)
+        for (self.i = 0; self.i < 3; self.i += 1)
         {
-            if (self.i < 3)
+            with (self.cc[self.i])
             {
-                with(self.cc[self.i])
-                {
-                    scr_depth()
-                    self.vspeed = -4
-                    self.image_speed = 0.25
-                }
-                self.i = (self.i + 1)
-                continue
+                scr_depth()
+                self.vspeed = -4
+                self.image_speed = 0.25
             }
-            break
         }
         self.con = 2
     }
@@ -331,22 +284,18 @@ if (self.con >= 1)
         global.interact = 1
         if (self.k.y <= 200)
         {
-            with(self.k)
+            with (self.k)
             {
                 scr_halt()
                 self.sprite_index = spr_krisd_dark
             }
         }
-        if (self.s.y <= 200)
-            _temp_local_var_5 = (self.s.x == self.s.xstart)
-        else
-            _temp_local_var_5 = 0
-        if _temp_local_var_5
+        if ((self.s.y <= 200) && (self.s.x == self.s.xstart))
         {
-            with(self.s)
+            with (self.s)
             {
                 scr_halt()
-                self.x = (self.x - 1)
+                self.x -= 1
                 self.hspeed = -4
                 self.image_speed = 0.25
                 self.sprite_index = spr_susiel_dark
@@ -354,79 +303,59 @@ if (self.con >= 1)
         }
         if (self.s.x <= 240)
         {
-            with(self.s)
+            with (self.s)
             {
                 scr_halt()
                 self.x = 240
                 self.sprite_index = spr_susier_dark
             }
         }
-        if (self.r.y <= 275)
-            _temp_local_var_6 = (self.r.x == self.r.xstart)
-        else
-            _temp_local_var_6 = 0
-        if _temp_local_var_6
+        if ((self.r.y <= 275) && (self.r.x == self.r.xstart))
         {
             self.jup = 1
-            with(self.r)
+            with (self.r)
             {
                 self.hspeed = 1.25
                 self.vspeed = -2.25
             }
         }
         if (self.jup == 1)
-            self.a_timer = (self.a_timer + 1)
+            self.a_timer += 1
         if (self.a_timer >= 48)
         {
-            with(self.r)
-            {
+            with (self.r)
                 scr_halt()
-            }
             self.con = 3
         }
     }
     if (self.con == 3)
     {
-        with(self.k)
-        {
+        with (self.k)
             scr_halt()
-        }
-        with(self.r)
-        {
+        with (self.r)
             scr_halt()
-        }
-        with(self.s)
-        {
+        with (self.s)
             scr_halt()
-        }
         self.con = 4
         self.alarm[4] = 30
     }
     if (self.con == 5)
     {
-        with(self.r)
-        {
+        with (self.r)
             self.sprite_index = spr_ralseid
-        }
         global.fc = 2
         global.typer = 31
         global.fe = 11
-        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_353_0"@4123)
+        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_353_0")
         instance_create(0, 0, obj_dialoguer)
         self.con = 6
     }
-    if (self.con == 6)
-        _temp_local_var_7 = (~ d_ex())
-    else
-        _temp_local_var_7 = 0
-    if _temp_local_var_7
+    if ((self.con == 6) && (!d_ex()))
     {
-        self.ele_noise = snd_init("elevator.ogg"@4124)
+        self.ele_noise = snd_init("elevator.ogg")
         self.ele_noise_ind = mus_loop_ext(self.ele_noise, 0.6, 0.1)
-        with(self.r)
-        {
+        with (self.r)
             self.sprite_index = spr_ralseiu
-        }
         snd_play(snd_item)
         self.movecon = 3
         self.newcno = 2
@@ -436,26 +365,20 @@ if (self.con >= 1)
     }
     if (self.con == 7)
     {
-        self.pitchcount = (self.pitchcount + 0.015)
+        self.pitchcount += 0.015
         snd_pitch(self.ele_noise_ind, self.pitchcount)
     }
     if (self.con == 8)
     {
-        with(self.r)
-        {
+        with (self.r)
             self.sprite_index = spr_ralseid
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_384_0"@4128)
+        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_384_0")
         instance_create(0, 0, obj_dialoguer)
         self.con = 9
     }
-    if (self.con == 9)
-        _temp_local_var_8 = (~ d_ex())
-    else
-        _temp_local_var_8 = 0
-    if _temp_local_var_8
+    if ((self.con == 9) && (!d_ex()))
     {
-        with(self.r)
+        with (self.r)
         {
             self.vspeed = 2
             self.image_speed = 0.2
@@ -465,11 +388,9 @@ if (self.con >= 1)
     }
     if (self.con == 11)
     {
-        with(self.r)
-        {
+        with (self.r)
             scr_halt()
-        }
-        with(self.r)
+        with (self.r)
         {
             self.sprite_index = spr_ralsei_sit
             self.image_speed = 0.25
@@ -480,7 +401,7 @@ if (self.con >= 1)
     }
     if (self.con == 13)
     {
-        with(self.r)
+        with (self.r)
         {
             self.image_speed = 0
             self.image_index = 2
@@ -491,32 +412,26 @@ if (self.con >= 1)
     if (self.con == 16)
     {
         global.fe = 0
-        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_419_0"@4129)
+        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_419_0")
         self.con = 17
         instance_create(0, 0, obj_dialoguer)
     }
-    if (self.con == 17)
-        _temp_local_var_9 = (~ d_ex())
-    else
-        _temp_local_var_9 = 0
-    if _temp_local_var_9
+    if ((self.con == 17) && (!d_ex()))
     {
-        with(self.s)
+        with (self.s)
         {
             self.hspeed = -4
             self.image_speed = 0.2
         }
-        with(self.k)
-        {
+        with (self.k)
             self.sprite_index = spr_kris_fallen_dark
-        }
         snd_play(snd_wing)
         self.con = 18
         self.alarm[4] = 10
     }
     if (self.con == 19)
     {
-        with(self.s)
+        with (self.s)
         {
             scr_halt()
             self.sprite_index = spr_susier_wall
@@ -529,27 +444,23 @@ if (self.con >= 1)
         global.fc = 1
         global.typer = 30
         global.fe = 0
-        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_448_0"@4130)
-        global.msg[1] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_449_0"@4131)
-        scr_ralface(2, "B"@2529)
-        global.msg[3] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_451_0"@4132)
+        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_448_0")
+        global.msg[1] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_449_0")
+        scr_ralface(2, "B")
+        global.msg[3] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_451_0")
         scr_susface(4, 0)
-        global.msg[5] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_453_0"@4133)
-        global.msg[6] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_454_0"@4134)
-        scr_ralface(7, "B"@2529)
-        global.msg[8] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_456_0"@4135)
+        global.msg[5] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_453_0")
+        global.msg[6] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_454_0")
+        scr_ralface(7, "B")
+        global.msg[8] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_456_0")
         scr_susface(9, 7)
-        global.msg[10] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_458_0"@4136)
-        global.msg[11] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_459_0"@4137)
-        global.msg[12] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_460_0"@4138)
+        global.msg[10] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_458_0")
+        global.msg[11] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_459_0")
+        global.msg[12] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_460_0")
         instance_create(0, 0, obj_dialoguer)
         self.con = 22
     }
-    if (self.con == 22)
-        _temp_local_var_10 = (~ d_ex())
-    else
-        _temp_local_var_10 = 0
-    if _temp_local_var_10
+    if ((self.con == 22) && (!d_ex()))
     {
         self.con = 23
         self.alarm[4] = 90
@@ -557,57 +468,49 @@ if (self.con >= 1)
     if (self.con == 24)
     {
         global.fe = 0
-        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_476_0"@4139)
-        global.msg[1] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_477_0"@4140)
+        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_476_0")
+        global.msg[1] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_477_0")
         scr_ralface(2, 3)
-        global.msg[3] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_479_0"@4141)
+        global.msg[3] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_479_0")
         scr_susface(4, 6)
-        global.msg[5] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_481_0"@4142)
+        global.msg[5] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_481_0")
         scr_ralface(6, 6)
-        global.msg[7] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_483_0"@4143)
-        global.msg[8] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_484_0"@4144)
-        global.msg[9] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_485_0"@4145)
+        global.msg[7] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_483_0")
+        global.msg[8] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_484_0")
+        global.msg[9] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_485_0")
         scr_susface(10, 0)
-        global.msg[11] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_487_0"@4146)
-        global.msg[12] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_488_0"@4147)
+        global.msg[11] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_487_0")
+        global.msg[12] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_488_0")
         self.con = 25
         instance_create(0, 0, obj_dialoguer)
     }
-    if (self.con == 25)
-        _temp_local_var_11 = (~ d_ex())
-    else
-        _temp_local_var_11 = 0
-    if _temp_local_var_11
+    if ((self.con == 25) && (!d_ex()))
     {
         self.con = 26
         self.alarm[4] = 90
     }
     if (self.con == 27)
     {
-        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_503_0"@4148)
-        global.msg[1] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_504_0"@4149)
+        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_503_0")
+        global.msg[1] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_504_0")
         scr_ralface(2, 0)
-        global.msg[3] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_506_0"@4150)
+        global.msg[3] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_506_0")
         scr_susface(4, 0)
-        global.msg[5] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_508_0"@4151)
-        global.msg[6] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_509_0"@4152)
+        global.msg[5] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_508_0")
+        global.msg[6] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_509_0")
         scr_ralface(7, 6)
-        global.msg[8] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_511_0"@4153)
+        global.msg[8] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_511_0")
         scr_susface(9, 0)
-        global.msg[10] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_513_0"@4154)
-        global.msg[11] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_514_0"@4155)
+        global.msg[10] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_513_0")
+        global.msg[11] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_514_0")
         scr_ralface(12, 8)
-        global.msg[13] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_516_0"@4156)
+        global.msg[13] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_516_0")
         scr_susface(14, 2)
-        global.msg[15] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_518_0"@4157)
+        global.msg[15] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_518_0")
         instance_create(0, 0, obj_dialoguer)
         self.con = 28
     }
-    if (self.con == 28)
-        _temp_local_var_12 = (~ d_ex())
-    else
-        _temp_local_var_12 = 0
-    if _temp_local_var_12
+    if ((self.con == 28) && (!d_ex()))
     {
         self.con = 29
         self.alarm[4] = 45
@@ -622,23 +525,21 @@ if (self.con >= 1)
     if (self.con == 31)
     {
         if (self.pitchcount > 0.1)
-            self.pitchcount = (self.pitchcount - 0.015)
+            self.pitchcount -= 0.015
         snd_pitch(self.ele_noise_ind, self.pitchcount)
         global.interact = 1
     }
     if (self.con == 32)
     {
         snd_free(self.ele_noise)
-        with(self.r)
-        {
+        with (self.r)
             self.image_speed = -0.25
-        }
         self.con = 33
         self.alarm[4] = 7
     }
     if (self.con == 34)
     {
-        with(self.r)
+        with (self.r)
         {
             self.sprite_index = spr_ralseid
             self.image_index = 0
@@ -651,7 +552,7 @@ if (self.con >= 1)
     {
         if (self.r.y >= 270)
         {
-            with(self.r)
+            with (self.r)
             {
                 self.vspeed = 0
                 self.hspeed = -6
@@ -664,7 +565,7 @@ if (self.con >= 1)
     {
         if (self.r.x <= 300)
         {
-            with(self.r)
+            with (self.r)
             {
                 scr_halt()
                 self.sprite_index = spr_ralseiu
@@ -678,18 +579,14 @@ if (self.con >= 1)
         global.fc = 2
         global.typer = 31
         global.fe = 0
-        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_605_0"@4158)
+        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_605_0")
         self.d = instance_create(0, 0, obj_dialoguer)
         self.d.side = 0
         self.con = 39
     }
-    if (self.con == 39)
-        _temp_local_var_13 = (~ d_ex())
-    else
-        _temp_local_var_13 = 0
-    if _temp_local_var_13
+    if ((self.con == 39) && (!d_ex()))
     {
-        with(self.r)
+        with (self.r)
         {
             self.sprite_index = spr_ralseid
             self.vspeed = 4
@@ -700,27 +597,19 @@ if (self.con >= 1)
         self.kremx = self.k.x
         self.kremy = self.k.y
         snd_play(snd_wing)
-        with(self.k)
-        {
+        with (self.k)
             instance_destroy()
-        }
         obj_mainchara.x = self.kremx
         obj_mainchara.y = self.kremy
         global.facing = 0
-        with(obj_mainchara)
-        {
+        with (obj_mainchara)
             self.visible = 1
-        }
         self.movecounter = 0
     }
     if (self.con == 40)
     {
-        if (obj_mainchara.x != self.kremx)
-            _temp_local_var_14 = 1
-        else
-            _temp_local_var_14 = (obj_mainchara.y != self.kremy)
-        if _temp_local_var_14
-            self.movecounter = (self.movecounter + 1)
+        if ((obj_mainchara.x != self.kremx) || (obj_mainchara.y != self.kremy))
+            self.movecounter += 1
         if (self.movecounter >= 3)
         {
             self.con = 41
@@ -728,17 +617,13 @@ if (self.con >= 1)
             global.fc = 1
             global.typer = 30
             global.fe = 0
-            global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_644_0"@4162)
+            global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_644_0")
             instance_create(0, 0, obj_dialoguer)
         }
     }
-    if (self.con == 41)
-        _temp_local_var_15 = (~ d_ex())
-    else
-        _temp_local_var_15 = 0
-    if _temp_local_var_15
+    if ((self.con == 41) && (!d_ex()))
     {
-        with(self.s)
+        with (self.s)
         {
             self.sprite_index = spr_susier_dark_unhappy
             self.image_speed = 0.1
@@ -750,73 +635,53 @@ if (self.con >= 1)
     }
     if (self.con == 44)
     {
-        with(self.s)
-        {
+        with (self.s)
             scr_halt()
-        }
         self.con = 45
         self.alarm[4] = 30
     }
     if (self.con == 46)
     {
-        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_674_0"@4163)
-        global.msg[1] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_675_0"@4164)
-        global.msg[2] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_676_0"@4165)
-        global.msg[3] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_677_0"@4166)
+        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_674_0")
+        global.msg[1] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_675_0")
+        global.msg[2] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_676_0")
+        global.msg[3] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_677_0")
         instance_create(0, 0, obj_dialoguer)
         self.con = 47
     }
-    if (self.con == 47)
-        _temp_local_var_16 = (~ d_ex())
-    else
-        _temp_local_var_16 = 0
-    if _temp_local_var_16
+    if ((self.con == 47) && (!d_ex()))
     {
-        with(self.s)
-        {
+        with (self.s)
             self.sprite_index = spr_susieu_dark
-        }
         self.con = 48
         self.alarm[4] = 30
     }
     if (self.con == 49)
     {
-        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_691_0"@4167)
+        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_691_0")
         instance_create(0, 0, obj_dialoguer)
         self.con = 50
     }
-    if (self.con == 50)
-        _temp_local_var_17 = (~ d_ex())
-    else
-        _temp_local_var_17 = 0
-    if _temp_local_var_17
+    if ((self.con == 50) && (!d_ex()))
     {
-        with(self.s)
-        {
+        with (self.s)
             self.sprite_index = spr_susiel_dark_unhappy
-        }
         self.con = 51
         self.alarm[4] = 60
     }
     if (self.con == 52)
     {
-        with(self.s)
-        {
+        with (self.s)
             self.sprite_index = spr_susier_dark
-        }
         global.fe = 1
-        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_709_0"@4168)
-        global.msg[1] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_710_0"@4169)
+        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_709_0")
+        global.msg[1] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_710_0")
         instance_create(0, 0, obj_dialoguer)
         self.con = 53
     }
-    if (self.con == 53)
-        _temp_local_var_18 = (~ d_ex())
-    else
-        _temp_local_var_18 = 0
-    if _temp_local_var_18
+    if ((self.con == 53) && (!d_ex()))
     {
-        with(self.s)
+        with (self.s)
         {
             self.sprite_index = spr_susied_dark
             self.vspeed = 4
@@ -829,7 +694,7 @@ if (self.con >= 1)
         if (self.s.y >= 260)
         {
             global.facing = 0
-            with(self.s)
+            with (self.s)
             {
                 scr_halt()
                 self.hspeed = 4
@@ -843,7 +708,7 @@ if (self.con >= 1)
     {
         if (self.s.x >= 300)
         {
-            with(self.s)
+            with (self.s)
             {
                 scr_halt()
                 self.vspeed = 3
@@ -858,31 +723,25 @@ if (self.con >= 1)
         snd_free_all()
         if (self.s.y >= 320)
         {
-            with(self.s)
-            {
+            with (self.s)
                 scr_halt()
-            }
             self.con = 57
             self.alarm[4] = 30
         }
     }
     if (self.con == 58)
     {
-        global.currentsong[0] = snd_init("charjoined.ogg"@4170)
+        global.currentsong[0] = snd_init("charjoined.ogg")
         global.fe = 0
-        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_774_0"@4171)
-        global.msg[1] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_775_0"@4172)
+        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_774_0")
+        global.msg[1] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_775_0")
         self.d = instance_create(0, 0, obj_dialoguer)
         self.d.side = 0
         self.con = 59
     }
-    if (self.con == 59)
-        _temp_local_var_19 = (~ d_ex())
-    else
-        _temp_local_var_19 = 0
-    if _temp_local_var_19
+    if ((self.con == 59) && (!d_ex()))
     {
-        with(self.s)
+        with (self.s)
         {
             self.vspeed = 6
             self.image_speed = 0.25
@@ -896,7 +755,7 @@ if (self.con >= 1)
         snd_volume(global.currentsong[1], 0.8, 0)
         global.typer = 6
         global.fc = 0
-        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_798_0"@4173)
+        global.msg[0] = scr_84_get_lang_string("obj_elevatorcontroller_slash_Step_0_gml_798_0")
         self.d = instance_create(0, 0, obj_dialoguer)
         self.d.side = 0
         self.con = 62
@@ -906,14 +765,10 @@ if (self.con >= 1)
     {
         if (global.plot < 165)
             global.plot = 165
-        with(obj_dialoguer)
-        {
+        with (obj_dialoguer)
             instance_destroy()
-        }
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
         snd_free_all()
         global.interact = 0
         global.flag[239] = 1
@@ -926,7 +781,7 @@ if (self.con >= 1)
             self.movecon = 1
         self.con = 101
         snd_play(snd_spearappear)
-        self.ele_noise = snd_init("elevator.ogg"@4124)
+        self.ele_noise = snd_init("elevator.ogg")
         self.ele_noise_ind = mus_loop_ext(self.ele_noise, 0.7, 0.5)
         self.pitchcount = 0.5
         self.volcount = 0.7
@@ -936,14 +791,14 @@ if (self.con >= 1)
     if (self.con == 101)
     {
         global.interact = 1
-        self.pitchtimer = (self.pitchtimer + 1)
+        self.pitchtimer += 1
         if (self.pitchtimer < 10)
-            self.pitchcount = (self.pitchcount + 0.04)
+            self.pitchcount += 0.04
         if (self.pitchtimer >= 30)
         {
             if (self.pitchcount > 0)
-                self.pitchcount = (self.pitchcount - 0.08)
-            self.volcount = (self.volcount - 0.05)
+                self.pitchcount -= 0.08
+            self.volcount -= 0.05
         }
         snd_pitch(self.ele_noise_ind, self.pitchcount)
         snd_volume(self.ele_noise_ind, self.volcount, 0)

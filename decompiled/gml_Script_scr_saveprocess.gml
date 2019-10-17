@@ -1,20 +1,13 @@
 global.lastsavedtime = global.time
 global.lastsavedlv = global.lv
-self.file = ("filech1_"@2713 + string(self.argument0))
+self.file = ("filech1_" + string(self.argument0))
 self.myfileid = file_text_open_write(self.file)
 file_text_write_string(self.myfileid, global.truename)
 file_text_writeln(self.myfileid)
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 6; self.i += 1)
 {
-    if (self.i < 6)
-    {
-        file_text_write_string(self.myfileid, global.othername[self.i])
-        file_text_writeln(self.myfileid)
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    file_text_write_string(self.myfileid, global.othername[self.i])
+    file_text_writeln(self.myfileid)
 }
 file_text_write_real(self.myfileid, global.char[0])
 file_text_writeln(self.myfileid)
@@ -34,73 +27,52 @@ file_text_write_real(self.myfileid, global.invc)
 file_text_writeln(self.myfileid)
 file_text_write_real(self.myfileid, global.darkzone)
 file_text_writeln(self.myfileid)
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 4; self.i += 1)
 {
-    if (self.i < 4)
+    file_text_write_real(self.myfileid, global.hp[self.i])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.maxhp[self.i])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.at[self.i])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.df[self.i])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.mag[self.i])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.guts[self.i])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.charweapon[self.i])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.chararmor1[self.i])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.chararmor2[self.i])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.weaponstyle[self.i])
+    file_text_writeln(self.myfileid)
+    for (self.q = 0; self.q < 4; self.q += 1)
     {
-        file_text_write_real(self.myfileid, global.hp[self.i])
+        file_text_write_real(self.myfileid, global.itemat[self.i, self.q])
         file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.maxhp[self.i])
+        file_text_write_real(self.myfileid, global.itemdf[self.i, self.q])
         file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.at[self.i])
+        file_text_write_real(self.myfileid, global.itemmag[self.i, self.q])
         file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.df[self.i])
+        file_text_write_real(self.myfileid, global.itembolts[self.i, self.q])
         file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.mag[self.i])
+        file_text_write_real(self.myfileid, global.itemgrazeamt[self.i, self.q])
         file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.guts[self.i])
+        file_text_write_real(self.myfileid, global.itemgrazesize[self.i, self.q])
         file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.charweapon[self.i])
+        file_text_write_real(self.myfileid, global.itemboltspeed[self.i, self.q])
         file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.chararmor1[self.i])
+        file_text_write_real(self.myfileid, global.itemspecial[self.i, self.q])
         file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.chararmor2[self.i])
-        file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.weaponstyle[self.i])
-        file_text_writeln(self.myfileid)
-        self.q = 0
-        while(true)
-        {
-            if (self.q < 4)
-            {
-                file_text_write_real(self.myfileid, global.itemat[self.i][self.q])
-                file_text_writeln(self.myfileid)
-                file_text_write_real(self.myfileid, global.itemdf[self.i][self.q])
-                file_text_writeln(self.myfileid)
-                file_text_write_real(self.myfileid, global.itemmag[self.i][self.q])
-                file_text_writeln(self.myfileid)
-                file_text_write_real(self.myfileid, global.itembolts[self.i][self.q])
-                file_text_writeln(self.myfileid)
-                file_text_write_real(self.myfileid, global.itemgrazeamt[self.i][self.q])
-                file_text_writeln(self.myfileid)
-                file_text_write_real(self.myfileid, global.itemgrazesize[self.i][self.q])
-                file_text_writeln(self.myfileid)
-                file_text_write_real(self.myfileid, global.itemboltspeed[self.i][self.q])
-                file_text_writeln(self.myfileid)
-                file_text_write_real(self.myfileid, global.itemspecial[self.i][self.q])
-                file_text_writeln(self.myfileid)
-                self.q = (self.q + 1)
-                continue
-            }
-            break
-        }
-        self.j = 0
-        while(true)
-        {
-            if (self.j < 12)
-            {
-                file_text_write_real(self.myfileid, global.spell[self.i][self.j])
-                file_text_writeln(self.myfileid)
-                self.j = (self.j + 1)
-                continue
-            }
-            break
-        }
-        self.i = (self.i + 1)
-        continue
     }
-    break
+    for (self.j = 0; self.j < 12; self.j += 1)
+    {
+        file_text_write_real(self.myfileid, global.spell[self.i, self.j])
+        file_text_writeln(self.myfileid)
+    }
 }
 file_text_write_real(self.myfileid, global.boltspeed)
 file_text_writeln(self.myfileid)
@@ -108,23 +80,16 @@ file_text_write_real(self.myfileid, global.grazeamt)
 file_text_writeln(self.myfileid)
 file_text_write_real(self.myfileid, global.grazesize)
 file_text_writeln(self.myfileid)
-self.j = 0
-while(true)
+for (self.j = 0; self.j < 13; self.j += 1)
 {
-    if (self.j < 13)
-    {
-        file_text_write_real(self.myfileid, global.item[self.j])
-        file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.keyitem[self.j])
-        file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.weapon[self.j])
-        file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.armor[self.j])
-        file_text_writeln(self.myfileid)
-        self.j = (self.j + 1)
-        continue
-    }
-    break
+    file_text_write_real(self.myfileid, global.item[self.j])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.keyitem[self.j])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.weapon[self.j])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.armor[self.j])
+    file_text_writeln(self.myfileid)
 }
 file_text_write_real(self.myfileid, global.tension)
 file_text_writeln(self.myfileid)
@@ -152,31 +117,17 @@ file_text_write_real(self.myfileid, global.lwstrength)
 file_text_writeln(self.myfileid)
 file_text_write_real(self.myfileid, global.ladef)
 file_text_writeln(self.myfileid)
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 8; self.i += 1)
 {
-    if (self.i < 8)
-    {
-        file_text_write_real(self.myfileid, global.litem[self.i])
-        file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.phone[self.i])
-        file_text_writeln(self.myfileid)
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    file_text_write_real(self.myfileid, global.litem[self.i])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.phone[self.i])
+    file_text_writeln(self.myfileid)
 }
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 9999; self.i += 1)
 {
-    if (self.i < 9999)
-    {
-        file_text_write_real(self.myfileid, global.flag[self.i])
-        file_text_writeln(self.myfileid)
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    file_text_write_real(self.myfileid, global.flag[self.i])
+    file_text_writeln(self.myfileid)
 }
 file_text_write_real(self.myfileid, global.plot)
 file_text_writeln(self.myfileid)

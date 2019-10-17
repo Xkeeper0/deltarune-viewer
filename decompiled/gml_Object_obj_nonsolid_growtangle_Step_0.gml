@@ -1,22 +1,14 @@
 self.growth = 0
-if (self.timer < self.maxtimer)
-    _temp_local_var_1 = (self.growcon == 1)
-else
-    _temp_local_var_1 = 0
-if _temp_local_var_1
+if ((self.timer < self.maxtimer) && (self.growcon == 1))
     self.growth = 1
-if (self.timer > 0)
-    _temp_local_var_2 = (self.growcon == 3)
-else
-    _temp_local_var_2 = 0
-if _temp_local_var_2
+if ((self.timer > 0) && (self.growcon == 3))
     self.growth = 1
 if (self.growth == 1)
 {
     if (self.growcon == 1)
-        self.timer = (self.timer + 1)
+        self.timer += 1
     if (self.growcon == 3)
-        self.timer = (self.timer - 1)
+        self.timer -= 1
     self.image_xscale = (2 * (self.timer / self.maxtimer))
     self.image_yscale = (2 * (self.timer / self.maxtimer))
     self.image_angle = (180 + (180 * (self.timer / self.maxtimer)))
@@ -30,19 +22,11 @@ if (self.growth == 1)
     self.d.image_blend = self.image_blend
     self.d.image_alpha = ((1 - self.image_alpha) + 0.1)
     self.d.image_speed = 0
-    if (self.timer >= self.maxtimer)
-        _temp_local_var_3 = (self.growcon == 1)
-    else
-        _temp_local_var_3 = 0
-    if _temp_local_var_3
+    if ((self.timer >= self.maxtimer) && (self.growcon == 1))
     {
         self.growcon = 2
         self.keep = 1
     }
-    if (self.timer <= 0)
-        _temp_local_var_4 = (self.growcon == 3)
-    else
-        _temp_local_var_4 = 0
-    if _temp_local_var_4
+    if ((self.timer <= 0) && (self.growcon == 3))
         instance_destroy()
 }

@@ -1,57 +1,36 @@
-local.str = self.argument0
-local.result = ""@2240
-local.lastch = ""@2240
-local.i = 1
-while(true)
+var str = self.argument0
+var result = ""
+var lastch = ""
+for (var i = 1; i <= string_length(str); i++)
 {
-    if (local.i <= string_length(local.str))
+    var ch = ord(string_char_at(str, i))
+    if ((ch >= 12449) && (ch <= 12534))
+        ch -= 96
+    else if ((ch >= 65377) && (ch <= 65439))
     {
-        local.ch = ord(string_char_at(local.str, local.i))
-        if (local.ch >= 12449)
-            _temp_local_var_1 = (local.ch <= 12534)
-        else
-            _temp_local_var_1 = 0
-        if _temp_local_var_1
-            local.ch = (local.ch - 96)
-        else
+        var halfkata = "。「」、・をぁぃぅぇぉャュョッーあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわん゛゜"
+        ch = ord(string_char_at(halfkata, (ch - 65376)))
+        if (lastch != "")
         {
-            if (local.ch >= 65377)
-                _temp_local_var_2 = (local.ch <= 65439)
-            else
-                _temp_local_var_2 = 0
-            if _temp_local_var_2
+            if (ch == 12443)
             {
-                local.halfkata = "。「」、・をぁぃぅぇぉャュョッーあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわん゛゜"@3483
-                local.ch = ord(string_char_at(local.halfkata, (local.ch - 65376)))
-                if (local.lastch != ""@2240)
-                {
-                    if (local.ch == 12443)
-                    {
-                        local.daku_from = "かきくけこさしすせそたちつてとはひふへほ"@3485
-                        local.daku_to = "がぎぐげござじずぜぞだぢづでどばびぶべぼ"@3487
-                        local.pos = string_pos(local.lastch, local.daku_from)
-                        if (local.pos != 0)
-                            local.ch = ord(string_char_at(local.daku_to, local.pos))
-                    }
-                    else
-                    {
-                        if (local.ch == 12444)
-                        {
-                            local.handaku_from = "はひふへほ"@3489
-                            local.handaku_to = "ぱぴぷぺぽ"@3491
-                            local.pos = string_pos(local.lastch, local.handaku_from)
-                            if (local.pos != 0)
-                                local.ch = ord(string_char_at(local.handaku_to, local.pos))
-                        }
-                    }
-                }
+                var daku_from = "かきくけこさしすせそたちつてとはひふへほ"
+                var daku_to = "がぎぐげござじずぜぞだぢづでどばびぶべぼ"
+                var pos = string_pos(lastch, daku_from)
+                if (pos != 0)
+                    ch = ord(string_char_at(daku_to, pos))
+            }
+            else if (ch == 12444)
+            {
+                var handaku_from = "はひふへほ"
+                var handaku_to = "ぱぴぷぺぽ"
+                pos = string_pos(lastch, handaku_from)
+                if (pos != 0)
+                    ch = ord(string_char_at(handaku_to, pos))
             }
         }
-        local.lastch = chr(local.ch)
-        local.result = (local.result + local.lastch)
-        local.i = (local.i + 1)
-        continue
     }
-    break
+    lastch = chr(ch)
+    result += lastch
 }
-return local.result
+return result;

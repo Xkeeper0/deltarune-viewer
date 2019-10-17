@@ -2,23 +2,22 @@ self.i = 0
 self.loop = 1
 self.noroom = 0
 global.item[12] = 999
-while(true)
+while (self.loop == 1)
 {
-    if (self.loop == 1)
+    if (global.item[self.i] == 0)
     {
-        if (global.item[self.i] == 0)
-            break
-        else
-        {
-            if (self.i == 12)
-                break
-            else
-            {
-                self.i = (self.i + 1)
-                continue
-            }
-        }
+        global.item[self.i] = self.argument0
+        break
     }
-    break
+    else if (self.i == 12)
+    {
+        self.noroom = 1
+        break
+    }
+    else
+    {
+        self.i += 1
+        continue
+    }
 }
 script_execute(scr_iteminfo_all)

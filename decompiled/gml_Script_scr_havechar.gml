@@ -5,4 +5,4 @@ if (global.char[1] == self.argument0)
     self._rreturn = 1
 if (global.char[2] == self.argument0)
     self._rreturn = 1
-return self._rreturn
+return self._rreturn;

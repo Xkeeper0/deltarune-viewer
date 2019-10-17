@@ -2,7 +2,7 @@ if (global.plot < 16)
 {
     self.con = 1
     global.interact = 1
-    with(obj_mainchara)
+    with (obj_mainchara)
     {
         self.fun = 1
         self.sprite_index = spr_kris_fallen_dark

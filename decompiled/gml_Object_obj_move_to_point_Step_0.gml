@@ -11,9 +11,9 @@ if instance_exists(self.target)
         self.yadd = lengthdir_y(self.amt, self.dir)
         self.moved = 1
     }
-    self.target.x = (self.target.x + self.xadd)
-    self.target.y = (self.target.y + self.yadd)
-    self.movetimer = (self.movetimer + 1)
+    self.target.x += self.xadd
+    self.target.y += self.yadd
+    self.movetimer += 1
     if (self.movetimer >= self.movemax)
         instance_destroy()
     if (self.target == 321)

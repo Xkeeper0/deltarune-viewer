@@ -59,5 +59,5 @@ self.becomesleep = 0
 self.this_index = 0
 self.lullabied = 0
 self.idlesprite = 558
-self.hurtsprite = 558
+self.hurtsprite = spr_ponman_idle
 self.sparedsprite = 554

@@ -1,53 +1,46 @@
-local.__nearestdepth = -15000
-local.__farthestdepth = 15999
-local.__depthinc = 100
-local.__result[0] = -1
-local.__result[1] = -1
-local.__colstring = "Compatibility_Colour"@2822
-local.__layerlist = layer_get_all()
-local.__layerlistlength = array_length_1d(local.__layerlist)
-local.__layerid = -1
-local.__isforeground = 0
-local.__i = 0
-while(true)
+var __result;
+var __nearestdepth = -15000
+var __farthestdepth = 15999
+var __depthinc = 100
+__result[0] = -1
+__result[1] = -1
+var __colstring = "Compatibility_Colour"
+var __layerlist = layer_get_all()
+var __layerlistlength = array_length_1d(__layerlist)
+var __layerid = -1
+var __isforeground = 0
+var __i = 0
+while (__i < __layerlistlength)
 {
-    if (local.__i < local.__layerlistlength)
+    var __layername = layer_get_name(__layerlist[__i])
+    if (string_pos(__colstring, __layername) > 0)
     {
-        local.__layername = layer_get_name(local.__layerlist[local.__i])
-        if (string_pos(local.__colstring, local.__layername) > 0)
-            break
-        else
-        {
-            local.__i = (local.__i + 1)
-            continue
-        }
-    }
-    break
-}
-if (local.__layerid != -1)
-{
-    local.__els = layer_get_all_elements(local.__layerid)
-    local.__elslength = array_length_1d(local.__els)
-    local.__i = 0
-    while(true)
-    {
-        if (local.__i < local.__elslength)
-        {
-            if (layer_get_element_type(local.__els[local.__i]) == 1)
-            {
-                local.__result[0] = local.__els[local.__i]
-                local.__result[1] = local.__layerid
-            }
-            local.__i = (local.__i + 1)
-            continue
-        }
+        __layerid = __layerlist[__i]
         break
+    }
+    else
+    {
+        __i++
+        continue
+    }
+}
+if (__layerid != -1)
+{
+    var __els = layer_get_all_elements(__layerid)
+    var __elslength = array_length_1d(__els)
+    for (__i = 0; __i < __elslength; __i++)
+    {
+        if (layer_get_element_type(__els[__i]) == 1)
+        {
+            __result[0] = __els[__i]
+            __result[1] = __layerid
+        }
     }
 }
 else
 {
-    local.__newback = __background_set_element(-1, 0, 0, -1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
-    local.__result[0] = local.__newback[0]
-    local.__result[1] = local.__newback[1]
+    var __newback = __background_set_element(-1, 0, 0, -1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+    __result[0] = __newback[0]
+    __result[1] = __newback[1]
 }
-return local.__result
+return __result;

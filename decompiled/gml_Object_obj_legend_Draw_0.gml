@@ -1,63 +1,53 @@
 if (self.con == 1)
 {
-    self.textimer = (self.textimer + 1)
+    self.textimer += 1
     if (self.textimer == 6)
     {
         global.typer = 41
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_13_0"@10001)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_13_0")
         self.w = instance_create(40, 160, obj_writer)
         self.w.depth = -10
     }
     if (self.textimer == 220)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_21_0"@10002)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_21_0")
         self.w = instance_create(40, 160, obj_writer)
         self.w.depth = -10
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_24_0"@10003)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_24_0")
         self.w = instance_create(220, 160, obj_writer)
         self.w.depth = -10
     }
     if (self.textimer == 340)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_32_0"@10004)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_32_0")
         self.w = instance_create(40, 160, obj_writer)
         self.w.depth = -10
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_35_0"@10005)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_35_0")
         self.w = instance_create(220, 160, obj_writer)
         self.w.depth = -10
     }
     if (self.textimer == 460)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_43_0"@10006)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_43_0")
         self.w = instance_create(80, 160, obj_writer)
         self.w.depth = -10
     }
     draw_sprite(self.pic, 0, 60, (48 + self.yoff))
-    self.ytimer = (self.ytimer + 1)
-    if (self.ytimer >= 4)
-        _temp_local_var_1 = (self.yoff > -260)
-    else
-        _temp_local_var_1 = 0
-    if _temp_local_var_1
+    self.ytimer += 1
+    if ((self.ytimer >= 4) && (self.yoff > -260))
     {
         self.ytimer = 0
-        self.yoff = (self.yoff - 2)
+        self.yoff -= 2
     }
     if (self.yoff <= -260)
     {
-        self.contimer = (self.contimer + 1)
+        self.contimer += 1
         if (self.contimer == 40)
             audio_pause_sound(global.currentsong[1])
         if (self.contimer == 100)
@@ -72,13 +62,11 @@ if (self.con == 1)
 if (self.con == 2)
 {
     draw_sprite(self.pic, 0, 60, (48 + self.yoff))
-    self.contimer = (self.contimer + 1)
+    self.contimer += 1
     if (self.contimer == 40)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
     }
 }
 if (self.con == 3)
@@ -90,21 +78,19 @@ if (self.con == 3)
     self.contimer = 0
     self.chunkfade = 0
     global.typer = 40
-    global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_98_0"@10008)
-    global.msg[1] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_99_0"@10009)
+    global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_98_0")
+    global.msg[1] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_99_0")
     self.w = instance_create(40, 160, obj_writer)
 }
 if (self.con == 4)
 {
     draw_sprite(self.pic, 0, 60, 28)
-    self.contimer = (self.contimer + 1)
+    self.contimer += 1
     if (self.contimer == 270)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_113_0"@10010)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_113_0")
         self.w = instance_create(70, 160, obj_writer)
     }
     if (self.contimer >= 276)
@@ -119,7 +105,7 @@ if (self.con == 5)
     if (self.contimer <= 200)
         draw_sprite(self.pic, 0, 60, 28)
     self.con_alph = 0
-    self.c_chunkamt = (self.c_chunkamt + 0.05)
+    self.c_chunkamt += 0.05
     if (self.c_chunkamt >= 0.25)
         self.con_alph = 0.25
     if (self.c_chunkamt >= 0.5)
@@ -129,17 +115,15 @@ if (self.con == 5)
     if (self.c_chunkamt >= 1)
         self.con_alph = 1
     if (self.contimer <= 200)
-        draw_sprite_ext(self.pic, 1, 60, 28, 1, 1, 0, 0xFFFFFF, self.con_alph)
-    self.contimer = (self.contimer + 1)
+        draw_sprite_ext(self.pic, 1, 60, 28, 1, 1, 0, 0x00FFFFFF, self.con_alph)
+    self.contimer += 1
     if (self.contimer == 120)
         self.chunkfade = 1
     if (self.contimer == 130)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_151_0"@10013)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_151_0")
         self.w = instance_create(40, 80, obj_writer)
     }
     if (self.contimer == 210)
@@ -151,15 +135,13 @@ if (self.con == 5)
     {
         self.chunkfade = 1
         self.fadespeed = 0.03
-        self.fadecolor = 0xFFFFFF
+        self.fadecolor = 0x00FFFFFF
     }
     if (self.contimer == 275)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_170_0"@10014)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_170_0")
         self.w = instance_create(80, 185, obj_writer)
         self.fadespeed = 0.05
         self.con = 6
@@ -175,7 +157,7 @@ if (self.con == 6)
     draw_sprite(self.pic, 0, 0, 0)
     self.con_alph = 0
     if (self.contimer >= 276)
-        self.c_chunkamt = (self.c_chunkamt + 0.05)
+        self.c_chunkamt += 0.05
     if (self.c_chunkamt >= 0.25)
         self.con_alph = 0.25
     if (self.c_chunkamt >= 0.5)
@@ -184,48 +166,40 @@ if (self.con == 6)
         self.con_alph = 0.75
     if (self.c_chunkamt >= 1)
         self.con_alph = 1
-    draw_sprite_ext(self.pic, 1, 0, 0, 1, 1, 0, 0xFFFFFF, self.con_alph)
-    self.contimer = (self.contimer + 1)
+    draw_sprite_ext(self.pic, 1, 0, 0, 1, 1, 0, 0x00FFFFFF, self.con_alph)
+    self.contimer += 1
     if (self.contimer == 138)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_205_0"@10015)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_205_0")
         self.w = instance_create(80, 185, obj_writer)
     }
     if (self.contimer == 276)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_212_0"@10016)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_212_0")
         self.w = instance_create(60, 185, obj_writer)
     }
     if (self.contimer == 414)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_219_0"@10017)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_219_0")
         self.w = instance_create(80, 185, obj_writer)
     }
     if (self.contimer == 520)
     {
         self.fadespeed = 0.04
-        self.fadecolor = 0x000000
+        self.fadecolor = 0x00000000
         self.chunkfade = 1
     }
     if (self.contimer == 551)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_233_0"@10018)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_233_0")
         self.w = instance_create(40, 185, obj_writer)
         self.contimer = 0
         self.c_chunkamt = 0
@@ -240,16 +214,14 @@ if (self.con == 7)
     draw_sprite(self.pic, 0, 0, 0)
     if (self.contimer == 138)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_253_0"@10019)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_253_0")
         self.w = instance_create(80, 185, obj_writer)
     }
     self.con_alph = 0
     if (self.contimer >= 138)
-        self.c_chunkamt = (self.c_chunkamt + 0.05)
+        self.c_chunkamt += 0.05
     if (self.c_chunkamt >= 0.25)
         self.con_alph = 0.25
     if (self.c_chunkamt >= 0.5)
@@ -258,20 +230,18 @@ if (self.con == 7)
         self.con_alph = 0.75
     if (self.c_chunkamt >= 1)
         self.con_alph = 1
-    draw_sprite_ext(self.pic, 1, 0, 0, 1, 1, 0, 0xFFFFFF, self.con_alph)
-    self.contimer = (self.contimer + 1)
+    draw_sprite_ext(self.pic, 1, 0, 0, 1, 1, 0, 0x00FFFFFF, self.con_alph)
+    self.contimer += 1
     if (self.contimer == 246)
     {
         self.fadespeed = 0.04
-        self.fadecolor = 0x000000
+        self.fadecolor = 0x00000000
         self.chunkfade = 1
     }
     if (self.contimer >= 277)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
         self.contimer = 0
         self.c_chunkamt = 0
         self.chunkfade = 0
@@ -286,30 +256,24 @@ if (self.con == 8)
     self.con_alph = 0
     if (self.contimer == 4)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_301_0"@10020)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_301_0")
         self.w = instance_create(20, 185, obj_writer)
     }
     if (self.contimer == 69)
     {
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_309_0"@10021)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_309_0")
         self.w = instance_create(110, 185, obj_writer)
     }
     if (self.contimer == 138)
     {
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_317_0"@10022)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_317_0")
         self.w = instance_create(200, 185, obj_writer)
     }
-    if (self.contimer >= 69)
-        _temp_local_var_2 = (self.contimer <= 138)
-    else
-        _temp_local_var_2 = 0
-    if _temp_local_var_2
+    if ((self.contimer >= 69) && (self.contimer <= 138))
     {
-        self.c_chunkamt = (self.c_chunkamt + 0.05)
+        self.c_chunkamt += 0.05
         if (self.c_chunkamt >= 0.25)
             self.con_alph = 0.25
         if (self.c_chunkamt >= 0.5)
@@ -324,7 +288,7 @@ if (self.con == 8)
     if (self.contimer >= 138)
     {
         self.con_alph = 1
-        self.c_chunkamt = (self.c_chunkamt + 0.05)
+        self.c_chunkamt += 0.05
         if (self.c_chunkamt >= 1.25)
             self.con_alph = 1.25
         if (self.c_chunkamt >= 1.5)
@@ -334,22 +298,20 @@ if (self.con == 8)
         if (self.c_chunkamt >= 2)
             self.con_alph = 2
     }
-    draw_sprite_ext(self.pic, 1, 0, 0, 1, 1, 0, 0xFFFFFF, self.con_alph)
-    draw_sprite_ext(self.pic, 2, 0, 0, 1, 1, 0, 0xFFFFFF, (self.con_alph - 1))
-    self.contimer = (self.contimer + 1)
+    draw_sprite_ext(self.pic, 1, 0, 0, 1, 1, 0, 0x00FFFFFF, self.con_alph)
+    draw_sprite_ext(self.pic, 2, 0, 0, 1, 1, 0, 0x00FFFFFF, (self.con_alph - 1))
+    self.contimer += 1
     if (self.contimer == 246)
     {
         self.fadespeed = 0.04
-        self.fadecolor = 0x000000
+        self.fadecolor = 0x00000000
         self.chunkfade = 1
     }
     if (self.contimer >= 277)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_356_0"@10023)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_356_0")
         self.w = instance_create(40, 185, obj_writer)
         self.contimer = 0
         self.c_chunkamt = 0
@@ -363,7 +325,7 @@ if (self.con == 9)
     draw_sprite(self.pic, 0, 0, 0)
     self.con_alph = 0
     if (self.contimer >= 276)
-        self.c_chunkamt = (self.c_chunkamt + 0.05)
+        self.c_chunkamt += 0.05
     if (self.c_chunkamt >= 0.25)
         self.con_alph = 0.25
     if (self.c_chunkamt >= 0.5)
@@ -372,36 +334,30 @@ if (self.con == 9)
         self.con_alph = 0.75
     if (self.c_chunkamt >= 1)
         self.con_alph = 1
-    draw_sprite_ext(self.pic, 1, 0, 0, 1, 1, 0, 0xFFFFFF, self.con_alph)
-    self.contimer = (self.contimer + 1)
+    draw_sprite_ext(self.pic, 1, 0, 0, 1, 1, 0, 0x00FFFFFF, self.con_alph)
+    self.contimer += 1
     if (self.contimer == 138)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_387_0"@10024)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_387_0")
         self.w = instance_create(40, 185, obj_writer)
     }
     if (self.contimer == 276)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_394_0"@10025)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_394_0")
         self.w = instance_create(80, 185, obj_writer)
     }
     if (self.contimer == 414)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_401_0"@10026)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_401_0")
         self.w = instance_create(80, 185, obj_writer)
         self.fadespeed = 0.04
-        self.fadecolor = 0x000000
+        self.fadecolor = 0x00000000
         self.chunkfade = 1
     }
     if (self.contimer >= 552)
@@ -418,75 +374,57 @@ if (self.con == 9)
         self.border = 1
         self.ytimer = 0
         self.xtimer = 0
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_426_0"@10027)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_426_0")
         self.w = instance_create(40, 160, obj_writer)
     }
 }
 if (self.con == 10)
 {
     draw_sprite(self.pic, 0, (60 + self.xoff), (28 + self.yoff))
-    self.ytimer = (self.ytimer + 1)
-    if (self.ytimer >= 4)
-        _temp_local_var_3 = (self.yoff > -110)
-    else
-        _temp_local_var_3 = 0
-    if _temp_local_var_3
+    self.ytimer += 1
+    if ((self.ytimer >= 4) && (self.yoff > -110))
     {
         self.ytimer = 0
-        self.yoff = (self.yoff - 2)
+        self.yoff -= 2
     }
-    self.contimer = (self.contimer + 1)
+    self.contimer += 1
     if (self.contimer == 138)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_451_0"@10028)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_451_0")
         self.w = instance_create(80, 160, obj_writer)
     }
     if (self.contimer == 276)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_459_0"@10029)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_459_0")
         self.w = instance_create(80, 160, obj_writer)
     }
     if (self.contimer == 444)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_466_0"@10030)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_466_0")
         self.w = instance_create(40, 160, obj_writer)
     }
     if (self.contimer == 640)
     {
-        with(obj_writer)
-        {
+        with (obj_writer)
             instance_destroy()
-        }
-        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_473_0"@10031)
+        global.msg[0] = scr_84_get_lang_string("obj_legend_slash_Draw_0_gml_473_0")
         self.w = instance_create(40, 160, obj_writer)
     }
     if (self.contimer >= 444)
     {
-        self.xtimer = (self.xtimer + 1)
-        if (self.xoff > -60)
-            _temp_local_var_4 = (self.xtimer >= 4)
-        else
-            _temp_local_var_4 = 0
-        if _temp_local_var_4
+        self.xtimer += 1
+        if ((self.xoff > -60) && (self.xtimer >= 4))
         {
             self.xtimer = 0
-            self.xoff = (self.xoff - 2)
+            self.xoff -= 2
         }
     }
     if (self.contimer == 760)
@@ -494,22 +432,14 @@ if (self.con == 10)
         self.fadespeed = 0.02
         self.chunkfade = 1
     }
-    if (self.contimer == 880)
-        _temp_local_var_5 = (self.skipped == 0)
-    else
-        _temp_local_var_5 = 0
-    if _temp_local_var_5
+    if ((self.contimer == 880) && (self.skipped == 0))
     {
         snd_free(global.currentsong[0])
         global.flag[6] = 0
         self.f = instance_create(0, 0, obj_fadeout)
         self.f.fadespeed = 0.02
     }
-    if (self.contimer == 960)
-        _temp_local_var_6 = (self.skipped == 0)
-    else
-        _temp_local_var_6 = 0
-    if _temp_local_var_6
+    if ((self.contimer == 960) && (self.skipped == 0))
     {
         if (global.plot == 20)
         {
@@ -522,24 +452,16 @@ if (self.con == 10)
 }
 if (self.border == 1)
 {
-    draw_set_color(0x000000)
+    draw_set_color(0x00000000)
     draw_rectangle(-10, -10, 330, 27, 0)
     draw_rectangle(-10, -10, 59, 300, 0)
     draw_rectangle(400, -10, 260, 300, 0)
     draw_rectangle(-10, 400, 330, 138, 0)
 }
-if (self.chunkfade == 0)
-    _temp_local_var_7 = (self.chunkamt > 0)
-else
-    _temp_local_var_7 = 0
-if _temp_local_var_7
-    self.chunkamt = (self.chunkamt - self.fadespeed)
-if (self.chunkfade == 1)
-    _temp_local_var_8 = (self.chunkamt < 1)
-else
-    _temp_local_var_8 = 0
-if _temp_local_var_8
-    self.chunkamt = (self.chunkamt + self.fadespeed)
+if ((self.chunkfade == 0) && (self.chunkamt > 0))
+    self.chunkamt -= self.fadespeed
+if ((self.chunkfade == 1) && (self.chunkamt < 1))
+    self.chunkamt += self.fadespeed
 draw_set_color(self.fadecolor)
 self.alph = 0
 if (self.chunkamt >= 0.25)
@@ -555,11 +477,7 @@ draw_rectangle(-10, -10, 330, 330, 0)
 draw_set_alpha(1)
 if (self.ingame == 0)
 {
-    if button1_p()
-        _temp_local_var_9 = (self.skipped == 0)
-    else
-        _temp_local_var_9 = 0
-    if _temp_local_var_9
+    if (button1_p() && (self.skipped == 0))
     {
         self.skipped = 1
         self.skiptimer = 0
@@ -568,7 +486,7 @@ if (self.ingame == 0)
         mus_volume(global.currentsong[1], 0, 15)
     }
     if (self.skipped == 1)
-        self.skiptimer = (self.skiptimer + 1)
+        self.skiptimer += 1
     if (self.skiptimer == 19)
     {
         snd_free(global.currentsong[0])

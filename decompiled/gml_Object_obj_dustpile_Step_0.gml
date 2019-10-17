@@ -1,2 +1,2 @@
 scr_depth()
-self.siner = (self.siner + 1)
+self.siner += 1

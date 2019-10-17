@@ -36,5 +36,5 @@ self.argue = 0
 self.image_xscale = 2
 self.image_yscale = 2
 self.idlesprite = 524
-self.hurtsprite = 527
+self.hurtsprite = spr_clubs_hurt
 self.sparedsprite = 526

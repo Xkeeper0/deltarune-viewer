@@ -6,13 +6,9 @@ if (self.active == 1)
         scr_damage()
     if (self.target == 3)
         scr_damage_all_overworld()
-    with(obj_darkcontroller)
-    {
+    with (obj_darkcontroller)
         self.charcon = 1
-    }
     global.interact = 1
-    with(obj_mainchara)
-    {
+    with (obj_mainchara)
         self.alarm[1] = 7
-    }
 }

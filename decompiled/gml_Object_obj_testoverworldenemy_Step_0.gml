@@ -28,10 +28,10 @@ if (self.con == 0)
     }
     if (self.frozen == 0)
     {
-        self.fliptimer = (self.fliptimer + 1)
+        self.fliptimer += 1
         if (self.fliptimer >= 30)
         {
-            self.vspeed = (variable)(- self.vspeed)
+            self.vspeed = (-self.vspeed)
             self.fliptimer = 0
         }
     }
@@ -60,37 +60,30 @@ if (self.con == 5)
     self.direction = point_direction(self.x, self.y, global.monstermakex[0], global.monstermakey[0])
     self.speed = (point_distance(self.x, self.y, global.monstermakex[0], global.monstermakey[0]) / 10)
     self.copyhave = 0
-    self.cc = 0
-    while(true)
+    for (self.cc = 0; self.cc < 2; self.cc += 1)
     {
-        if (self.cc < 2)
+        if (global.monstertype[(self.cc + 1)] != 0)
         {
-            if (global.monstertype[(self.cc + 1)] != 0)
+            self.copyhave += 1
+            if (global.monstertype[(self.cc + 1)] == global.monstertype[0])
             {
-                self.copyhave = (self.copyhave + 1)
-                if (global.monstertype[(self.cc + 1)] == global.monstertype[0])
+                self.copy[self.cc] = scr_dark_marker(self.x, self.y, self.sprite_index)
+                self.copy[self.cc].direction = point_direction(self.x, self.y, global.monstermakex[(self.cc + 1)], global.monstermakey[(self.cc + 1)])
+                self.copy[self.cc].speed = (point_distance(self.x, self.y, global.monstermakex[(self.cc + 1)], global.monstermakey[(self.cc + 1)]) / 10)
+                self.copy[self.cc].depth = ((self.depth - 1) - self.cc)
+            }
+            else
+            {
+                self.copy[self.cc] = scr_dark_marker((global.monstermakex[(self.cc + 1)] + 200), global.monstermakey[(self.cc + 1)], object_get_sprite(global.monsterinstancetype[(self.cc + 1)]))
+                self.copy[self.cc].cc = self.cc
+                self.copy[self.cc].depth = ((self.depth - 1) - self.cc)
+                with (self.copy[self.cc])
                 {
-                    self.copy[self.cc] = scr_dark_marker(self.x, self.y, self.sprite_index)
-                    self.copy[self.cc].direction = point_direction(self.x, self.y, global.monstermakex[(self.cc + 1)], global.monstermakey[(self.cc + 1)])
-                    self.copy[self.cc].speed = (point_distance(self.x, self.y, global.monstermakex[(self.cc + 1)], global.monstermakey[(self.cc + 1)]) / 10)
-                    self.copy[self.cc].depth = ((self.depth - 1) - self.cc)
-                }
-                else
-                {
-                    self.copy[self.cc] = scr_dark_marker((global.monstermakex[(self.cc + 1)] + 200), global.monstermakey[(self.cc + 1)], object_get_sprite(global.monsterinstancetype[(self.cc + 1)]))
-                    self.copy[self.cc].cc = self.cc
-                    self.copy[self.cc].depth = ((self.depth - 1) - self.cc)
-                    with(self.copy[self.cc])
-                    {
-                        self.direction = point_direction(self.x, self.y, global.monstermakex[(self.cc + 1)], global.monstermakey[(self.cc + 1)])
-                        self.speed = (point_distance(self.x, self.y, global.monstermakex[(self.cc + 1)], global.monstermakey[(self.cc + 1)]) / 10)
-                    }
+                    self.direction = point_direction(self.x, self.y, global.monstermakex[(self.cc + 1)], global.monstermakey[(self.cc + 1)])
+                    self.speed = (point_distance(self.x, self.y, global.monstermakex[(self.cc + 1)], global.monstermakey[(self.cc + 1)]) / 10)
                 }
             }
-            self.cc = (self.cc + 1)
-            continue
         }
-        break
     }
     self.alarm[4] = 10
 }
@@ -98,19 +91,10 @@ if (self.con == 7)
 {
     if (self.copyhave > 0)
     {
-        self.c = 0
-        while(true)
+        for (self.c = 0; self.c < self.copyhave; self.c += 1)
         {
-            if (self.c < self.copyhave)
-            {
-                with(self.copy[self.c])
-                {
-                    self.speed = 0
-                }
-                self.c = (self.c + 1)
-                continue
-            }
-            break
+            with (self.copy[self.c])
+                self.speed = 0
         }
     }
     self.speed = 0
@@ -118,27 +102,16 @@ if (self.con == 7)
     {
         if (self.eraser == 1)
         {
-            with(obj_chaseenemy)
-            {
+            with (obj_chaseenemy)
                 instance_destroy()
-            }
         }
         instance_destroy()
         if (self.copyhave > 0)
         {
-            self.c = 0
-            while(true)
+            for (self.c = 0; self.c < self.copyhave; self.c += 1)
             {
-                if (self.c < self.copyhave)
-                {
-                    with(self.copy[self.c])
-                    {
-                        instance_destroy()
-                    }
-                    self.c = (self.c + 1)
-                    continue
-                }
-                break
+                with (self.copy[self.c])
+                    instance_destroy()
             }
         }
     }

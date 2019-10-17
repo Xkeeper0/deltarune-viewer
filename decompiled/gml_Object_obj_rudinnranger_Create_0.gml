@@ -35,5 +35,5 @@ self.image_speed = 0
 self.image_xscale = 2
 self.image_yscale = 2
 self.idlesprite = 621
-self.hurtsprite = 619
+self.hurtsprite = spr_diamond_knight_hurt
 self.sparedsprite = 620

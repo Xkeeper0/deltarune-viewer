@@ -17,9 +17,9 @@ self.FADEUP = 0
 self.OB_DEPTH = 0
 self.obacktimer = 0
 self.OBM = 0.5
-global.currentsong[0] = snd_init("AUDIO_DRONE.ogg"@9541)
+global.currentsong[0] = snd_init("AUDIO_DRONE.ogg")
 mus_loop(global.currentsong[0])
 self.WHITEFADE = 0
-scr_windowcaption(scr_84_get_lang_string("DEVICE_CONTACT_slash_Create_0_gml_23_0"@9543))
-if (global.lang == "ja"@1566)
+scr_windowcaption(scr_84_get_lang_string("DEVICE_CONTACT_slash_Create_0_gml_23_0"))
+if (global.lang == "ja")
     global.flag[912] = 1

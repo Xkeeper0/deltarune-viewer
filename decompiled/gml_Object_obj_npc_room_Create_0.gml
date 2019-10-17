@@ -19,10 +19,8 @@ if (global.darkzone == 0)
     {
         self.sprite_index = spr_npc_bench
         self.fence = scr_marker(81, 122, spr_npc_graveyardfence)
-        with(self.fence)
-        {
+        with (self.fence)
             scr_depth()
-        }
     }
     if (self.room == room_hospital_lobby)
         self.sprite_index = spr_npc_nurse
@@ -44,11 +42,7 @@ if (global.darkzone == 0)
             self.sprite_index = spr_npc_cattiwaitress
         if (self.x < 60)
             self.sprite_index = spr_npc_dragonfamily
-        if (self.x >= 120)
-            _temp_local_var_1 = (self.x <= 140)
-        else
-            _temp_local_var_1 = 0
-        if _temp_local_var_1
+        if ((self.x >= 120) && (self.x <= 140))
             self.sprite_index = spr_npc_qc
         if (self.y > 130)
         {
@@ -114,16 +108,7 @@ if (global.darkzone == 1)
     self.image_yscale = 2
     if (self.room == room_castle_tutorial)
         self.sprite_index = spr_dummynpc
-    if (self.room == room_field2A)
-        _temp_local_var_2 = 1
-    else
-    {
-        if (self.room == room_field_puzzle1)
-            _temp_local_var_2 = 1
-        else
-            _temp_local_var_2 = (self.room == room_field4)
-    }
-    if _temp_local_var_2
+    if ((self.room == room_field2A) || ((self.room == room_field_puzzle1) || (self.room == room_field4)))
         self.sprite_index = spr_candytree
     if (self.room == room_field_topchef)
     {
@@ -190,11 +175,7 @@ if (global.darkzone == 1)
     if (self.room == room_forest_savepoint2)
     {
         self.sprite_index = spr_bakesale_rudinn
-        if (self.x >= 800)
-            _temp_local_var_3 = (self.x <= 880)
-        else
-            _temp_local_var_3 = 0
-        if _temp_local_var_3
+        if ((self.x >= 800) && (self.x <= 880))
             self.sprite_index = spr_bakesale_hathy
         if (self.x >= 980)
             self.sprite_index = spr_bakesale_lancer
@@ -229,11 +210,7 @@ if (global.darkzone == 1)
     {
         global.flag[296] = 1
         self.sprite_index = spr_npc_gouldensam
-        if (self.x > 240)
-            _temp_local_var_4 = (self.x < 440)
-        else
-            _temp_local_var_4 = 0
-        if _temp_local_var_4
+        if ((self.x > 240) && (self.x < 440))
         {
             self.king = instance_create(-100, -100, obj_npc_room)
             self.king.x = self.x
@@ -242,39 +219,27 @@ if (global.darkzone == 1)
             scr_depth()
             self.king.depth = (self.depth - 10)
         }
-        if (self.x > 480)
-            _temp_local_var_5 = (self.x < 680)
-        else
-            _temp_local_var_5 = 0
-        if _temp_local_var_5
+        if ((self.x > 480) && (self.x < 680))
         {
-            self.x = (self.x + 4)
+            self.x += 4
             self.puzz = instance_create(-100, -100, obj_npc_room)
             self.puzz.x = 660
             self.puzz.y = 130
             self.puzz.sprite_index = spr_npc_puzzlepiece_jail
             self.tempvar = 1
         }
-        if (self.x > 680)
-            _temp_local_var_6 = (self.x < 900)
-        else
-            _temp_local_var_6 = 0
-        if _temp_local_var_6
+        if ((self.x > 680) && (self.x < 900))
         {
-            self.x = (self.x + 8)
+            self.x += 8
             self.rudinn = instance_create(-100, -100, obj_npc_room)
             self.rudinn.x = 900
             self.rudinn.y = 115
             self.rudinn.sprite_index = spr_diamond_overworld
             self.tempvar = 2
         }
-        if (self.x > 900)
-            _temp_local_var_7 = (self.x < 1120)
-        else
-            _temp_local_var_7 = 0
-        if _temp_local_var_7
+        if ((self.x > 900) && (self.x < 1120))
         {
-            self.x = (self.x + 12)
+            self.x += 12
             self.tempvar = 3
             self.animal = instance_create(-100, -100, obj_npc_room)
             self.animal.x = self.x
@@ -302,45 +267,35 @@ if (global.darkzone == 1)
     {
         if (global.plot < 240)
             instance_destroy()
-        else
+        else if ((self.y < 300) && (self.y > 80))
         {
-            if (self.y < 300)
-                _temp_local_var_8 = (self.y > 80)
-            else
-                _temp_local_var_8 = 0
-            if _temp_local_var_8
+            self.sprite_index = spr_npc_gouldensam
+            if (self.x < (self.room_width / 2))
             {
-                self.sprite_index = spr_npc_gouldensam
-                if (self.x < (self.room_width / 2))
-                {
-                    self.king = instance_create(-100, -100, obj_npc_room)
-                    self.king.x = self.x
-                    self.king.y = self.y
-                    self.king.sprite_index = spr_npc_cage_king
-                    scr_depth()
-                    self.king.depth = (self.depth - 10)
-                    if (global.flag[296] == 0)
-                        instance_destroy()
-                }
-                else
-                {
-                    self.tempvar = 1
-                    self.animal = instance_create(-100, -100, obj_npc_room)
-                    self.animal.x = self.x
-                    self.animal.y = self.y
-                    self.animal.sprite_index = spr_npc_cage_animals
-                    if (global.flag[296] == 0)
-                        instance_destroy()
-                }
+                self.king = instance_create(-100, -100, obj_npc_room)
+                self.king.x = self.x
+                self.king.y = self.y
+                self.king.sprite_index = spr_npc_cage_king
+                scr_depth()
+                self.king.depth = (self.depth - 10)
+                if (global.flag[296] == 0)
+                    instance_destroy()
             }
             else
             {
-                if (self.x < (self.room_width / 2))
-                    self.sprite_index = spr_diamond_overworld
-                else
-                    self.sprite_index = spr_topchef
+                self.tempvar = 1
+                self.animal = instance_create(-100, -100, obj_npc_room)
+                self.animal.x = self.x
+                self.animal.y = self.y
+                self.animal.sprite_index = spr_npc_cage_animals
+                if (global.flag[296] == 0)
+                    instance_destroy()
             }
         }
+        else if (self.x < (self.room_width / 2))
+            self.sprite_index = spr_diamond_overworld
+        else
+            self.sprite_index = spr_topchef
     }
     if (self.room == room_cc_preroof)
     {
@@ -382,13 +337,10 @@ if (global.darkzone == 1)
                     self.sprite_index = spr_npc_puzzlepiece_shaved
             }
         }
+        else if (self.x < 900)
+            self.sprite_index = spr_jackperson
         else
-        {
-            if (self.x < 900)
-                self.sprite_index = spr_jackperson
-            else
-                self.sprite_index = spr_ballperson
-        }
+            self.sprite_index = spr_ballperson
     }
 }
 if (self.depthcancel == 0)

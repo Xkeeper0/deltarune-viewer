@@ -1,3 +1,3 @@
-__view_set(e__VW.Object, 0, -4)
-__view_set(e__VW.YView, 0, (__view_get(e__VW.YView, 0) - 40))
+__view_set(9, 0, -4)
+__view_set(1, 0, (__view_get(1, 0) - 40))
 scr_pan(0, -1, 20)

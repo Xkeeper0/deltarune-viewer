@@ -9,8 +9,8 @@ if instance_exists(obj_heartmarker)
 }
 else
 {
-    self.distx = (__view_get(e__VW.XView, 0) + 310)
-    self.disty = (__view_get(e__VW.YView, 0) + 160)
+    self.distx = (__view_get(0, 0) + 310)
+    self.disty = (__view_get(1, 0) + 160)
 }
 self.dist = point_distance(self.x, self.y, self.distx, self.disty)
 move_towards_point(self.distx, self.disty, (self.dist / self.flytime))

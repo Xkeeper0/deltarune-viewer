@@ -1,1 +1,1 @@
-self.x = ((__view_get(e__VW.XView, 0) * self.ss) + self.xstart)
+self.x = ((__view_get(0, 0) * self.ss) + self.xstart)

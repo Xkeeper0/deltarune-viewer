@@ -1,6 +1,6 @@
 self.funbuffer = 0
 snd_play(snd_noise)
-with(obj_glowtile)
+with (obj_glowtile)
 {
     self.active = 0
     self.stepped = 0
@@ -59,17 +59,17 @@ if (self.wonamt < self.wonmax)
             self.funtotal = 3
         }
     }
-    with(self.tileid[self.choice1])
+    with (self.tileid[self.choice1])
     {
         self.active = 1
         self.sprite_index = spr_glowtile_step
     }
-    with(self.tileid[self.choice2])
+    with (self.tileid[self.choice2])
     {
         self.active = 1
         self.sprite_index = spr_glowtile_step
     }
-    with(self.tileid[self.choice3])
+    with (self.tileid[self.choice3])
     {
         self.active = 1
         self.sprite_index = spr_glowtile_step

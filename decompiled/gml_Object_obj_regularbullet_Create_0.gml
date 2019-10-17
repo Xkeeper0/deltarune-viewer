@@ -8,6 +8,6 @@ self.damage = 124
 self.active = 1
 self.spec = 0
 self.image_alpha = 1
-if (~ instance_exists(obj_heart))
+if (!instance_exists(obj_heart))
     instance_destroy()
 self.wall_destroy = 1

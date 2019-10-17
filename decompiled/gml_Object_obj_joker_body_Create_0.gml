@@ -26,16 +26,9 @@ self.dancelv = 0
 self.dancesiner = 0
 self.dancemade = 0
 self.fade = 0
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 7; self.i += 1)
 {
-    if (self.i < 7)
-    {
-        self.shadowx[self.i] = 0
-        self.shadowy[self.i] = 0
-        self.sfactor[self.i] = 1
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    self.shadowx[self.i] = 0
+    self.shadowy[self.i] = 0
+    self.sfactor[self.i] = 1
 }

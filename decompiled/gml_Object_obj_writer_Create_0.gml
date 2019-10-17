@@ -6,7 +6,7 @@ self.hspace = 8
 self.vspace = 18
 self.rate = 1
 self.mycolor = 16777215
-self.myfont = scr_84_get_font("main"@1558)
+self.myfont = scr_84_get_font("main")
 self.shake = 0
 self.special = 0
 self.skippable = 1
@@ -41,30 +41,14 @@ self.facedever = 0
 self.facer = 0
 self.siner = 0
 self.specfade = 1
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 7; self.i += 1)
 {
-    if (self.i < 7)
-    {
-        self.specx[self.i] = (self.i * 6)
-        self.specy[self.i] = (self.i * 6)
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    self.specx[self.i] = (self.i * 6)
+    self.specy[self.i] = (self.i * 6)
 }
 self.mystring = global.msg[0]
-self.j = 0
-while(true)
-{
-    if (self.j < 100)
-    {
-        self.nstring[self.j] = global.msg[self.j]
-        self.j = (self.j + 1)
-        continue
-    }
-    break
-}
+for (self.j = 0; self.j < 100; self.j += 1)
+    self.nstring[self.j] = global.msg[self.j]
 self.length = string_length(self.mystring)
 self.alarm[0] = self.rate
 if (self.rate < 3)

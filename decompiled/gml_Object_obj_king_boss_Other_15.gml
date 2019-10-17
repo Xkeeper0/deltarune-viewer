@@ -24,10 +24,8 @@ if (self.attacked == 0)
         self.box.sprite_index = spr_battlebg_wavechain
         self.hm = instance_create((self.box.x - 10), (self.box.y - 10), obj_heartmarker)
         scr_moveheart()
-        with(self.hm)
-        {
+        with (self.hm)
             instance_destroy()
-        }
         self.chainking.damage = ((global.monsterat[self.myself] * 4) * self.tempattack)
         self.chainking.target = 3
         global.turntimer = 999
@@ -45,16 +43,14 @@ if (self.attacked == 0)
     }
     if (self.attack == 4)
     {
-        global.invc = (global.invc * 1.5)
+        global.invc *= 1.5
         self.box = instance_create((self.xx + 310), (self.yy + 165), obj_growtangle)
         self.box.sprite_index = spr_battlebg_2
         self.box.keep = 1
         self.hm = instance_create((self.box.x - 10), (self.box.y - 10), obj_heartmarker)
         scr_moveheart()
-        with(self.hm)
-        {
+        with (self.hm)
             instance_destroy()
-        }
         self.damagebox = instance_create(self.box.x, self.box.y, obj_growtangle_bouncer)
         self.damagebox.type = 5
         self.damagebox.damage = ((global.monsterat[self.myself] * 5) * self.tempattack)
@@ -75,14 +71,12 @@ if (self.attacked == 0)
         global.turntimer = 999
         self.hm = instance_create((self.box.x - 10), (self.box.y - 10), obj_heartmarker)
         scr_moveheart()
-        with(self.hm)
-        {
+        with (self.hm)
             instance_destroy()
-        }
     }
     if (self.attack == 6)
     {
-        global.invc = (global.invc * 1.5)
+        global.invc *= 1.5
         self.visible = 0
         self.timeruse = 0
         self.chainking = instance_create(self.x, self.y, obj_chainking)
@@ -90,7 +84,7 @@ if (self.attacked == 0)
         self.chainking.subtype = 5
         if (self.chain_dragging >= 1)
             self.chainking.subtype = 2
-        self.chain_dragging = (self.chain_dragging + 1)
+        self.chain_dragging += 1
         self.box = instance_create((self.xx + 205), (self.yy + 170), obj_nonsolid_growtangle)
         self.box.sprite_index = spr_battlebg_1
         self.chainking.damage = ((global.monsterat[self.myself] * 5) * self.tempattack)
@@ -98,10 +92,8 @@ if (self.attacked == 0)
         global.turntimer = 999
         self.hm = instance_create((self.box.x - 10), (self.box.y - 10), obj_heartmarker)
         scr_moveheart()
-        with(self.hm)
-        {
+        with (self.hm)
             instance_destroy()
-        }
     }
     if (self.attack == 7)
     {
@@ -116,16 +108,14 @@ if (self.attacked == 0)
     }
     if (self.attack == 8)
     {
-        global.invc = (global.invc * 1.5)
+        global.invc *= 1.5
         self.box = instance_create((self.xx + 310), (self.yy + 165), obj_growtangle)
         self.box.sprite_index = spr_battlebg_2
         self.box.keep = 1
         self.hm = instance_create((self.box.x - 10), (self.box.y - 10), obj_heartmarker)
         scr_moveheart()
-        with(self.hm)
-        {
+        with (self.hm)
             instance_destroy()
-        }
         self.damagebox = instance_create(self.box.x, self.box.y, obj_growtangle_bouncer)
         self.damagebox.type = 3
         self.damagebox.damage = ((global.monsterat[self.myself] * 5) * self.tempattack)
@@ -155,17 +145,15 @@ if (self.attacked == 0)
         self.box.sprite_index = spr_battlebg_wavechain
         self.hm = instance_create((self.box.x - 10), (self.box.y - 10), obj_heartmarker)
         scr_moveheart()
-        with(self.hm)
-        {
+        with (self.hm)
             instance_destroy()
-        }
         self.chainking.damage = ((global.monsterat[self.myself] * 4) * self.tempattack)
         self.chainking.target = 3
         global.turntimer = 999
     }
     if (self.attack == 11)
     {
-        global.invc = (global.invc * 1.5)
+        global.invc *= 1.5
         self.visible = 0
         self.timeruse = 0
         self.chainking = instance_create(self.x, self.y, obj_chainking)
@@ -178,10 +166,8 @@ if (self.attacked == 0)
         global.turntimer = 999
         self.hm = instance_create((self.box.x - 10), (self.box.y - 10), obj_heartmarker)
         scr_moveheart()
-        with(self.hm)
-        {
+        with (self.hm)
             instance_destroy()
-        }
     }
     self.tempattack = 1
     self.attacked = 1

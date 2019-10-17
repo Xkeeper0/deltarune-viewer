@@ -1,1 +1,1 @@
-return global.asc_def[global.input_k[self.argument0]]
+return global.asc_def[global.input_k[self.argument0]];

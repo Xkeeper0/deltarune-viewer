@@ -1,16 +1,7 @@
-self.dtimer = (self.dtimer + 1)
+self.dtimer += 1
 if (self.type == 0)
 {
-    if (self.dtimer == 15)
-        _temp_local_var_1 = 1
-    else
-    {
-        if (self.dtimer == 19)
-            _temp_local_var_1 = 1
-        else
-            _temp_local_var_1 = (self.dtimer == 23)
-    }
-    if _temp_local_var_1
+    if ((self.dtimer == 15) || ((self.dtimer == 19) || (self.dtimer == 23)))
     {
         move_towards_point((obj_heart.x + 8), (obj_heart.y + 8), 0.1)
         self.bul = instance_create(self.x, self.y, obj_regularbullet)
@@ -60,16 +51,7 @@ if (self.type == 0)
 }
 if (self.type == 2)
 {
-    if (self.dtimer == 20)
-        _temp_local_var_2 = 1
-    else
-    {
-        if (self.dtimer == 22)
-            _temp_local_var_2 = 1
-        else
-            _temp_local_var_2 = (self.dtimer == 24)
-    }
-    if _temp_local_var_2
+    if ((self.dtimer == 20) || ((self.dtimer == 22) || (self.dtimer == 24)))
     {
         move_towards_point((obj_heart.x + 8), (obj_heart.y + 8), 0.1)
         self.bul = instance_create(self.x, self.y, obj_regularbullet)
@@ -105,7 +87,7 @@ if (self.type == 2)
             self.bul.image_angle = self.direction
             scr_bullet_inherit(self.bul)
         }
-        self.initangle = (self.initangle + 2)
+        self.initangle += 2
     }
     if (self.dtimer == 26)
     {

@@ -1,6 +1,6 @@
-if (~ snd_is_playing(global.currentsong[1]))
+if (!snd_is_playing(global.currentsong[1]))
 {
-    global.currentsong[0] = snd_init("mus_birdnoise.ogg"@3694)
+    global.currentsong[0] = snd_init("mus_birdnoise.ogg")
     global.currentsong[1] = mus_loop_ext(global.currentsong[0], 1, 1)
 }
 self.dk = snd_loop(snd_smile)

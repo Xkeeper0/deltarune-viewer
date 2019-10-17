@@ -1,6 +1,6 @@
 if (self.con == 2)
 {
-    with(obj_mainchara)
+    with (obj_mainchara)
     {
         self.sprite_index = spr_krisd_dark
         self.fun = 0

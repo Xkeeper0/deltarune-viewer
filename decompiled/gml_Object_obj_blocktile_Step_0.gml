@@ -1,4 +1,4 @@
-self.stepbuffer = (self.stepbuffer - 1)
+self.stepbuffer -= 1
 if (self.stepbuffer == 0)
 {
     self.stepped = 0

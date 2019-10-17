@@ -1,5 +1,5 @@
-self.xx = __view_get(e__VW.XView, 0)
-self.yy = __view_get(e__VW.YView, 0)
+self.xx = __view_get(0, 0)
+self.yy = __view_get(1, 0)
 self.condition = 0
 self.attackno = 0
 self.attack = 0

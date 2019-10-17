@@ -1,11 +1,11 @@
 if (self.attacked == 0)
 {
-    self.turns = (self.turns + 1)
-    self.chaosdance = (self.chaosdance + 1)
+    self.turns += 1
+    self.chaosdance += 1
     if (self.chaosdance >= 9)
         self.chaosdance = 0
     self.remat = global.monsterat[self.myself]
-    global.monsterat[self.myself] = (global.monsterat[self.myself] * self.pfactor)
+    global.monsterat[self.myself] *= self.pfactor
     if (self.jattack == 0)
     {
         self.dc = instance_create(self.x, self.y, obj_dbulletcontroller)
@@ -13,10 +13,8 @@ if (self.attacked == 0)
         self.dc.target = self.mytarget
         self.dc.grazepoints = 2
         self.dc.damage = (global.monsterat[self.myself] * 5)
-        with(self.body)
-        {
+        with (self.body)
             self.condition = 2
-        }
     }
     if (self.jattack == 1)
     {
@@ -33,10 +31,8 @@ if (self.attacked == 0)
         self.dc.target = 3
         self.dc.damage = (global.monsterat[self.myself] * 4)
         self.dc.grazepoints = 3
-        with(self.body)
-        {
+        with (self.body)
             self.condition = 2
-        }
     }
     if (self.jattack == 3)
     {
@@ -50,7 +46,7 @@ if (self.attacked == 0)
     }
     if (self.jattack == 4)
     {
-        snd_play(scr_84_get_sound("snd_joker_anything"@3395))
+        snd_play(scr_84_get_sound("snd_joker_anything"))
         self.dc = instance_create(self.x, self.y, obj_dbulletcontroller)
         self.dc.type = 62
         self.dc.target = self.mytarget
@@ -66,10 +62,8 @@ if (self.attacked == 0)
         self.dc.target = 3
         self.dc.damage = (global.monsterat[self.myself] * 4)
         global.turntimer = 300
-        with(self.body)
-        {
+        with (self.body)
             self.condition = 2
-        }
     }
     if (self.jattack == 6)
     {
@@ -88,7 +82,7 @@ if (self.attacked == 0)
     }
     if (self.jattack == 8)
     {
-        snd_play(scr_84_get_sound("snd_joker_anything"@3395))
+        snd_play(scr_84_get_sound("snd_joker_anything"))
         self.dc = instance_create(self.x, self.y, obj_dbulletcontroller)
         self.dc.inv = 20
         self.dc.type = 61
@@ -105,10 +99,8 @@ if (self.attacked == 0)
         self.dc.damage = (global.monsterat[self.myself] * 4)
         self.dc.grazepoints = 4
         global.turntimer = 270
-        with(self.body)
-        {
+        with (self.body)
             self.condition = 2
-        }
     }
     if (self.jattack == 10)
     {
@@ -134,10 +126,8 @@ if (self.attacked == 0)
         self.dc.target = self.mytarget
         self.dc.damage = (global.monsterat[self.myself] * 5)
         self.dc.grazepoints = 2
-        with(self.body)
-        {
+        with (self.body)
             self.condition = 2
-        }
     }
     if (self.jattack == 13)
     {
@@ -147,10 +137,8 @@ if (self.attacked == 0)
         self.dc.damage = (global.monsterat[self.myself] * 4)
         self.dc.grazepoints = 4
         global.turntimer = 330
-        with(self.body)
-        {
+        with (self.body)
             self.condition = 2
-        }
     }
     if (self.jattack == 14)
     {
@@ -176,10 +164,8 @@ if (self.attacked == 0)
         self.dc.target = 3
         self.dc.damage = (global.monsterat[self.myself] * 4)
         global.turntimer = 300
-        with(self.body)
-        {
+        with (self.body)
             self.condition = 2
-        }
     }
     if (self.jattack == 999)
     {
@@ -189,10 +175,8 @@ if (self.attacked == 0)
         self.dc.damage = (global.monsterat[self.myself] * 4)
         global.turntimer = 300
     }
-    with(obj_dbulletcontroller)
-    {
+    with (obj_dbulletcontroller)
         self.joker = 1
-    }
     self.pfactor = 1
     global.monsterat[self.myself] = self.remat
     self.attacked = 1

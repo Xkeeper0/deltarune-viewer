@@ -4,10 +4,8 @@ self.image_index = 0
 self.image_xscale = 2
 self.image_yscale = 2
 self.treestump = scr_dark_marker(1120, 752, spr_donation_hole_and_tree)
-with(self.treestump)
-{
+with (self.treestump)
     self.depth = 950000
-}
 if (global.plot >= 70)
 {
     self.con = 999

@@ -4,10 +4,8 @@ if (self.con == 1)
     self.s = scr_dark_marker(340, 1000, spr_susieu_dark)
     self.r = scr_dark_marker(260, 1008, spr_ralseiu)
     self.l = scr_dark_marker(280, 740, spr_lancer_ut_unhappy)
-    with(obj_marker)
-    {
+    with (obj_marker)
         scr_depth()
-    }
     self.con = 2
     global.interact = 1
     self.alarm[4] = 30
@@ -19,33 +17,29 @@ if (self.con == 3)
     global.fc = 1
     global.fe = 9
     global.typer = 30
-    global.msg[0] = scr_84_get_lang_string("obj_castlefront_event_slash_Step_0_gml_24_0"@4396)
+    global.msg[0] = scr_84_get_lang_string("obj_castlefront_event_slash_Step_0_gml_24_0")
     instance_create(0, 0, obj_dialoguer)
     self.con = 4
 }
-if (self.con == 4)
-    _temp_local_var_1 = (~ d_ex())
-else
-    _temp_local_var_1 = 0
-if _temp_local_var_1
+if ((self.con == 4) && (!d_ex()))
 {
-    with(self.l)
+    with (self.l)
     {
         self.sprite_index = spr_lancer_dt_unhappy
         self.vspeed = -3
     }
-    with(obj_mainchara)
+    with (obj_mainchara)
     {
         self.fun = 1
         self.vspeed = -8
         self.image_speed = 0.25
     }
-    with(self.s)
+    with (self.s)
     {
         self.vspeed = -8
         self.image_speed = 0.25
     }
-    with(self.r)
+    with (self.r)
     {
         self.vspeed = -8
         self.image_speed = 0.25
@@ -60,96 +54,64 @@ if (self.con == 6)
     instance_create(0, 0, obj_shake)
     self.door = scr_dark_marker(226, 534, spr_cardcastlefrontdoor)
     self.door.depth = 1000000
-    with(self.l)
-    {
+    with (self.l)
         instance_destroy()
-    }
-    with(self.s)
-    {
+    with (self.s)
         scr_halt()
-    }
-    with(self.r)
-    {
+    with (self.r)
         scr_halt()
-    }
-    with(obj_mainchara)
-    {
+    with (obj_mainchara)
         scr_halt()
-    }
     self.con = 7
     self.alarm[4] = 40
 }
 if (self.con == 8)
 {
-    global.msg[0] = scr_84_get_lang_string("obj_castlefront_event_slash_Step_0_gml_58_0"@4397)
+    global.msg[0] = scr_84_get_lang_string("obj_castlefront_event_slash_Step_0_gml_58_0")
     instance_create(0, 0, obj_dialoguer)
     self.con = 15
 }
-if (self.con == 15)
-    _temp_local_var_2 = (~ d_ex())
-else
-    _temp_local_var_2 = 0
-if _temp_local_var_2
+if ((self.con == 15) && (!d_ex()))
 {
-    with(self.s)
-    {
+    with (self.s)
         self.sprite_index = spr_susier_dark_unhappy
-    }
-    with(self.r)
-    {
+    with (self.r)
         self.sprite_index = spr_ralseil
-    }
     global.facing = 0
-    with(obj_mainchara)
-    {
+    with (obj_mainchara)
         self.sprite_index = spr_krisd_dark
-    }
     self.exc = instance_create((obj_mainchara.x + 20), (obj_mainchara.y - 20), obj_excblcon)
     self.con = 16
     self.alarm[4] = 20
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < 4; self.i += 1)
     {
-        if (self.i < 4)
+        self.spademanl[self.i] = scr_dark_marker((0 - (10 * self.i)), (680 + (30 * self.i)), spr_diamond_knight_overworld)
+        with (self.spademanl[self.i])
         {
-            self.spademanl[self.i] = scr_dark_marker((0 - (10 * self.i)), (680 + (30 * self.i)), spr_diamond_knight_overworld)
-            with(self.spademanl[self.i])
-            {
-                self.image_xscale = -2
-                self.hspeed = 12
-                scr_depth()
-            }
-            self.i = (self.i + 1)
-            continue
+            self.image_xscale = -2
+            self.hspeed = 12
+            scr_depth()
         }
-        break
     }
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < 4; self.i += 1)
     {
-        if (self.i < 4)
+        self.spademanr[self.i] = scr_dark_marker((640 + (10 * self.i)), (680 + (30 * self.i)), spr_diamond_knight_overworld)
+        with (self.spademanr[self.i])
         {
-            self.spademanr[self.i] = scr_dark_marker((640 + (10 * self.i)), (680 + (30 * self.i)), spr_diamond_knight_overworld)
-            with(self.spademanr[self.i])
-            {
-                self.image_xscale = 2
-                self.hspeed = -12
-                scr_depth()
-            }
-            self.i = (self.i + 1)
-            continue
+            self.image_xscale = 2
+            self.hspeed = -12
+            scr_depth()
         }
-        break
     }
     self.spademand[0] = scr_dark_marker(320, 1100, spr_diamond_knight_overworld)
-    with(self.spademand[0])
+    with (self.spademand[0])
     {
         self.image_xscale = -2
         self.vspeed = -12
         scr_depth()
     }
     self.spademand[1] = scr_dark_marker(320, 1100, spr_diamond_knight_overworld)
-    with(self.spademand[1])
+    with (self.spademand[1])
     {
         self.image_xscale = 2
         self.vspeed = -12
@@ -158,14 +120,10 @@ if _temp_local_var_2
 }
 if (self.con == 17)
 {
-    with(self.exc)
-    {
+    with (self.exc)
         instance_destroy()
-    }
-    with(obj_marker)
-    {
+    with (obj_marker)
         scr_halt()
-    }
     self.con = 18
     self.alarm[4] = 20
 }
@@ -173,7 +131,7 @@ if (self.con == 19)
 {
     global.typer = 6
     global.fc = 0
-    global.msg[0] = scr_84_get_lang_string("obj_castlefront_event_slash_Step_0_gml_106_0"@4401)
+    global.msg[0] = scr_84_get_lang_string("obj_castlefront_event_slash_Step_0_gml_106_0")
     instance_create(0, 0, obj_dialoguer)
     self.con = 20
     self.ftimer = 0
@@ -181,11 +139,7 @@ if (self.con == 19)
     self.so = 0
     self.maxd = 36
 }
-if (self.con == 20)
-    _temp_local_var_3 = (~ d_ex())
-else
-    _temp_local_var_3 = 0
-if _temp_local_var_3
+if ((self.con == 20) && (!d_ex()))
 {
     if (self.dcount < self.maxd)
     {
@@ -204,7 +158,7 @@ if _temp_local_var_3
         self.yd = lengthdir_y(self.radius, self.angle)
         self.db[self.dcount] = scr_dark_marker((self.xpoint + self.xd), (self.ypoint + self.yd), spr_diamondbullet)
         self.db[self.dcount].image_angle = self.angle
-        with(self.db[self.dcount])
+        with (self.db[self.dcount])
         {
             self.image_xscale = 1
             self.image_yscale = 1
@@ -214,25 +168,16 @@ if _temp_local_var_3
             self.depth = 10000
             self.friction = 0.1
         }
-        self.dcount = (self.dcount + 1)
+        self.dcount += 1
     }
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < self.dcount; self.i += 1)
     {
-        if (self.i < self.dcount)
-        {
-            with(self.db[self.i])
-            {
-                self.image_alpha = (self.image_alpha + 0.1)
-            }
-            self.i = (self.i + 1)
-            continue
-        }
-        break
+        with (self.db[self.i])
+            self.image_alpha += 0.1
     }
     if (self.dcount >= self.maxd)
     {
-        self.ftimer = (self.ftimer + 1)
+        self.ftimer += 1
         if (self.ftimer >= 20)
             self.con = 21
     }
@@ -242,30 +187,19 @@ if (self.con == 21)
     global.typer = 31
     global.fc = 2
     global.fe = 3
-    global.msg[0] = scr_84_get_lang_string("obj_castlefront_event_slash_Step_0_gml_163_0"@4413)
+    global.msg[0] = scr_84_get_lang_string("obj_castlefront_event_slash_Step_0_gml_163_0")
     instance_create(0, 0, obj_dialoguer)
     self.con = 22
 }
-if (self.con == 22)
-    _temp_local_var_4 = (~ d_ex())
-else
-    _temp_local_var_4 = 0
-if _temp_local_var_4
+if ((self.con == 22) && (!d_ex()))
 {
-    self.i = 0
-    while(true)
+    for (self.i = 0; self.i < self.dcount; self.i += 1)
     {
-        if (self.i < self.dcount)
+        with (self.db[self.i])
         {
-            with(self.db[self.i])
-            {
-                self.gravity = 1
-                self.gravity_direction = (self.image_angle + 180)
-            }
-            self.i = (self.i + 1)
-            continue
+            self.gravity = 1
+            self.gravity_direction = (self.image_angle + 180)
         }
-        break
     }
     self.con = 26
 }

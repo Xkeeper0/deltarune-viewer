@@ -1,1 +1,1 @@
-self.attackcon = (self.attackcon + 1)
+self.attackcon += 1

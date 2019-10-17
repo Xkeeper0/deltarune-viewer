@@ -18,13 +18,13 @@ if (self.room == room_cc_4f)
 }
 self.bullet = instance_create(self.x, self.y, obj_overworldbulletparent)
 self.bullet.sprite_index = spr_scissordancer_precise
-with(self.bullet)
+with (self.bullet)
 {
     self.active = 1
     self.target = 3
     self.damage = 15
     self.visible = 0
-    self.image_blend = 0x0000FF
+    self.image_blend = 0x000000FF
     self.image_alpha = 1
     self.image_xscale = 2
     self.image_yscale = 2

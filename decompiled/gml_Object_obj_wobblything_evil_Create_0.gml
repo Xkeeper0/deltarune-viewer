@@ -7,15 +7,6 @@ self.wobbled = 0
 if (self.room == room_dark_wobbles)
 {
     self.tilearray = tile_get_ids_at_depth(777777)
-    local.i = 0
-    while(true)
-    {
-        if (local.i < array_length_1d(self.tilearray))
-        {
-            tile_set_alpha(self.tilearray[local.i], 0)
-            local.i = (local.i + 1)
-            continue
-        }
-        break
-    }
+    for (var i = 0; i < array_length_1d(self.tilearray); i++)
+        tile_set_alpha(self.tilearray[i], 0)
 }

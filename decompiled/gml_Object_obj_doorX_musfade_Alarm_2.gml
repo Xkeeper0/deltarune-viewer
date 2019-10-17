@@ -11,11 +11,7 @@ if (self.room == room_man)
 if (self.room == room_forest_area5)
 {
     self.ch = ceil(random(50))
-    if (self.ch == 50)
-        _temp_local_var_1 = (global.flag[910] == 0)
-    else
-        _temp_local_var_1 = 0
-    if _temp_local_var_1
+    if ((self.ch == 50) && (global.flag[910] == 0))
         room_goto(room_man)
     else
         room_goto(room_forest_starwalker)

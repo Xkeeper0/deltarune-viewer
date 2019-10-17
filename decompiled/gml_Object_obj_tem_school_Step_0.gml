@@ -6,7 +6,7 @@ if (self.myinteract == 3)
             self.egcon = 2
         if (self.egcon == 2)
         {
-            self.egtimer = (self.egtimer + 1)
+            self.egtimer += 1
             self.sprite_index = spr_tem_eggput
             self.image_index = (self.egtimer / 10)
             if (self.egtimer >= 60)
@@ -17,18 +17,12 @@ if (self.myinteract == 3)
                 self.egcon = 3
             }
         }
-        if (self.egcon == 3)
-            _temp_local_var_1 = 1
-        else
-            _temp_local_var_1 = (self.egcon == 0)
-        if _temp_local_var_1
+        if ((self.egcon == 3) || (self.egcon == 0))
         {
             global.interact = 0
             self.myinteract = 0
-            with(obj_mainchara)
-            {
+            with (obj_mainchara)
                 self.onebuffer = 5
-            }
         }
     }
 }

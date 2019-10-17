@@ -1,7 +1,7 @@
-self.dtsprite = 187
-self.rtsprite = 183
-self.ltsprite = 180
-self.utsprite = 190
+self.dtsprite = spr_susied_dark
+self.rtsprite = spr_susier_dark
+self.ltsprite = spr_susiel_dark
+self.utsprite = spr_susieu_dark
 self.myinteract = 0
 self.facing = 2
 self.dfacing = 2

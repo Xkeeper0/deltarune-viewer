@@ -8,4 +8,4 @@ self.fullgrow = 0
 self.keep = 0
 self.megakeep = 0
 self.image_speed = 0
-self.image_blend = merge_color(0x008000, 0x00FF00, 0.5)
+self.image_blend = merge_color(0x00008000, 0x0000FF00, 0.5)

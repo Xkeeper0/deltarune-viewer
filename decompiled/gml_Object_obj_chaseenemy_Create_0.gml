@@ -69,16 +69,7 @@ if (self.room == room_forest_area0)
     self.alertcon = -1
     self.pacetype = 10
 }
-if (self.room == room_forest_area1)
-    _temp_local_var_1 = 1
-else
-{
-    if (self.room == room_forest_area3)
-        _temp_local_var_1 = 1
-    else
-        _temp_local_var_1 = (self.room == room_forest_secret1)
-}
-if _temp_local_var_1
+if ((self.room == room_forest_area1) || ((self.room == room_forest_area3) || (self.room == room_forest_secret1)))
 {
     self.pacetype = 7
     self.sprite_index = spr_rabbick_enemy_overworld

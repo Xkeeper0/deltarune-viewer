@@ -1,15 +1,6 @@
-if keyboard_check(vk_return)
+if (keyboard_check(vk_return) && ((self.active == 1) && scr_debug()))
 {
-    if (self.active == 1)
-        _temp_local_var_1 = scr_debug()
-    else
-        _temp_local_var_1 = 0
-}
-else
-    _temp_local_var_1 = 0
-if _temp_local_var_1
-{
-    self.attackno = (self.attackno + 1)
+    self.attackno += 1
     self.active = 0
     if (self.attackno <= 11)
         self.attack = self.attackno
@@ -126,39 +117,23 @@ if _temp_local_var_1
 }
 if (self.timeruse == 1)
 {
-    self.faketimer = (self.faketimer + 1)
+    self.faketimer += 1
     if (self.faketimer >= self.faketimermax)
     {
-        with(obj_bulletparent)
-        {
+        with (obj_bulletparent)
             instance_destroy()
-        }
-        with(obj_dbulletcontroller)
-        {
+        with (obj_dbulletcontroller)
             instance_destroy()
-        }
-        with(obj_growtangle)
-        {
+        with (obj_growtangle)
             self.growcon = 3
-        }
-        with(obj_heart)
-        {
+        with (obj_heart)
             instance_destroy()
-        }
         self.active = 1
         self.timeruse = 0
         self.faketimer = 0
     }
 }
-if keyboard_check_pressed(' ')
-    _temp_local_var_2 = scr_debug()
-else
-    _temp_local_var_2 = 0
-if _temp_local_var_2
-    self.attackno = (self.attackno + 1)
-if keyboard_check_pressed(vk_shift)
-    _temp_local_var_3 = scr_debug()
-else
-    _temp_local_var_3 = 0
-if _temp_local_var_3
-    self.attackno = (self.attackno - 1)
+if (keyboard_check_pressed(vk_space) && scr_debug())
+    self.attackno += 1
+if (keyboard_check_pressed(vk_shift) && scr_debug())
+    self.attackno -= 1

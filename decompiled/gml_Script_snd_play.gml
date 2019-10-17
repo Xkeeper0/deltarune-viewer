@@ -1,1 +1,1 @@
-return audio_play_sound(self.argument0, 50, 0)
+return audio_play_sound(self.argument0, 50, false);

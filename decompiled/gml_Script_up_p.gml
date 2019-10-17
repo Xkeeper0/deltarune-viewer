@@ -1,1 +1,1 @@
-return global.input_pressed[2]
+return global.input_pressed[2];

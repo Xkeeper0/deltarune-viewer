@@ -6,7 +6,7 @@ if (self.lancercon == 1)
         self.lancercon = 2
         if (self.susie_side >= 0)
         {
-            with(self.susie)
+            with (self.susie)
             {
                 self.vspeed = -10
                 self.sprite_index = spr_susieu_dark
@@ -30,24 +30,18 @@ if (self.battlemoder == 1)
 }
 if (self.gen == 1)
 {
-    with(obj_scissordancer)
+    with (obj_scissordancer)
     {
         if (self.x <= -100)
-            self.x = (self.x + 740)
+            self.x += 740
     }
 }
 if (self.gen == 2)
 {
-    if (obj_mainchara.y <= 60)
-        _temp_local_var_1 = 1
-    else
-        _temp_local_var_1 = (obj_mainchara.y >= 720)
-    if _temp_local_var_1
+    if ((obj_mainchara.y <= 60) || (obj_mainchara.y >= 720))
     {
         self.battlemode = 0
-        with(obj_overworldbulletparent)
-        {
+        with (obj_overworldbulletparent)
             instance_destroy()
-        }
     }
 }

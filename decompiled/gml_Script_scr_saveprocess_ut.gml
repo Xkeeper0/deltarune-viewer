@@ -1,7 +1,7 @@
 global.lastsavedkills = global.kills
 global.lastsavedtime = obj_time.time
 global.lastsavedlv = global.lv
-self.file = ("file"@2714 + string(global.filechoice))
+self.file = ("file" + string(global.filechoice))
 self.myfileid = file_text_open_write(self.file)
 file_text_write_string(self.myfileid, global.charname)
 file_text_writeln(self.myfileid)
@@ -27,49 +27,28 @@ file_text_write_real(self.myfileid, global.gold)
 file_text_writeln(self.myfileid)
 file_text_write_real(self.myfileid, global.kills)
 file_text_writeln(self.myfileid)
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 8; self.i += 1)
 {
-    if (self.i < 8)
-    {
-        file_text_write_real(self.myfileid, global.item[self.i])
-        file_text_writeln(self.myfileid)
-        file_text_write_real(self.myfileid, global.phone[self.i])
-        file_text_writeln(self.myfileid)
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    file_text_write_real(self.myfileid, global.item[self.i])
+    file_text_writeln(self.myfileid)
+    file_text_write_real(self.myfileid, global.phone[self.i])
+    file_text_writeln(self.myfileid)
 }
 file_text_write_real(self.myfileid, global.weapon)
 file_text_writeln(self.myfileid)
 file_text_write_real(self.myfileid, global.armor)
 file_text_writeln(self.myfileid)
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 512; self.i += 1)
 {
-    if (self.i < 512)
-    {
-        file_text_write_real(self.myfileid, global.flag[self.i])
-        file_text_writeln(self.myfileid)
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    file_text_write_real(self.myfileid, global.flag[self.i])
+    file_text_writeln(self.myfileid)
 }
 file_text_write_real(self.myfileid, global.plot)
 file_text_writeln(self.myfileid)
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 3; self.i += 1)
 {
-    if (self.i < 3)
-    {
-        file_text_write_real(self.myfileid, global.menuchoice[self.i])
-        file_text_writeln(self.myfileid)
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    file_text_write_real(self.myfileid, global.menuchoice[self.i])
+    file_text_writeln(self.myfileid)
 }
 file_text_write_real(self.myfileid, global.currentsong)
 file_text_writeln(self.myfileid)

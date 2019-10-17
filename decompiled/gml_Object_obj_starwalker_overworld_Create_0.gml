@@ -15,23 +15,16 @@ self.introcon = 0
 self.introtimer = 0
 self.shadowy = (self.y + 160)
 self.shadow = scr_dark_marker(self.x, self.shadowy, self.sprite_index)
-with(self.shadow)
+with (self.shadow)
 {
     self.sprite_index = spr_starwalker_wings
     self.image_yscale = 0.25
-    self.image_blend = 0x000000
+    self.image_blend = 0x00000000
     self.depth = 600000
 }
 self.depth = self.shadow.depth
-self.i = 0
-while(true)
+for (self.i = 0; self.i < 6; self.i += 1)
 {
-    if (self.i < 6)
-    {
-        self.char_xcheck[self.i] = obj_mainchara.x
-        self.char_ycheck[self.i] = obj_mainchara.y
-        self.i = (self.i + 1)
-        continue
-    }
-    break
+    self.char_xcheck[self.i] = obj_mainchara.x
+    self.char_ycheck[self.i] = obj_mainchara.y
 }

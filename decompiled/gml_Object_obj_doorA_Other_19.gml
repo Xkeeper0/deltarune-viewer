@@ -1,7 +1,5 @@
-with(obj_overworldbulletparent)
-{
+with (obj_overworldbulletparent)
     self.active = 0
-}
 global.interact = 3
 instance_create(0, 0, obj_fadeout)
 if (self.touched == 0)

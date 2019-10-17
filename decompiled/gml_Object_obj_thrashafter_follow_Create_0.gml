@@ -16,15 +16,13 @@ if (self.room == room_forest_afterthrash3)
     self.tree = scr_dark_marker(440, 72, spr_candytree_tall)
     if (global.flag[229] >= 6)
         self.tree.image_index = 1
-    with(self.tree)
-    {
+    with (self.tree)
         self.depth = 400000
-    }
 }
 if (self.room == room_forest_castleview)
 {
     self.bg = instance_create(180, 0, obj_backgrounder_sprite)
-    with(self.bg)
+    with (self.bg)
     {
         self.sprite_index = spr_darkcastle_bg
         self.image_speed = 0.1
@@ -32,8 +30,6 @@ if (self.room == room_forest_castleview)
         self.image_xscale = 2
         self.image_yscale = 2
     }
-    with(obj_mainchara)
-    {
+    with (obj_mainchara)
         self.bg = 1
-    }
 }

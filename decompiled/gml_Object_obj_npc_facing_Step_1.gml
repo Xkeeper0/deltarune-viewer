@@ -1,10 +1,6 @@
 if (self.normalanim == 1)
 {
-    if (self.myinteract > 0)
-        _temp_local_var_1 = instance_exists(obj_writer)
-    else
-        _temp_local_var_1 = 0
-    if _temp_local_var_1
+    if ((self.myinteract > 0) && instance_exists(obj_writer))
     {
         if (obj_writer.halt > 0)
         {
@@ -15,11 +11,7 @@ if (self.normalanim == 1)
             self.image_speed = self.remanimspeed
     }
 }
-if (self.normalanim == 1)
-    _temp_local_var_2 = 1
-else
-    _temp_local_var_2 = (self.normalanim == 2)
-if _temp_local_var_2
+if ((self.normalanim == 1) || (self.normalanim == 2))
 {
     if (self.myinteract == 0)
     {

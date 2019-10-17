@@ -1,98 +1,93 @@
-local.__bind = self.argument0
-local.__result[0] = -1
-local.__result[1] = -1
-local.__result[2] = -1
-local.__fgstring = "Compatibility_Foreground_"@2868
-local.__bgstring = "Compatibility_Background_"@2870
-local.__fglen = string_length(local.__fgstring)
-local.__bglen = string_length(local.__bgstring)
-local.__layerlist = layer_get_all()
-local.__layerlistlength = array_length_1d(local.__layerlist)
-local.__layerid = -1
-local.__isforeground = 0
-local.__i = 0
-while(true)
+var __result;
+var __bind = self.argument0
+__result[0] = -1
+__result[1] = -1
+__result[2] = -1
+var __fgstring = "Compatibility_Foreground_"
+var __bgstring = "Compatibility_Background_"
+var __fglen = string_length(__fgstring)
+var __bglen = string_length(__bgstring)
+var __layerlist = layer_get_all()
+var __layerlistlength = array_length_1d(__layerlist)
+var __layerid = -1
+var __isforeground = 0
+var __i = 0
+while (__i < __layerlistlength)
 {
-    if (local.__i < local.__layerlistlength)
+    var __layername = layer_get_name(__layerlist[__i])
+    if (string_pos(__fgstring, __layername) > 0)
     {
-        local.__layername = layer_get_name(local.__layerlist[local.__i])
-        if (string_pos(local.__fgstring, local.__layername) > 0)
+        var __slotchr = string_char_at(__layername, (__fglen + 1))
+        if (__slotchr == "")
         {
-            local.__slotchr = string_char_at(local.__layername, (local.__fglen + 1))
-            if (local.__slotchr == ""@2240)
-            {
-                local.__i = (local.__i + 1)
-                continue
-            }
-            else
-            {
-                local.__slot = real(local.__slotchr)
-                if (local.__slot == local.__bind)
-                    break
-                else
-                {
-                    local.__i = (local.__i + 1)
-                    continue
-                }
-            }
+            __i++
+            continue
         }
         else
         {
-            if (string_pos(local.__bgstring, local.__layername) > 0)
+            var __slot = real(__slotchr)
+            if (__slot == __bind)
             {
-                local.__slotchr = string_char_at(local.__layername, (local.__bglen + 1))
-                if (local.__slotchr == ""@2240)
-                {
-                    local.__i = (local.__i + 1)
-                    continue
-                }
-                else
-                {
-                    local.__slot = real(local.__slotchr)
-                    if (local.__slot == local.__bind)
-                        break
-                    else
-                    {
-                        local.__i = (local.__i + 1)
-                        continue
-                    }
-                }
+                __layerid = __layerlist[__i]
+                __isforeground = 1
+                break
             }
             else
             {
-                local.__i = (local.__i + 1)
+                __i++
                 continue
             }
         }
     }
-    break
-}
-if (local.__layerid != -1)
-{
-    local.__els = layer_get_all_elements(local.__layerid)
-    local.__elslength = array_length_1d(local.__els)
-    local.__i = 0
-    while(true)
+    else if (string_pos(__bgstring, __layername) > 0)
     {
-        if (local.__i < local.__elslength)
+        __slotchr = string_char_at(__layername, (__bglen + 1))
+        if (__slotchr == "")
         {
-            if (layer_get_element_type(local.__els[local.__i]) == 1)
-            {
-                local.__result[0] = local.__els[local.__i]
-                local.__result[1] = local.__layerid
-                local.__result[2] = local.__isforeground
-            }
-            local.__i = (local.__i + 1)
+            __i++
             continue
         }
-        break
+        else
+        {
+            __slot = real(__slotchr)
+            if (__slot == __bind)
+            {
+                __layerid = __layerlist[__i]
+                __isforeground = 0
+                break
+            }
+            else
+            {
+                __i++
+                continue
+            }
+        }
+    }
+    else
+    {
+        __i++
+        continue
+    }
+}
+if (__layerid != -1)
+{
+    var __els = layer_get_all_elements(__layerid)
+    var __elslength = array_length_1d(__els)
+    for (__i = 0; __i < __elslength; __i++)
+    {
+        if (layer_get_element_type(__els[__i]) == 1)
+        {
+            __result[0] = __els[__i]
+            __result[1] = __layerid
+            __result[2] = __isforeground
+        }
     }
 }
 else
 {
-    local.__newback = __background_set_element(local.__bind, 0, 0, -1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 16777215, 1)
-    local.__result[0] = local.__newback[0]
-    local.__result[1] = local.__newback[1]
-    local.__result[2] = 0
+    var __newback = __background_set_element(__bind, 0, 0, -1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 16777215, 1)
+    __result[0] = __newback[0]
+    __result[1] = __newback[1]
+    __result[2] = 0
 }
-return local.__result
+return __result;
