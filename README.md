@@ -1,11 +1,20 @@
-Deltarune script viewer, sort of.
+# Deltarune script viewer, sort of.
 
-Relies on having decompiled gamemaker scripts in `decompiled/`.
+A single-page script written in PHP to do some basic syntax highlighting
+and (personal-preference) formatting of decompiled GameMaker scripts,
+specifically for Deltarune chapter 1.
 
-Hasn't been updated in a while. The decompiler got better. This didn't.
+**This tool is very obsolete!** The UTDR wiki team maintains a [similar app](https://github.com/utdrwiki/code-viewer)
+made to be more modern and flexible; you can browse Deltarune's code at
+[code.deltarune.wiki](https://code.deltarune.wiki/) (and Undertale at [code.undertale.wiki](https://code.undertale.wiki/)).
+
+
+## Notes
+
+Relies on having decompiled gamemaker scripts in `decompiled/`. May not work with more recent versions of the decompiler.
 
 ----
 
-This repository is hilariously copyright infringing.
+DELTARUNE code and data is copyright Toby Fox, 8-4, Fangamer, et al. Apologies for tearing apart your creations.
 
-Original data copyright Toby Fox, 8-4, Fangamer, et al. Apologies for tearing apart your creations.
+Original works (the formatter/viewer, HTML, etc) are released under the MIT license (see LICENSE.txt).
